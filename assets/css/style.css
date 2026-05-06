@@ -1,0 +1,441 @@
+/* ========================================
+   RESET & BASE
+======================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #111111;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    position: fixed;             /* queda pegado arriba al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #111111;
+    padding: 0 9.5vw;
+    height: 80px;                /* altura fija igual al original */
+}
+
+/* Logo */
+.indexImage {
+    font-size: 0;                /* elimina espacio extra del h1 */
+}
+
+.indexImage img {
+    height: 40px;
+    width: auto;
+}
+
+/* Nav */
+header nav ul {
+    display: flex;
+    gap: 2.2vw;
+    align-items: center;
+}
+
+header nav ul li a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    transition: color 0.25s ease;
+}
+
+header nav ul li a:hover {
+    color: #aaaaaa;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;               /* pantalla completa */
+
+    /* Imagen de fondo — cambiá "home3.jpg" por el nombre real de tu imagen */
+    background-image: url('../images/home3.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9.5vw;
+
+    /* Overlay oscuro encima de la imagen para que el texto se lea bien */
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+/* Todo el contenido del hero encima del overlay */
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Nombre de la banda — texto vertical a la izquierda */
+.vertical-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    writing-mode: vertical-rl;      /* escribe de arriba hacia abajo */
+    text-orientation: mixed;
+    transform: rotate(180deg);      /* da vuelta para que se lea de abajo hacia arriba */
+
+    user-select: none;
+}
+
+/* Bloque derecho: título + botones */
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.hero-right h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: right;
+}
+
+/* Botones App Store y Google Play */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.hero-buttons a img {
+    height: 42px;
+    width: auto;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hero-buttons a:hover img {
+    opacity: 0.75;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   SCROLL TO TOP
+======================================== */
+
+.mayday {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    background-color: #ffffff;
+    color: #111111;
+
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mayday.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 2rem 9.5vw;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.four-little-balls {
+    display: flex;
+    gap: 1rem;
+}
+
+.four-little-balls a {
+    font-size: 1.2rem;
+    color: #ffffff;
+    transition: color 0.25s ease;
+}
+
+.four-little-balls a:hover {
+    color: #aaaaaa;
+}
+
+.footer-links, .useful, .socialize {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-links h3, .useful h3, .socialize h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.footer-specifics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.access p {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+}
+
+.useful ul {
+    list-style: none;
+    padding: 0;
+}
+
+.useful li {
+    margin-bottom: 0.5rem;
+}
+
+.useful a {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.useful a:hover {
+    color: #aaaaaa;
+}
+
+.socialize {
+    /* Add content if needed */
+}
+
+.lasty {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 2rem 9.5vw 0;
+}
+
+.copyright {
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8rem;
+    color: #aaaaaa;
+}
+
+.copyright a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    color: #aaaaaa;
+}
+
+
+/* ========================================
+   MAIN SECTIONS
+======================================== */
+
+main section {
+    padding: 2rem 9.5vw;
+}
+
+.barraBlanca {
+    background-color: #ffffff;
+    height: 200px; /* placeholder */
+}
+
+.moths {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.album h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.album p {
+    font-family: 'Source Code Pro', monospace;
+    max-width: 600px;
+}
+
+.knowing-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.songs, .videoLightbox-album {
+    /* placeholder */
+}
+
+.eight-wonders-for-you {
+    background-color: #ffffff;
+    color: #111111;
+    text-align: center;
+}
+
+.eight-wonders-for-you h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.dupli-four-images {
+    /* add grid or something */
+}
+
+.ten-dates {
+    background-color: #f0f0f0;
+}
+
+.dates-list {
+    /* styles for list */
+}
+
+.trois-boys {
+    background-color: #ffffff;
+    color: #111111;
+    text-align: center;
+}
+
+.trois-boys h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.three-images {
+    /* placeholder */
+}
+
+.koichi {
+    background-color: #111111;
+    height: 200px; /* placeholder */
+}
+
+.disco-disco {
+    background-color: #ffffff;
+    color: #111111;
+    text-align: center;
+}
+
+.disco-disco h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.discography-container {
+    /* placeholder */
+}

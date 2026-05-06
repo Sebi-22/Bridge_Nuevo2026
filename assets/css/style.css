@@ -1,441 +1,162 @@
-/* ========================================
-   RESET & BASE
-======================================== */
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Source Code Pro', monospace;
-    background-color: #111111;
-    color: #ffffff;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 img {
-    display: block;
-    max-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
-
-
-/* ========================================
-   HEADER
-======================================== */
-
+input, button, textarea, select { font: inherit; }
+body { /*Todo el cuerpo*/
+  background-color: #000;
+  color: #fff;
+  font-family: 'Inconsolata', sans-serif;
+}
+body.light { 
+  background-color: #fff;
+  color: #000;
+}
+body.light a, body.light .ten-dates .cherries, body.light .ten-dates .cherries h3 a,
+body.light .ten-dates .cherries p a, body.light .four-little-balls a, body.light .useful li a { color: #000; }
+body.light .ten-dates .link-to-fun {
+  color: #555;
+}
+body.light .colorToggle, body.light .viewAllBtn { color: #000; border: .1em solid#000000; }
+html, body { overflow-x: hidden; }
 header {
-    position: fixed;             /* queda pegado arriba al hacer scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background-color: #111111;
-    padding: 0 9.5vw;
-    height: 80px;                /* altura fija igual al original */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 5vw;
+  font-size: 0.875em;
+  background: transparent; 
+  z-index: 10;
+  margin-top: 5vh;
 }
-
-/* Logo */
 .indexImage {
-    font-size: 0;                /* elimina espacio extra del h1 */
+  display: flex;
+  align-items: center;
 }
-
+/* LOGO IMAGEN */
 .indexImage img {
-    height: 40px;
-    width: auto;
+  height: 30px;
+  width: auto;
+  display: block;
 }
+button { cursor: pointer; }
+.logoHeader img { height: 1; }
+nav ul { gap: 2vw; display: flex; font-family: 'Oswald',sans-serif}
+nav ul li a { text-decoration:none; color: white; text-transform: uppercase;}
+nav ul, .useful ul {list-style: none;}
+nav a { padding-bottom: 0.25vh; transition: border-bottom 0.3s ease; border-bottom:.1em solid transparent; }
+nav a:hover { border-bottom:.1em solid white; }
 
-/* Nav */
-header nav ul {
-    display: flex;
-    gap: 2.2vw;
-    align-items: center;
+.knives-out h2::after, .trois-boys h2::after, .disco-disco h2::after, .listening h2::after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  width: 4.5vw;
+  height: 0.2vh;
+  margin: 3vh 0vw 0vh 0vw;
 }
-
-header nav ul li a {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #ffffff;
-    transition: color 0.25s ease;
+.hero { /* Primera sección */
+  display: flex;
+  align-items: center;
+  min-height: 120vh;
+  gap: 28.85vw;
+  background: url('../images/background-1.png') center/cover no-repeat;
+  color: white;
+  position: relative;
 }
-
-header nav ul li a:hover {
-    color: #aaaaaa;
-}
-
-
-/* ========================================
-   HERO
-======================================== */
-
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;               /* pantalla completa */
-
-    /* Imagen de fondo — cambiá "home3.jpg" por el nombre real de tu imagen */
-    background-image: url('../images/home3.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 9.5vw;
-
-    /* Overlay oscuro encima de la imagen para que el texto se lea bien */
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.45);
-    z-index: 0;
-}
-
-/* Todo el contenido del hero encima del overlay */
-.hero > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Nombre de la banda — texto vertical a la izquierda */
 .vertical-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%) rotate(180deg);
+  font-family: 'Oswald', sans-serif;
+  font-size: 7em;
+  font-weight: 700;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  margin-top: 3.5vh;
+}
+.hero-right{
+  position: absolute;
+  right: 15%;
+  bottom: 8%;
+  max-width: 500px;
+}
+.hero-right h2{
+  font-size: 3.5em;
+  margin-bottom: 1vh;
+  font-family: 'Oswald', sans-serif; 
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.hero-buttons{ display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;}
 
-    writing-mode: vertical-rl;      /* escribe de arriba hacia abajo */
-    text-orientation: mixed;
-    transform: rotate(180deg);      /* da vuelta para que se lea de abajo hacia arriba */
-
-    user-select: none;
+.hero-buttons img{ height: 55px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;}
+  
+.music1 {
+  height: 12vh;
+  padding: 0 9vw;
+  background: white;
+  display: flex;
+  align-items: center;
 }
 
-/* Bloque derecho: título + botones */
-.hero-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 2rem;
+.track-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2vw;
 }
 
-.hero-right h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-align: right;
+.album-cover {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
 }
 
-/* Botones App Store y Google Play */
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+.track-info h3 {
+  color: black;
+  font-size: 1em;
 }
 
-.hero-buttons a img {
-    height: 42px;
-    width: auto;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+.track-info p {
+  color: gray;
+  font-size: 0.9em;
 }
 
-.hero-buttons a:hover img {
-    opacity: 0.75;
-    transform: translateY(-2px);
+.audio-controls button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
-
-/* ========================================
-   SCROLL TO TOP
-======================================== */
-
-.mayday {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-    background-color: #ffffff;
-    color: #111111;
-
-    font-size: 1.1rem;
-    font-weight: bold;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+.progress-range {
+  width: 200px;
 }
 
-.mayday.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-
-/* ========================================
-   FOOTER
-======================================== */
-
-footer {
-    background-color: #111111;
-    color: #ffffff;
-    padding: 2rem 9.5vw;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.footer-logo {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-logo img {
-    height: 40px;
-    width: auto;
-    margin-bottom: 1rem;
-}
-
-.footer-description {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.four-little-balls {
-    display: flex;
-    gap: 1rem;
-}
-
-.four-little-balls a {
-    font-size: 1.2rem;
-    color: #ffffff;
-    transition: color 0.25s ease;
-}
-
-.four-little-balls a:hover {
-    color: #aaaaaa;
-}
-
-.footer-links, .useful, .socialize {
-    flex: 1;
-    min-width: 150px;
-}
-
-.footer-links h3, .useful h3, .socialize h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-}
-
-.footer-specifics {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.access p {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.9rem;
-}
-
-.useful ul {
-    list-style: none;
-    padding: 0;
-}
-
-.useful li {
-    margin-bottom: 0.5rem;
-}
-
-.useful a {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.9rem;
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-
-.useful a:hover {
-    color: #aaaaaa;
-}
-
-.socialize {
-    /* Add content if needed */
-}
-
-.lasty {
-    border: none;
-    border-top: 1px solid #333;
-    margin: 2rem 9.5vw 0;
-}
-
-.copyright {
-    text-align: center;
-    padding: 1rem 0;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.8rem;
-    color: #aaaaaa;
-}
-
-.copyright a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.copyright a:hover {
-    color: #aaaaaa;
-}
-
-
-/* ========================================
-   MAIN SECTIONS
-======================================== */
-
-main section {
-    padding: 2rem 9.5vw;
-}
-
-.barraBlanca {
-    background-color: #ffffff;
-    height: 200px; /* placeholder */
-}
-
-.moths {
-    background-color: #111111;
-    color: #ffffff;
-}
-
-.album {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-}
-
-.album h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.album p {
-    font-family: 'Source Code Pro', monospace;
-    max-width: 600px;
-}
-
-.knowing-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.songs, .videoLightbox-album {
-    /* placeholder */
-}
-
-.eight-wonders-for-you {
-    background-color: #ffffff;
-    color: #111111;
-    text-align: center;
-}
-
-.eight-wonders-for-you h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.dupli-four-images {
-    /* add grid or something */
-}
-
-.ten-dates {
-    background-color: #f0f0f0;
-}
-
-.dates-list {
-    /* styles for list */
-}
-
-.trois-boys {
-    background-color: #ffffff;
-    color: #111111;
-    text-align: center;
-}
-
-.trois-boys h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.three-images {
-    /* placeholder */
-}
-
-.koichi {
-    background-color: #111111;
-    height: 200px; /* placeholder */
-}
-
-.disco-disco {
-    background-color: #ffffff;
-    color: #111111;
-    text-align: center;
-}
-
-.disco-disco h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.discography-container {
-    /* placeholder */
+.volume-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

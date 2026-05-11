@@ -1,82 +1,187 @@
-// audio player para la sección de música (music1)
+// ========================================
+// AUDIO PLAYER - MUSIC1
+// ========================================
+
 document.addEventListener("DOMContentLoaded", function () {
 
   function setupBarraBlanca() {
 
     const section = document.querySelector(".music1");
+
     if (!section) return;
 
+
+    // ========================================
     // CONTENEDOR PRINCIPAL
+    // ========================================
+
     const trackContainer = document.createElement("div");
     trackContainer.className = "track-container";
 
-    // IMAGEN
+
+    // ========================================
+    // IMAGEN ALBUM
+    // ========================================
+
     const albumCover = document.createElement("img");
+
     albumCover.className = "album-cover";
 
-    // INFO
+    albumCover.src = "assets/images/home2.jpg";
+
+    albumCover.alt = "Album Cover";
+
+
+    // ========================================
+    // INFO CANCIÓN
+    // ========================================
+
     const trackInfo = document.createElement("div");
+
     trackInfo.className = "track-info";
 
+
     const trackTitle = document.createElement("h3");
+
     trackTitle.className = "track-title";
-    trackTitle.textContent = "Nombre de la canción";
+
+    trackTitle.textContent = "BLACK HOLE SUN";
+
 
     const trackArtist = document.createElement("p");
+
     trackArtist.className = "track-artist";
-    trackArtist.textContent = "Artista";
 
-    trackInfo.append(trackTitle, trackArtist);
+    trackArtist.textContent = "Terrible";
 
+
+    trackInfo.append(
+      trackTitle,
+      trackArtist
+    );
+
+
+    // ========================================
     // CONTROLES
+    // ========================================
+
     const audioControls = document.createElement("div");
+
     audioControls.className = "audio-controls";
 
+
+    // BACK
+
     const backBtn = document.createElement("button");
+
+    backBtn.className = "back";
+
     backBtn.innerHTML = "⏮";
 
+
+    // PLAY
+
     const playBtn = document.createElement("button");
+
+    playBtn.className = "play";
+
     playBtn.innerHTML = "▶";
 
+
+    // NEXT
+
     const nextBtn = document.createElement("button");
+
+    nextBtn.className = "next";
+
     nextBtn.innerHTML = "⏭";
 
-    audioControls.append(backBtn, playBtn, nextBtn);
 
+    audioControls.append(
+      backBtn,
+      playBtn,
+      nextBtn
+    );
+
+
+    // ========================================
     // AUDIO
-    const audioEl = document.createElement("audio");
-    audioEl.src = "assets/audios/tema.mp3"; // 👈 cambiá esto
+    // ========================================
 
-    // PROGRESS
+    const audioEl = document.createElement("audio");
+
+    audioEl.src = "assets/audios/Black-hole-sun.mp3";
+
+
+    // ========================================
+    // PROGRESS BAR
+    // ========================================
+
     const progressBar = document.createElement("input");
+
     progressBar.type = "range";
+
     progressBar.min = 0;
+
     progressBar.max = 100;
+
     progressBar.value = 0;
+
     progressBar.className = "progress-range";
 
-    // TIEMPO
+
+    // ========================================
+    // TIME
+    // ========================================
+
     const timeEl = document.createElement("div");
+
     timeEl.className = "time";
+
     timeEl.textContent = "0:00 / 0:00";
 
+
+    // ========================================
     // VOLUMEN
+    // ========================================
+
     const volumeSection = document.createElement("div");
+
     volumeSection.className = "volume-section";
 
+
     const speaker = document.createElement("span");
+
+    speaker.className = "speaker";
+
     speaker.textContent = "🔊";
 
+
     const volumeBar = document.createElement("input");
+
     volumeBar.type = "range";
+
     volumeBar.min = 0;
+
     volumeBar.max = 1;
+
     volumeBar.step = 0.1;
+
     volumeBar.value = 1;
 
-    volumeSection.append(speaker, volumeBar);
+    volumeBar.className = "volume-range";
 
+
+    volumeSection.append(
+      speaker,
+      volumeBar
+    );
+
+
+    // ========================================
     // ARMADO FINAL
+    // ========================================
+
     trackContainer.append(
       albumCover,
       trackInfo,
@@ -86,43 +191,93 @@ document.addEventListener("DOMContentLoaded", function () {
       volumeSection
     );
 
+
     section.appendChild(trackContainer);
 
-    // ▶️ PLAY / PAUSE
+
+    // ========================================
+    // PLAY / PAUSE
+    // ========================================
+
     playBtn.addEventListener("click", () => {
+
       if (audioEl.paused) {
+
         audioEl.play();
-        playBtn.textContent = "⏸";
+
+        playBtn.innerHTML = "⏸";
+
       } else {
+
         audioEl.pause();
-        playBtn.textContent = "▶";
+
+        playBtn.innerHTML = "▶";
+
       }
+
     });
 
-    // 🔊 VOLUMEN
+
+    // ========================================
+    // VOLUMEN
+    // ========================================
+
     volumeBar.addEventListener("input", () => {
+
       audioEl.volume = volumeBar.value;
+
     });
 
-    // ⏱ PROGRESS
+
+    // ========================================
+    // FORMATEAR TIEMPO
+    // ========================================
+
+    function formatTime(time) {
+
+      const minutes = Math.floor(time / 60);
+
+      const seconds = Math.floor(time % 60)
+        .toString()
+        .padStart(2, "0");
+
+      return `${minutes}:${seconds}`;
+
+    }
+
+
+    // ========================================
+    // UPDATE PROGRESS
+    // ========================================
+
     audioEl.addEventListener("timeupdate", () => {
-      const progress = (audioEl.currentTime / audioEl.duration) * 100;
+
+      const progress =
+        (audioEl.currentTime / audioEl.duration) * 100;
+
       progressBar.value = progress || 0;
 
-      const formatTime = (t) => {
-        const min = Math.floor(t / 60);
-        const sec = Math.floor(t % 60).toString().padStart(2, "0");
-        return `${min}:${sec}`;
-      };
 
-      timeEl.textContent = `${formatTime(audioEl.currentTime)} / ${formatTime(audioEl.duration || 0)}`;
+      timeEl.textContent =
+        `${formatTime(audioEl.currentTime)} / ${formatTime(audioEl.duration || 0)}`;
+
     });
 
-    // 🎯 MOVER BARRA
+
+    // ========================================
+    // MOVER PROGRESS
+    // ========================================
+
     progressBar.addEventListener("input", () => {
-      audioEl.currentTime = (progressBar.value / 100) * audioEl.duration;
+
+      audioEl.currentTime =
+        (progressBar.value / 100) * audioEl.duration;
+
     });
+
   }
 
+
   setupBarraBlanca();
+
 });

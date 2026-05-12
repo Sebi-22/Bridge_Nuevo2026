@@ -1,6 +1,6 @@
-// ========================================
+// ======================================
 // AUDIO PLAYER - MUSIC1
-// ========================================
+// ======================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -10,92 +10,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!section) return;
 
-
-    // ========================================
+    // ======================================
     // CONTENEDOR PRINCIPAL
-    // ========================================
+    // ======================================
 
     const trackContainer = document.createElement("div");
     trackContainer.className = "track-container";
 
-
-    // ========================================
-    // IMAGEN ALBUM
-    // ========================================
+    // ======================================
+    // IMAGEN DEL ÁLBUM
+    // ======================================
 
     const albumCover = document.createElement("img");
-
     albumCover.className = "album-cover";
-
-    albumCover.src = "assets/images/home2.jpg";
-
+    albumCover.src = "assets/images/cover.jpg";
     albumCover.alt = "Album Cover";
 
-
-    // ========================================
+    // ======================================
     // INFO CANCIÓN
-    // ========================================
+    // ======================================
 
     const trackInfo = document.createElement("div");
-
     trackInfo.className = "track-info";
 
-
     const trackTitle = document.createElement("h3");
-
     trackTitle.className = "track-title";
-
     trackTitle.textContent = "BLACK HOLE SUN";
 
-
     const trackArtist = document.createElement("p");
-
     trackArtist.className = "track-artist";
+    trackArtist.textContent = "BORING VACCINES";
 
-    trackArtist.textContent = "Terrible";
+    trackInfo.append(trackTitle, trackArtist);
 
-
-    trackInfo.append(
-      trackTitle,
-      trackArtist
-    );
-
-
-    // ========================================
+    // ======================================
     // CONTROLES
-    // ========================================
+    // ======================================
 
     const audioControls = document.createElement("div");
-
     audioControls.className = "audio-controls";
 
-
     // BACK
-
     const backBtn = document.createElement("button");
-
-    backBtn.className = "back";
-
+    backBtn.className = "back-btn";
     backBtn.innerHTML = "⏮";
 
-
     // PLAY
-
     const playBtn = document.createElement("button");
-
-    playBtn.className = "play";
-
+    playBtn.className = "play-btn";
     playBtn.innerHTML = "▶";
 
-
     // NEXT
-
     const nextBtn = document.createElement("button");
-
-    nextBtn.className = "next";
-
+    nextBtn.className = "next-btn";
     nextBtn.innerHTML = "⏭";
-
 
     audioControls.append(
       backBtn,
@@ -103,36 +71,30 @@ document.addEventListener("DOMContentLoaded", function () {
       nextBtn
     );
 
-
-    // ========================================
+    // ======================================
     // AUDIO
-    // ========================================
+    // ======================================
 
     const audioEl = document.createElement("audio");
 
-    audioEl.src = "assets/audios/Black-hole-sun.mp3";
+    audioEl.src = "assets/audios/tema.mp3";
 
-
-    // ========================================
-    // PROGRESS BAR
-    // ========================================
+    // ======================================
+    // BARRA DE PROGRESO
+    // ======================================
 
     const progressBar = document.createElement("input");
 
     progressBar.type = "range";
-
     progressBar.min = 0;
-
     progressBar.max = 100;
-
     progressBar.value = 0;
 
     progressBar.className = "progress-range";
 
-
-    // ========================================
-    // TIME
-    // ========================================
+    // ======================================
+    // TIEMPO
+    // ======================================
 
     const timeEl = document.createElement("div");
 
@@ -140,47 +102,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     timeEl.textContent = "0:00 / 0:00";
 
-
-    // ========================================
+    // ======================================
     // VOLUMEN
-    // ========================================
+    // ======================================
 
     const volumeSection = document.createElement("div");
 
     volumeSection.className = "volume-section";
 
-
     const speaker = document.createElement("span");
 
     speaker.className = "speaker";
 
-    speaker.textContent = "🔊";
-
+    speaker.innerHTML = "🔈";
 
     const volumeBar = document.createElement("input");
 
     volumeBar.type = "range";
-
     volumeBar.min = 0;
-
     volumeBar.max = 1;
-
     volumeBar.step = 0.1;
-
     volumeBar.value = 1;
 
-    volumeBar.className = "volume-range";
-
+    volumeBar.className = "volume-bar";
 
     volumeSection.append(
       speaker,
       volumeBar
     );
 
-
-    // ========================================
+    // ======================================
     // ARMADO FINAL
-    // ========================================
+    // ======================================
 
     trackContainer.append(
       albumCover,
@@ -188,16 +141,15 @@ document.addEventListener("DOMContentLoaded", function () {
       audioControls,
       progressBar,
       timeEl,
-      volumeSection
+      volumeSection,
+      audioEl
     );
-
 
     section.appendChild(trackContainer);
 
-
-    // ========================================
+    // ======================================
     // PLAY / PAUSE
-    // ========================================
+    // ======================================
 
     playBtn.addEventListener("click", () => {
 
@@ -217,10 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    // ========================================
+    // ======================================
     // VOLUMEN
-    // ========================================
+    // ======================================
 
     volumeBar.addEventListener("input", () => {
 
@@ -228,10 +179,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    // ========================================
-    // FORMATEAR TIEMPO
-    // ========================================
+    // ======================================
+    // FORMATO TIEMPO
+    // ======================================
 
     function formatTime(time) {
 
@@ -245,10 +195,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    // ========================================
+    // ======================================
     // UPDATE PROGRESS
-    // ========================================
+    // ======================================
 
     audioEl.addEventListener("timeupdate", () => {
 
@@ -257,16 +206,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       progressBar.value = progress || 0;
 
-
       timeEl.textContent =
         `${formatTime(audioEl.currentTime)} / ${formatTime(audioEl.duration || 0)}`;
 
     });
 
-
-    // ========================================
-    // MOVER PROGRESS
-    // ========================================
+    // ======================================
+    // MOVER BARRA
+    // ======================================
 
     progressBar.addEventListener("input", () => {
 
@@ -275,8 +222,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-  }
+    // ======================================
+    // TERMINA AUDIO
+    // ======================================
 
+    audioEl.addEventListener("ended", () => {
+
+      playBtn.innerHTML = "▶";
+
+    });
+
+  }
 
   setupBarraBlanca();
 

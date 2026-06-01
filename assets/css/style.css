@@ -1,1161 +1,901 @@
-*, *::before, *::after { box-sizing: border-box; }
-
-* { margin: 0; padding: 0; }
-
-p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
-
-img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  height: auto;
-}
-
-input, button, textarea, select { font: inherit; }
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Inconsolata', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-body.light { 
-  background-color: #fff;
-  color: #000;
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+button { cursor: pointer; font: inherit; background: none; border: none; color: inherit; }
+
+/* ============================================================
+   CSS VARIABLES
+============================================================ */
+:root {
+    --black: #000;
+    --white: #fff;
+    --gray: #888;
+    --gray-light: #bbb;
+    --gray-dark: #333;
+    --gray-border: #222;
+    --font-heading: 'Oswald', sans-serif;
+    --font-mono: 'Source Code Pro', monospace;
+    --font-body: 'Open Sans', sans-serif;
 }
 
-/* ─── light mode overrides ─── */
-body.light a,
-body.light .tour-dates .date-item,
-body.light .tour-dates .date-item h3 a,
-body.light .tour-dates .date-item p a,
-body.light .social-links a,
-body.light .footer-nav li a { color: #000; }
-
-body.light .tour-dates .date-month { color: #555; }
-
-body.light .color-toggle,
-body.light .view-all-btn { color: #000; border: .1em solid #000; }
-
-html, body { overflow-x: hidden; }
-
-/* ─── HEADER ─── */
+/* ============================================================
+   HEADER
+============================================================ */
 header {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2vh 5vw;
-  font-size: 0.875em;
-  background: transparent; 
-  z-index: 10;
-  margin-top: 5vh;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 2.5vh 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Logo */
-.logo-wrapper {
-  display: flex;
-  align-items: center;
+.logo img { height: 32px; width: auto; }
+
+nav ul { display: flex; gap: 2vw; }
+
+nav a {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
 }
 
-.logo-wrapper img {
-  height: 30px;
-  width: auto;
-  display: block;
-}
+nav a:hover,
+nav a.active { border-bottom-color: var(--white); }
 
-button { cursor: pointer; }
-
-nav ul { gap: 2vw; display: flex; font-family: 'Oswald', sans-serif; }
-
-nav ul li a { text-decoration: none; color: white; text-transform: uppercase; }
-
-nav ul, .footer-nav ul { list-style: none; }
-
-nav a { padding-bottom: 0.25vh; transition: border-bottom 0.3s ease; border-bottom: .1em solid transparent; }
-
-nav a:hover { border-bottom: .1em solid white; }
-
-/* Section heading underline decoration */
-.section-header h2::after,
-.trois-boys h2::after,
-.discography-section h2::after,
-.listening h2::after {
-  background-color: #fff;
-  content: "";
-  display: block;
-  width: 4.5vw;
-  height: 0.2vh;
-  margin: 3vh 0 0 0;
-}
-
-/* ─── HERO ─── */
+/* ============================================================
+   HERO
+============================================================ */
 .hero {
-  display: flex;
-  align-items: center;
-  min-height: 120vh;
-  gap: 28.85vw;
-  background: url('../images/background-1.png') center/cover no-repeat;
-  color: white;
-  position: relative;
+    position: relative;
+    min-height: 110vh;
+    background: url('../images/background-1.png') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
 }
 
-.hero-vertical-title {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%) rotate(180deg);
-  font-family: 'Oswald', sans-serif;
-  font-size: 7em;
-  font-weight: 700;
-  color: white;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  line-height: 1;
-  letter-spacing: 0.1em;
-  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
-  margin-top: 3.5vh;
+.hero-band-name {
+    position: absolute;
+    left: 9%;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    margin-top: 4vh;
 }
 
-.hero-right {
-  position: absolute;
-  right: 15%;
-  bottom: 8%;
-  max-width: 500px;
+.hero-cta {
+    position: absolute;
+    right: 14%;
+    bottom: 8%;
+    max-width: 480px;
 }
 
-.hero-right h2 {
-  font-size: 3.5em;
-  margin-bottom: 1vh;
-  font-family: 'Oswald', sans-serif; 
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 1.1;
+.hero-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 2.5vh;
 }
 
-.hero-buttons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
+.store-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.store-btns img { height: 50px; width: auto; transition: opacity 0.3s; }
+.store-btns img:hover { opacity: 0.7; }
 
-.hero-buttons img {
-  height: 55px;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* ─── PLAYER BAR (barraBlanca) ─── */
+/* ============================================================
+   PLAYER BAR
+============================================================ */
 .player-bar {
-  height: 12.08vh;
-  padding: 0 9.4vw;
-  z-index: 1;
-  display: flex;
-  position: relative;
-  background-color: white;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 0 9vw;
+    height: 88px;
+    position: relative;
+    z-index: 10;
 }
 
-.track-container { width: 100%; display: flex; align-items: center; }
-
-.track-thumbnail { width: 11.5vh; height: 11.5vh; }
-
-.track-info { width: 15%; padding: .75% 2%; }
-.track-title { font-size: 1.1em; font-family: 'Oswald', sans-serif; color: black; text-transform: uppercase; margin: 0; font-weight: normal; }
-.track-artist { font-size: .9em; font-family: 'Source Code Pro', monospace; color: grey; margin: 0; font-weight: normal; }
-
-.audio-controls { gap: 5vw; margin-left: 4vw; display: flex; }
-.audio-controls button { font-weight: bold; transition: opacity .3s; border: none; }
-
-.btn-back, .btn-play, .btn-next {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  font-size: 1em;
-  background-color: white;
+.player-cover {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-.audio-controls button:hover,
-.gallery-grid img:hover,
-.disc-image:hover img,
-.scroll-top-btn:hover { opacity: .5; }
+.player-info { padding: 0 2vw; min-width: 140px; }
 
-.progress-bar {
-  width: 17.5vw;
-  height: .32vh;
-  background: #afafaf;
-  margin-left: 4vw;
-  overflow: hidden;
+.player-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: #111;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
-.progress-fill { height: 100%; width: 0; background: #000; }
-.time-display { color: #afafaf; margin: 0 4.5vw 0 2vw; position: relative; font-weight: normal; font-size: 1em; font-family: 'Inconsolata', sans-serif; }
+.player-artist {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+}
 
-.volume-section,
-.carousel,
-.carousel-track,
-.hero-right { display: flex; justify-content: center; align-items: center; }
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin-left: 2vw;
+}
 
-.volume-bar { width: 5.25vw; height: .32vh; background: #afafaf; margin-left: 1vw; }
-.volume-fill { height: 100%; width: 75%; background: #000; }
+.player-controls button { color: #111; font-size: 1rem; transition: opacity 0.3s; }
+.player-controls button:hover { opacity: 0.45; }
 
-/* ─── ALBUM SECTION (moths) ─── */
+.player-progress {
+    flex: 1;
+    margin: 0 3vw;
+    display: flex;
+    align-items: center;
+    gap: 1.2vw;
+}
+
+.progress-track {
+    flex: 1;
+    height: 3px;
+    background: #d0d0d0;
+    position: relative;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #111;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.player-time {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+    white-space: nowrap;
+}
+
+.player-volume {
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    margin-right: 1vw;
+}
+
+.player-volume i { color: var(--gray); font-size: 0.9rem; }
+
+.vol-track {
+    width: 70px;
+    height: 3px;
+    background: #d0d0d0;
+    border-radius: 2px;
+}
+
+.vol-fill { width: 75%; height: 100%; background: #111; border-radius: 2px; }
+
+/* ============================================================
+   ALBUM INFO SECTION
+============================================================ */
 .album-section {
-  height: 1vh;
-  background-image: url('/assets/images/');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex; 
-  justify-content: space-between;
-  color: white;
-  position: relative;
+    display: flex;
+    background: url('../images/h1-img-8.jpg') center/cover no-repeat;
+    min-height: 80vh;
+    padding: 10vh 0;
+    position: relative;
 }
 
-.album { margin: 12vh 7.5vw 0 15vw; width: 28vw; }
-
-.album h2 {
-  margin: 4vh 0 1.5vh 0;
-  font-family: "Oswald", sans-serif;
-  color: white;
-  font-weight: 400;
-  text-transform: uppercase;
+.album-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
 }
 
-.album h2,
-.carousel-prev,
-.video-play-btn,
-.carousel h3,
-.contact-section h3,
-.lightbox-close { font-size: 2em; }
-
-.album p {
-  width: 30.5vw;
-  margin: 0.5vh 0 2.5vh 0;
-  font-family: "Source Code Pro", monospace;
-  color: grey;
-  font-size: 1em;
+.album-left {
+    position: relative;
+    z-index: 1;
+    margin-left: 15vw;
+    width: 28vw;
+    flex-shrink: 0;
 }
 
-.album-cover-img { width: 28vw; height: auto; }
-
-.store-buttons,
-.last-container,
-.disc-group { gap: 1.5vw; }
-
-.store-buttons,
-.social-links,
-.member-popup,
-.sweden,
-.album-layout,
-.player-controls,
-.slides,
-.review-nav,
-.cities,
-.contact-form-wrapper { display: flex; }
-
-.disc-image,
-.carousel-prev-btn,
-.carousel-next-btn { flex: 0 0 auto; }
-
-/* Track list (songs container) */
-.track-list { width: 50%; margin: 12vh 15vw 0 0; }
-
-.track,
-.track h4 { font-weight: 500; }
-
-.track,
-.tour-dates .date-item { border-bottom: 0.1em solid #333; margin-bottom: 1vh; }
-
-.track {
-  padding: 2vh 1vw 2vh 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-  color: grey;
+.album-left img.album-cover {
+    width: 100%;
+    max-width: 340px;
 }
 
-/* ─── TOUR DATES (ten-dates) ─── */
-.tour-dates .date-item {
-  padding-bottom: 1vh;
-  display: flex;
-  font-family: 'Oswald', sans-serif;
-  align-items: center;
-  color: white;
-  text-transform: uppercase;
-  flex-wrap: wrap;
+.album-left h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 3vh 0 1.5vh;
 }
 
-.date-position { display: flex; align-items: center; }
-
-.tour-dates .date-item h4 { margin: 0; }
-
-.tour-dates .date-item h3 { text-align: left; font-weight: 400; }
-
-.tour-dates .date-item h3 a { color: white; text-decoration: none; margin: 0; }
-
-.tour-dates .date-item p a { color: white; text-align: left; font-weight: 600; }
-
-.track .track-details {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  font-family: "Oswald", sans-serif;
-  font-size: 1em;
+.album-left p {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 2.5vh;
+    max-width: 320px;
 }
 
-.track .track-details p { padding-right: 0; }
+.album-store { display: flex; gap: 14px; }
+.album-store img { height: 44px; width: auto; transition: opacity 0.3s; }
+.album-store img:hover { opacity: 0.7; }
 
-.track .track-details p,
-.track .track-details h4 { margin: 0; }
-
-.track-no-border,
-.post-title a { border-bottom: none; }
-
-.track-duration { margin-left: auto; padding-right: 2vw; color: grey; font-weight: normal; }
-
-.btn-play-audio,
-.btn-play-movie { display: flex; align-items: center; cursor: pointer; }
-
-i { font-style: normal; gap: 1vw; margin-left: 2vw; }
-
-/* ─── VIDEO LIGHTBOXES ─── */
-.video-lightbox-album { align-items: center; justify-content: center; position: fixed; display: none; }
-
-.lightbox-content { position: relative; }
-
-.video-lightbox-album,
-.member-lightbox {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.85);
-  z-index: 100;
+/* Track List */
+.track-list {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    margin: 0 13vw 0 5vw;
+    align-self: center;
 }
 
-.video-lightbox-album iframe { width: 60vw; height: 30vw; }
-
-.lightbox-close { top: 61vh; right: 4vw; position: absolute; color: white; cursor: pointer; }
-
-/* ─── GALLERY SECTION (eight-wonders-for-you) ─── */
-.gallery-section { text-align: center; color: white; margin-top: 50%; }
-
-.gallery-section .section-header { margin: 10vh 15vw; }
-
-.section-header h2 {
-  text-align: left;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
+.track-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-border);
+    padding: 1.8vh 0;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    color: var(--gray);
+    font-size: 0.95rem;
+    gap: 1.2vw;
+    transition: color 0.3s;
 }
 
-.section-header p {
-  color: grey;
-  font-family: "Source Code Pro", monospace;
-  text-align: left;
-  font-weight: 400;
-  font-size: 1em;
+.track-item:last-child { border-bottom: none; }
+.track-item:hover { color: var(--white); }
+
+.track-num { font-weight: 400; min-width: 2ch; }
+.track-name { flex: 1; font-weight: 500; }
+.track-dur { color: var(--gray); font-weight: 400; margin-right: 1vw; }
+
+.track-actions { display: flex; gap: 1vw; }
+
+.track-actions button {
+    color: var(--gray);
+    font-size: 0.82rem;
+    transition: color 0.3s;
+    padding: 2px;
 }
 
-.section-header h2,
-.about-hero h2,
-.tour-hero h2,
-.contact-hero h2,
-.blog-section h2 { font-size: 3em; margin: 0; }
+.track-actions button:hover { color: var(--white); }
 
-.details, .footer-description, .lyrics-section p { line-height: 1.8; }
+/* ============================================================
+   SECTION HEADERS
+============================================================ */
+.section-hd { padding: 9vh 15vw 0; }
 
-.section-header { margin-bottom: 40%; }
-
-.section-header p,
-.album p,
-.blog-intro,
-.before-the-albums,
-.city p { line-height: 1.6; }
-
-.section-header p { margin: 3vh 24.5vw 12vh 0; }
-
-.gallery-grid { display: flex; flex-wrap: wrap; }
-
-.gallery-grid img { width: 25%; transition: opacity 0.3s ease; }
-
-/* ─── IMAGE LIGHTBOX ─── */
-.img-lightbox { display: none; align-items: center; justify-content: center; position: fixed; }
-
-.img-lightbox, .video-lightbox { inset: 0; background: rgba(0,0,0,.85); }
-
-.lightbox-image-content { top: 5%; left: 28%; width: 45%; display: flex; position: relative; }
-
-.lightbox-counter { margin: 6vh 32vw 0 0; text-align: center; font-size: 1em; color: white; }
-
-.lightbox-close-btn { margin: -2vh 0 0 70vw; color: white; position: absolute; font-size: 1em; cursor: pointer; }
-
-.lightbox-next,
-.lightbox-prev {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  font-size: 4em;
-  border: 2px solid #fff;
-  border-radius: 50%;
+.section-hd h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    position: relative;
+    margin-bottom: 1.5vh;
 }
 
-.lightbox-next { right: 28vw; }
-.lightbox-prev { left: 28vw; }
-
-.album-lightbox {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 9999;
-  position: fixed; 
-  justify-content: center; 
-  align-items: center; 
-  display: none;
+.section-hd h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: var(--white);
+    margin-top: 2.5vh;
 }
 
-.album-lightbox-content p { justify-content: center; align-items: center; font-size: 1em; color: white; }
-
-/* ─── PAGE HEROES (tour, about, contact) ─── */
-.tour-hero, .about-hero, .contact-hero {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  height: 60vh;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.section-hd p {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 55%;
+    margin-top: 3.5vh;
+    margin-bottom: 5vh;
 }
 
-.tour-hero h2, .about-hero h2, .contact-hero h2 {
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
+/* ============================================================
+   GALLERY GRID
+============================================================ */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.tour-hero { background-image: url("../images/tour-title-area.png"); }
-.about-hero { background-image: url("../images/about-title-area.png"); }
-.contact-hero { background-image: url("../images/contact-us-title.png"); }
-
-/* ─── TOUR DATES SECTION ─── */
-.tour-dates { margin: 11vh 15vw 5vh 15vw; align-items: center; text-align: center; color: white; }
-
-.tour-dates ul { padding-inline-start: 0; }
-
-.tour-dates .date-item h4 { font-size: 3.5em; padding-right: 1.05vw; }
-
-.date-month { color: #bbbbbb; width: 2.2vw; }
-
-.tour-dates .date-item h3 { font-size: 0.9em; padding-left: 1.5vw; }
-
-.tour-dates .date-item p a {
-  text-align: right;
-  margin-left: auto;
-  transition: color 0.3s ease;
-  text-decoration: underline;
+.gallery-grid img {
+    width: 25%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: opacity 0.3s;
+    cursor: pointer;
 }
 
-/* ─── SHARED BUTTONS ─── */
-.view-all-btn, .show-more-btn, .send-btn, .check-name-btn, .buy-tickets-btn, .color-toggle {
-  background: transparent;
-  border: .1em solid #fff;
-  margin-top: 4vh;
-  padding: 1.75vh 3.5vw;
-  font-size: .85em;
-  transition: .3s;
-  font-family: 'Oswald', sans-serif;
-  align-items: center; 
-  text-transform: uppercase;
-  color: white; 
-  font-weight: normal;
-  text-align: center;
-  justify-content: center;
+.gallery-grid img:hover { opacity: 0.6; }
+
+/* Image Lightbox */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.surprise { background: transparent; justify-content: center; }
+.img-lightbox.active { display: flex; }
 
-.view-all-btn:hover, .show-more-btn:hover, .send-btn:hover,
-.social-links a:hover, .color-toggle:hover, .check-name-btn:hover { background: #fff; color: #000; }
+.lightbox-img { max-width: 80vw; max-height: 75vh; object-fit: contain; }
 
-.send-btn {
-  background: #fff;
-  width: 28%;
-  padding: 2vh 2vw;
-  font-family: 'Oswald', sans-serif;
-  color: black;
-  text-transform: uppercase;
-  font-weight: normal;
+.lightbox-controls {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin-top: 2vh;
 }
 
-/* ─── BLOG SECTION (trois-boys) ─── */
-.blog-section { padding: 10vh 15vw 20vh 15vw; position: relative; text-align: center; }
+.lightbox-controls button {
+    color: var(--white);
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+    background: none;
+    cursor: pointer;
+}
+
+.lightbox-controls button:hover { background: rgba(255,255,255,0.15); }
+
+.lightbox-counter {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--gray-light);
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 2vh; right: 2vw;
+    color: var(--white);
+    font-size: 1.8rem;
+    background: none; border: none; cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.lightbox-close-btn:hover { opacity: 0.6; }
+
+/* ============================================================
+   TOUR DATES
+============================================================ */
+.tour-section { padding: 10vh 15vw; }
+
+.date-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-border);
+    padding: 2vh 0;
+    flex-wrap: wrap;
+    gap: 1vw;
+}
+
+.date-block {
+    display: flex;
+    align-items: center;
+    min-width: 110px;
+}
+
+.date-num {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-right: 0.5em;
+}
+
+.date-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    border-left: 1px solid var(--gray-border);
+    padding-left: 0.7em;
+}
+
+.date-venue {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-left: 2vw;
+}
+
+.date-venue a { color: var(--white); transition: opacity 0.3s; }
+.date-venue a:hover { opacity: 0.6; }
+
+.buy-ticket-link {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+    margin-left: auto;
+}
+
+.buy-ticket-link:hover { opacity: 0.6; }
+
+.view-all-wrap { text-align: center; margin-top: 5vh; }
+
+.btn-outline {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 1.4vh 3.5vw;
+    transition: background 0.3s, color 0.3s;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-outline:hover { background: var(--white); color: var(--black); }
+
+/* ============================================================
+   BLOG SECTION
+============================================================ */
+.blog-section { padding: 10vh 15vw 12vh; }
 
 .blog-section h2 {
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 400;
-  text-align: left;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.5vh;
+    position: relative;
 }
 
-.blog-section p {
-  color: grey;
-  font-family: "Source Code Pro", monospace;
-  font-weight: 400;
-  text-align: left;
-  font-size: 1em;
+.blog-section h2::after {
+    content: '';
+    display: block;
+    width: 50px; height: 2px;
+    background: var(--white);
+    margin-top: 2.5vh;
 }
 
-.blog-intro { margin: 3vh 0 5.5vh 0; max-width: 65%; }
-
-.blog-section .blog-post { width: 22vw; }
-
-.blog-section .blog-post img {
-  width: 100%;
-  margin-bottom: 2vh;
-  transition: transform 0.3s ease;
-  display: block;
+.blog-intro {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 55%;
+    margin: 3.5vh 0 5vh;
 }
 
-.posts-grid { display: flex; flex-wrap: wrap; justify-content: space-between; }
+.posts-grid { display: flex; gap: 3vw; flex-wrap: wrap; }
 
-.blog-post { position: relative; text-align: left; }
+.blog-post { width: calc(33.33% - 2vw); overflow: hidden; }
 
-.blog-section .blog-post img:hover,
-.video-section:hover img { transform: scale(1.01); }
-
-.post-title {
-  margin-top: 1vh;
-  font-size: 1.25em;
-  font-family: 'Oswald', sans-serif; 
-  color: white; 
-  text-transform: uppercase;
+.blog-post img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
 }
 
-.post-title a,
-.track a,
-.carousel-prev-btn,
-.carousel-next-btn {
-  font-weight: 400;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  text-decoration: none;
-  font-size: 1.25em;
+.blog-post:hover img { transform: scale(1.03); }
+
+.blog-post-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-top: 1.5vh;
+    letter-spacing: 0.03em;
 }
 
-.post-date { margin-top: 0; color: grey; font-family: "Source Code Pro", monospace; font-weight: normal; }
+.blog-post-title a { color: var(--white); transition: opacity 0.3s; }
+.blog-post-title a:hover { opacity: 0.6; }
 
-/* ─── VIDEO SECTION (koichi) ─── */
-.video-section { padding: 0 0.5em; position: relative; text-align: center; }
-
-.video-section img {
-  width: 99.8%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-  display: block;
+.blog-post-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 0.6vh;
 }
+
+/* ============================================================
+   VIDEO SECTION
+============================================================ */
+.video-section {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-section img.video-bg {
+    width: 100%;
+    aspect-ratio: 16/7;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.video-section:hover img.video-bg { transform: scale(1.02); }
 
 .video-play-btn {
-  margin: -40vh 0 0 -2.5vw;
-  background-color: transparent;
-  width: 6vw;
-  height: 12vh;
-  border: 6px solid white;
-  border-radius: 50%;
-  transition: background 0.3s ease;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px; height: 70px;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    color: var(--white);
+    transition: background 0.3s;
+    background: transparent;
+    cursor: pointer;
 }
 
-.video-section:hover .video-play-btn { background: #ccc; }
+.video-section:hover .video-play-btn { background: rgba(255,255,255,0.15); }
 
-.video-player { max-width: 80%; max-height: 80%; }
-
-.video-play-btn, .video-close-btn, .member-close-btn { color: white; position: absolute; cursor: pointer; }
-
-.video-lightbox { display: none; align-items: center; justify-content: center; position: fixed; z-index: 20; }
-
-.video-close-btn { top: 89vh; right: 34vh; }
-
-/* ─── DISCOGRAPHY SECTION ─── */
-.disctown, .sweden, .discos { padding: 0 16vw 5vh 16vw; }
-
-.disctown p, .discos p { text-align: left; color: grey; }
-
-.disctown p a, .discos p a { color: grey; text-decoration: none; }
-
-.sweden h2 { padding: 3vh 0; }
-
-.event-details { padding-right: 3vw; }
-
-.event-details h2 {
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  font-weight: normal;
-  color: white;
+.video-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
-.event-details p, .lyrics-section p, .text::placeholder, .email::placeholder, .message::placeholder,
-.house, .review-text { color: grey; }
+.video-lightbox.active { display: flex; }
+.video-lightbox video { max-width: 80vw; max-height: 80vh; }
 
-.buy-tickets-btn { color: white; text-transform: uppercase; font-family: 'Oswald', sans-serif; }
-
-.member-popup img { width: 24.8vw; }
-
-.discography-section, .listening {
-  padding: 7vh 15vw 10vh 15vw;
-  text-align: center;
-  flex-wrap: wrap;
+.video-close {
+    position: absolute;
+    top: 3vh; right: 2vw;
+    color: var(--white);
+    font-size: 1.8rem;
+    background: none; border: none; cursor: pointer;
+    transition: opacity 0.3s;
 }
 
-.discography-section h2, .listening h2 {
-  font-size: 3em;
-  margin-bottom: 1.5vw;
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  font-weight: normal;
-  text-align: left;
+.video-close:hover { opacity: 0.6; }
+
+/* ============================================================
+   VIDEO MODAL (tracks)
+============================================================ */
+.modal-video {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
-.discography-intro {
-  max-width: 65%;
-  margin-bottom: 4vh; 
-  font-family: 'Source Code Pro', monospace;
-  font-weight: normal; 
-  text-align: left; 
-  font-size: 1em;
-  color: grey;
+.modal-video.active { display: flex; }
+
+.modal-video iframe {
+    width: 62vw;
+    height: 35vw;
+    border: none;
 }
 
-.disc-image, .album-card { width: 23%; overflow: hidden; position: relative; }
-
-.disc-image img, .album-card img { width: 100%; transition: opacity 0.4s ease-in-out; display: block; margin-top: 4vh; }
-
-.last-container, .disc-group { justify-content: flex-start; width: 81.5vw; }
-
-.last-container { flex-wrap: wrap; display: flex; }
-
-.discography-container { display: flex; flex-direction: column; gap: 2vh; }
-
-.discography-row, .song-row { display: flex; gap: 2vw; }
-
-.big-title, .small-title, .album-name, .track-name { position: absolute; margin: 0; left: 10%; opacity: 0; }
-
-.big-title, .album-name { bottom: 7%; }
-
-.small-title, .track-name { bottom: 10%; font-family: "Source Code Pro", monospace; color: grey; font-size: 1em; }
-
-/* ─── EVENT/CONTACT ─── */
-.carousel h3, .contact-section h3 { margin: 0 0 2vh 0; }
-
-.dir p { font-family: "Source Code Pro", monospace; color: grey; }
-
-.dir { padding: 10vh 3.5vw; line-height: 3.5vh; }
-
-.white-portal { height: 2vh; width: 1vw; }
-
-.contact-section {
-  padding: 10vh 15vw;
-  font-family: "Source Code Pro", monospace;
-  justify-content: space-between;
-  display: flex;
-  background-color: #060606;
+.modal-video-close {
+    position: absolute;
+    top: 3vh; right: 2vw;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    background: none; border: none;
 }
 
-.contact-section h4, .footer-contact h3, .footer-nav h3, .footer-instagram h3 { margin-bottom: 3vh; font-size: 1.2em; }
+.modal-video-close:hover { opacity: 0.6; }
 
-.press-info { width: 50%; }
+/* ============================================================
+   DISCOGRAPHY SECTION
+============================================================ */
+.disco-section { padding: 10vh 15vw 12vh; }
 
-.press-info p, .maus p { line-height: 3.5vh; }
-
-.maus h2 { text-transform: uppercase; font-family: 'Oswald', sans-serif; font-weight: normal; color: white; }
-
-.maus p { font-size: 1.1em; color: grey; }
-
-.maus a { color: white; font-weight: 400; text-decoration: none; }
-
-.text-sm, .cities .city p { font-size: 1em; color: grey; }
-
-.cities { gap: 4vw; margin-top: 3vh; }
-
-.contact-form-wrapper { gap: 2.5vh; margin-left: 8%; margin-top: 5%; }
-
-.contact-form-wrapper textarea, .text, .email, .message { border: .1em solid #fff; }
-
-.press-info, .contact-form-wrapper, .form-message, .formuy form, .song-gap { flex-direction: column; }
-
-.contact-form-wrapper { width: 25vw; }
-
-.text, .email, .message { line-height: 4vh; }
-
-.text, .email { height: 5vh; }
-
-.message { height: 13vh; }
-
-.form-message, .social-links { gap: 1vh; }
-
-.error-text { color: red; }
-
-.warning-box, .success-box { padding: 1vh 1vw; }
-
-.warning-box { background: #d4b200; }
-
-.success-box { background: #3cb6a0; }
-
-/* ─── CAROUSEL (carruselcito) ─── */
-.carousel-prev-btn,
-.carousel-next-btn,
-.carousel-about-prev,
-.carousel-about-next { font-size: 3em; }
-
-.audio-controls button,
-.carousel-prev-btn,
-.carousel-next-btn,
-.footer-divider,
-.carousel-about-prev,
-.carousel-about-next,
-.member-close-btn,
-.prev-btn,
-.next-btn { border: none; }
-
-.carousel-about-prev { margin: 5vh 0 0 40vw; }
-
-.carousel-about-next { margin: 5vh 0 0 15vw; }
-
-.carousel,
-.tour-dates .date-item h3,
-.footer-logo,
-.footer-contact,
-.footer-nav,
-.footer-instagram,
-.contact-form-wrapper { flex: 1; }
-
-.carousel img { width: 20vw; display: block; }
-
-.formuy form, .lyrics-section .house { margin-top: 5vh; }
-
-.member-close-btn { margin-top: 8vh; }
-
-input,
-.contact-form-wrapper textarea,
-.carousel-prev-btn,
-.carousel-next-btn,
-.carousel-about-prev,
-.carousel-about-next,
-.member-close-btn,
-.album-btn-back,
-.album-btn-play,
-.album-btn-next,
-.prev-btn,
-.next-btn { background: transparent; }
-
-.prev-btn, .next-btn { margin-left: 30%; }
-
-input::placeholder, input, .tooltip, .songs-album, .review-author { color: #fff !important; }
-
-.album-wrapper { display: flex; align-items: flex-start; }
-
-.album-songs-container { width: 50vw; }
-
-.album-layout, .vimeoGrandote { align-items: flex-start; padding: 0 16vw 5vh 16vw; }
-
-.album-layout { width: 50%; margin-right: 2vw; }
-
-.lyrics-section { width: 30%; }
-
-.album-songs-container h2,
-.lyrics-section h2,
-.lyrics-section .house {
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
+.disco-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.5vh;
+    position: relative;
 }
 
-.sync-container {
-  width: 100%;
-  height: 6px;
-  background: #444;
-  margin-top: 10px;
-  cursor: pointer;
+.disco-section h2::after {
+    content: '';
+    display: block;
+    width: 50px; height: 2px;
+    background: var(--white);
+    margin-top: 2.5vh;
 }
 
-.sync-bar { width: 0%; height: 100%; background: #fff; }
-
-.open-album-lightbox { color: grey; font-weight: normal; font-family: "Source Code Pro", monospace; }
-
-.lyrics-section .latin-text { color: grey; display: flex; }
-
-.hidden, .form-message { display: none; }
-
-.album-btn-back,
-.album-btn-play,
-.album-btn-next {
-  padding: 3vh 4.62vw;
-  border-bottom: 0.3em solid grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 1em;
+.disco-intro {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 55%;
+    margin: 3.5vh 0 5vh;
 }
 
-.album-btn-play { border-right: 0.3em solid grey; border-left: 0.3em solid grey; }
-
-.player-controls { background-color: #111; margin-top: 8vh; }
-
-.song-gap { background-color: #111; margin-bottom: 8vh; }
-
-.song-gap h3 {
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  text-transform: uppercase;
-  font-weight: normal;
+.disco-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.about-slider { overflow: hidden; height: 15vh; }
-
-.slide { min-width: 100%; }
-
-/* ─── FOOTER ─── */
-footer { padding: 10vh 3vw 5vh 3vw; }
-
-.footer-logo, .footer-contact, .footer-nav, .footer-instagram { width: 25%; }
-
-.footer-logo { margin-top: 1.25vh; }
-
-.logo-foot { width: 33%; }
-
-.footer-container {
-  font-family: "Inconsolata", sans-serif;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-weight: normal;
+.disco-card {
+    width: 25%;
+    position: relative;
+    overflow: hidden;
 }
 
-.footer-description { margin: 3vh 1vw 3vh 0; color: grey; font-size: 1em; }
+.disco-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s;
+}
+
+.disco-card:hover img { opacity: 0.4; }
+
+.disco-overlay {
+    position: absolute;
+    left: 10%; bottom: 8%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s, transform 0.35s;
+    pointer-events: none;
+}
+
+.disco-card:hover .disco-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.disco-overlay h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.3em;
+}
+
+.disco-overlay p {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray-light);
+}
+
+.disco-btn-wrap { text-align: center; margin-top: 5vh; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer { padding: 10vh 4vw 0; background: var(--black); }
+
+.footer-grid {
+    display: flex;
+    gap: 2vw;
+    padding-bottom: 8vh;
+    flex-wrap: wrap;
+}
+
+.footer-col { flex: 1; min-width: 180px; }
+
+.footer-logo-img { height: 30px; width: auto; margin-bottom: 2.5vh; }
+
+.footer-desc {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 3vh;
+    max-width: 240px;
+}
+
+.social-links { display: flex; gap: 10px; }
 
 .social-links a {
-  width: 4vh;
-  height: 2vw;
-  border: .20em solid #fff;
-  border-radius: 50%;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  color: white; 
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer-contact h3, .footer-nav h3, .footer-instagram h3 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
-.contact-item { margin-bottom: 7%; color: grey; }
-
-.footer-nav ul { padding: 0; font-family: "Oswald", sans-serif; margin: 0; }
-
-.footer-nav li { padding: 0 0 3vh 0; }
-
-.footer-nav li a {
-  text-transform: uppercase;
-  color: white;
-  text-decoration: none;
-  font-weight: normal;
-  font-size: 1;
-}
-
-/* ─── FOOTER DIVIDER & COPYRIGHT ─── */
-.footer-divider { border-top: .1em solid #333; margin: 5vh 3vw 0 3vw; }
-
-.copyright p { margin: 2vh 0; font-family: "Inconsolata", sans-serif; text-align: center; color: grey; font-size: 1em; }
-
-.copyright p a { text-decoration: none; color: grey; }
-
-.copyright a:hover, .review-nav .prev-btn, .review-nav .next-btn, .warning-box, .success-box { color: white; }
-
-/* ─── SCROLL TO TOP (mayday) ─── */
-.scroll-top-btn {
-  bottom: 5em;
-  right: 2em;
-  width: 3em;
-  height: 3em;
-  border: 3px solid #ccc;
-  border-radius: 50%;
-  opacity: 0;
-  transition: .4s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: grey;
-  position: fixed;
-  font-family: "Source Code Pro", monospace;
-}
-
-.scroll-top-btn.visible { opacity: 1; }
-
-.scroll-top-btn:hover { opacity: .5; }
-
-/* ─── TOOLTIP ─── */
-.tooltip { position: fixed; background-color: #111; z-index: 9999; }
-
-.scroll-top-arrow { font-weight: 600; font-size: 2em; }
-
-/* ─── MEMBER POPUP ─── */
-.member-info { display: none; justify-content: center; align-items: center; }
-
-.member-info a { color: grey; text-decoration: none; }
-
-.member-lightbox { position: fixed; align-items: center; justify-content: center; display: none; }
-
-.member-lightbox-content { position: relative; text-align: center; }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — TABLET (max 900px)
-═══════════════════════════════════════ */
-@media screen and (max-width: 900px) {
-
-  .hero { gap: 10vw; }
-
-  .hero h1 {
-    font-size: 7em;
-    margin-bottom: 4vh;
-    transform: rotate(180deg) translate(-20%, 6.5%);
-  }
-
-  .hero-right h2 { font-size: 2.75em; margin-bottom: 1vh; }
-
-  header, .logo-wrapper, .hero-buttons, .date-month { justify-content: center; }
-
-  .hero-buttons { gap: 1.5vw; }
-
-  .hero-buttons img { height: 6vh; }
-
-  nav, .track-container .track-thumbnail { display: none; }
-
-  .time-display { margin-right: 0; }
-
-  .track-title, .track-artist { width: 50vw; }
-
-  .album-section, .contact-section { flex-direction: column; }
-
-  .album-section, .store-buttons { align-items: center; }
-
-  .album-section { height: auto; padding-bottom: 5vh; }
-
-  .album { width: 100%; margin: 8vh 0 0 25vw; }
-  .album-cover-img { width: 75vw; }
-  .album p { width: 78vw; }
-
-  .track-list { width: 75%; margin: 14.25vh 0 0 0; }
-
-  .date-month, .store-buttons, footer { display: flex; }
-
-  .store-buttons { gap: 2vh; }
-
-  i img { margin-top: 0.25vh; width: 1.5vw; }
-
-  .gallery-section .section-header { margin: 10vh 10vw; }
-
-  .section-header h2::after,
-  .discography-section h2::after,
-  .listening h2::after { width: 17.5vw; }
-
-  .section-header p { max-width: 83%; }
-
-  .gallery-grid img { width: 50%; }
-
-  .lightbox-image-content { top: 35%; left: 25%; }
-
-  .lightbox-counter { margin: 40vh 40vw 0 0; }
-
-  .lightbox-close-btn { margin: -2vh 0 0 20vw; }
-
-  .lightbox-next { margin: 5vh 6vw 0 0; }
-
-  .lightbox-prev { margin-top: 5vh; }
-
-  .tour-dates { margin: 11vh 5vw 5vh 5vw; }
-
-  .date-month, .tour-dates h3 { margin-left: 3%; }
-
-  .date-month { padding-right: 1.5%; }
-
-  .blog-section, .discography-section, .listening { padding: 10vh 10vw 20vh 10vw; }
-
-  .posts-grid, footer { flex-wrap: wrap; }
-
-  .blog-section .blog-post { width: 48%; gap: 1vh; }
-
-  .video-play-btn { top: 150%; left: 48%; width: 10%; }
-
-  .video-close-btn { top: 73.5vh; right: 11vh; }
-
-  .discography-intro { max-width: 83%; }
-
-  .disc-image { flex: 0 0 23.25%; }
-
-  .carousel-about-next { margin-left: 11vw; }
-
-  .tour-hero, .about-hero, .contact-hero { background-position: center; }
-
-  .sweden { padding: 0 10vw 5vh 10vw; }
-
-  .event-details { width: 30%; }
-
-  .album-layout { padding: 3vh 8vw; }
-
-  .versionGrande { width: 85vw; height: 55vh; }
-
-  .vimeoGrandote { padding: 8vw; }
-
-  .contact-section { padding: 10vh 5vw; width: 200vw; }
-
-  .cities { gap: 9vw; }
-
-  .city p { margin: -1vh 0 5vh 0; }
-
-  .dir { font-size: 0.75em; }
-
-  .contact-form-wrapper { width: 45%; }
-
-  .contact-form-wrapper textarea { padding: 1vh 2vw; }
-
-  footer { padding: 5vw; }
-}
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — MOBILE (max 500px)
-═══════════════════════════════════════ */
-@media screen and (max-width: 500px) {
-
-  .date-position, .date-month, .tour-dates .date-item h4 { display: flex; }
-
-  .track-container .track-thumbnail, .progress-bar, .time-display, .volume-bar, .speaker { display: none; }
-
-  .logo-wrapper, .hero, .hero-buttons, .gallery-grid, .date-month { justify-content: center; }
-
-  .logo-wrapper, .player-bar, .album-section, .tour-dates .date-item,
-  .blog-section .posts-grid, .date-position, .footer-container { align-items: center; }
-
-  .hero, .player-bar, .album-section, .store-buttons, .tour-dates .date-item,
-  .blog-section .posts-grid, .contact-section, .cities, .sweden,
-  .album-layout, .carousel, .footer-container { flex-direction: column; }
-
-  .dir { font-size: 1.25em; padding-bottom: 5vh; }
-
-  .hero, .track-title, .track-artist, .store-buttons { align-items: flex-start; }
-
-  .hero h1 { font-size: 7em; margin-bottom: 4vh; transform: rotate(180deg) translate(0%, -20.5%); }
-
-  .hero-right { margin: 0 0 -10vh 3vw; }
-
-  .hero-right h2 { font-size: 3em; margin-bottom: 2vh; }
-
-  .hero-buttons { height: 3vh; gap: 3vw; }
-
-  .player-bar, .album-section { height: auto; }
-
-  .player-bar { padding: 1vh 5vw; }
-
-  .audio-controls { padding-left: 20vw; }
-
-  .track-title, .track-artist { width: 50vw; }
-
-  .album-section, .event-details { padding-bottom: 5vh; }
-
-  .album, .track-list, .footer-description { width: 80%; }
-
-  .album { margin: 8vh 0 5vh 0; }
-  .album-cover-img { width: 80vw; }
-  .album p { width: 65vw; }
-
-  .store-buttons { gap: 1vh; margin-bottom: 2.75vh; }
-
-  .track-list, .tour-dates h3, .tour-dates .date-item h4 { margin: 0; }
-
-  i img { margin-top: 0.25vh; width: 3.5vw; }
-
-  .section-header h2::after,
-  .blog-section h2::after,
-  .discography-section h2::after,
-  .listening h2::after { width: 17.5vw; }
-
-  .section-header p { max-width: 83%; }
-
-  .gallery-grid img { width: 100%; }
-
-  .lightbox-counter { margin-top: 35vh; }
-
-  .lightbox-close-btn { margin-left: 16vw; }
-
-  .lightbox-next { font-size: 3em; margin: -5vh 2vw 0 0; }
-
-  .lightbox-prev { font-size: 3em; margin: -5vh 0 0 -2vw; }
-
-  .tour-dates .date-item { text-align: center; }
-
-  .tour-dates .date-item h3,
-  .tour-dates .date-item p { margin-top: 1vh; }
-
-  .date-month { margin-bottom: -0.25vh; }
-
-  .date-month { margin-left: 9vw; padding-right: 3.5vw; }
-
-  .tour-dates .date-item h4 { font-size: 3.5em; padding-right: 5vw; width: 2vw; }
-
-  .blog-intro { max-width: 83%; }
-
-  .posts-grid { gap: 4vh; }
-
-  .blog-section .blog-post, .event-details, .album-songs-container,
-  .album-layout, .lyrics-section { width: 100%; }
-
-  .video-play-btn { top: 235%; width: 15%; height: 45%; left: 47%; }
-
-  .video-close-btn { top: 63vh; right: 7vh; }
-
-  .discography-section, .listening { padding: 10vh 10vw 20vh 10vw; }
-
-  .discography-intro { max-width: 83%; }
-
-  .carousel-about-prev,
-  .carousel-about-next { margin-left: 28.5vw; }
-
-  .lyrics-section { padding-left: 0; }
-
-  .album-btn-back, .album-btn-play, .album-btn-next { padding: 3vh 12.35vw; }
-
-  .disc-image { width: 18%; }
-
-  .city p { margin-top: -1vh; }
-
-  .contact-form-wrapper textarea { padding: 1vh 2vw; }
-
-  .footer-container { text-align: left; }
-
-  .footer-logo, .footer-contact, .footer-nav, .footer-instagram { width: 100%; margin-bottom: 5vh; }
-
-  .social-links { gap: 0.65em; }
-
-  .social-links a {
-    width: 7vw;
-    height: 4vh;
-    border: .2em solid #fff;
+    width: 36px; height: 36px;
+    border: 2px solid var(--white);
     border-radius: 50%;
-  }
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    color: var(--white);
+    transition: background 0.3s, color 0.3s;
+}
+
+.social-links a:hover { background: var(--white); color: var(--black); }
+
+.footer-col h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 3vh;
+}
+
+.footer-col address { font-style: normal; }
+
+.footer-col address p {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 1.5vh;
+    line-height: 1.5;
+}
+
+.footer-nav-list li { margin-bottom: 1.8vh; }
+
+.footer-nav-list a {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    transition: opacity 0.3s;
+}
+
+.footer-nav-list a:hover { opacity: 0.6; }
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid var(--gray-border);
+    margin: 0 4vw;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 2.5vh 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.footer-bottom a { color: var(--gray); text-decoration: underline; }
+
+/* ============================================================
+   SCROLL TO TOP
+============================================================ */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    width: 44px; height: 44px;
+    border: 2px solid var(--gray);
+    border-radius: 50%;
+    color: var(--gray);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.4s, background 0.3s;
+    z-index: 500;
+    background: transparent;
+    cursor: pointer;
+}
+
+.scroll-top.visible { opacity: 1; }
+.scroll-top:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+    nav { display: none; }
+
+    .hero-band-name { font-size: 3.5rem; left: 4%; }
+    .hero-cta { right: 5%; max-width: 320px; }
+
+    .album-section { flex-direction: column; padding: 8vh 8vw; }
+    .album-left { margin-left: 0; width: 100%; }
+    .album-left img.album-cover { max-width: 280px; }
+    .track-list { margin: 5vh 0 0; }
+
+    .gallery-grid img { width: 50%; }
+    .section-hd { padding: 7vh 8vw 0; }
+    .section-hd p { max-width: 100%; }
+
+    .tour-section { padding: 8vh 8vw; }
+
+    .blog-section { padding: 8vh 8vw; }
+    .blog-intro { max-width: 100%; }
+    .blog-post { width: calc(50% - 1.5vw); }
+
+    .disco-section { padding: 8vh 8vw; }
+    .disco-intro { max-width: 100%; }
+    .disco-card { width: 50%; }
+
+    footer { padding: 8vh 6vw 0; }
+    .footer-grid { gap: 4vw; }
+}
+
+@media (max-width: 560px) {
+    .hero-band-name { display: none; }
+    .hero-cta { right: 5%; left: 5%; bottom: 8%; max-width: 100%; }
+
+    .player-bar { padding: 0 4vw; gap: 2vw; }
+    .player-cover { width: 54px; height: 54px; }
+    .player-progress { display: none; }
+    .player-volume { display: none; }
+
+    .gallery-grid img { width: 50%; }
+
+    .blog-post { width: 100%; }
+    .disco-card { width: 50%; }
+
+    .modal-video iframe { width: 90vw; height: 50vw; }
 }

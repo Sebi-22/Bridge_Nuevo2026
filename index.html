@@ -1,19 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BORING VACCINES | Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@200;300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boring Vaccines | Home</title>
 
-<!-- HEADER -->
-<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Source+Code+Pro:wght@400;500&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+
+   <header>
     <div class="logo">
         <a href="index.html">
             <img src="assets/images/logo-1.png" alt="Boring Vaccines">
@@ -22,184 +30,86 @@
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about_us.html">About Us</a></li>
-            <li><a href="tour.html">Tour</a></li>
-            <li><a href="event.html">Event</a></li>
-            <li><a href="discography.html">Discography</a></li>
-            <li><a href="album.html">Album</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="paginas/about_us.html">About Us</a></li>
+            <li><a href="paginas/tour.html">Tour</a></li>
+            <li><a href="paginas/event.html">Event</a></li>
+            <li><a href="paginas/discography.html">Discography</a></li>
+            <li><a href="paginas/album.html">Album</a></li>
+            <li><a href="paginas/contact.html">Contact Us</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-band-name">BORING VACCINES</div>
     <div class="hero-cta">
         <h2>New Album<br>Is Out</h2>
         <div class="store-btns">
-            <a href="https://apps.apple.com/us/charts/iphone" target="_blank" rel="noopener">
+            <a href="https://apps.apple.com/us/charts/iphone" target="_blank">
                 <img src="assets/images/slider-img-2.png" alt="App Store">
             </a>
-            <a href="https://play.google.com/store/games?device=windows&hl=en" target="_blank" rel="noopener">
+            <a href="https://play.google.com/store" target="_blank">
                 <img src="assets/images/slider-img-3.png" alt="Google Play">
             </a>
         </div>
     </div>
 </section>
 
-<!-- PLAYER BAR -->
-<section class="player-bar">
-    <img class="player-cover" id="player-cover" src="assets/images/album-16-150x150.jpg" alt="Album cover">
-    <div class="player-info">
-        <div class="player-title" id="player-title">Black Hole Sun</div>
-        <div class="player-artist">Terrible</div>
-    </div>
-    <div class="player-controls">
-        <button id="btn-prev" aria-label="Anterior"><i class="fas fa-step-backward"></i></button>
-        <button id="btn-play" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-        <button id="btn-next" aria-label="Siguiente"><i class="fas fa-step-forward"></i></button>
-    </div>
-    <div class="player-progress">
-        <div class="progress-track" id="progress-track">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <span class="player-time" id="player-time">0:00 / 0:00</span>
-    </div>
-    <div class="player-volume">
-        <i class="fas fa-volume-up"></i>
-        <div class="vol-track">
-            <div class="vol-fill" id="vol-fill"></div>
-        </div>
-    </div>
-    <audio id="main-audio" preload="auto"></audio>
-</section>
+<section class="player-bar" id="player-bar"></section>
 
-<!-- ALBUM INFO + TRACK LIST -->
 <section class="album-section">
-    <div class="album-left">
-        <img class="album-cover" src="assets/images/home2.jpg" alt="The Knowing Album Cover">
-        <h2>The Knowing - 2018.</h2>
-        <p>Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in mei. Mei an pericula eu.</p>
-        <div class="album-store">
-            <a href="https://apps.apple.com/us/charts/iphone" target="_blank" rel="noopener">
+    <div class="album-izquierda">
+        <img class="album-portada" src="assets/images/home2.jpg" alt="The Knowing">
+        <h2>The Knowing – 2018.</h2>
+        <p>Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in mei.</p>
+        <div class="album-botones">
+            <a href="#" target="_blank">
                 <img src="assets/images/slider-img-2.png" alt="App Store">
             </a>
-            <a href="https://play.google.com/store/games?device=windows&hl=en" target="_blank" rel="noopener">
+            <a href="#" target="_blank">
                 <img src="assets/images/slider-img-3.png" alt="Google Play">
             </a>
         </div>
     </div>
-    <div class="track-list" id="track-list"></div>
+    <div class="lista-canciones" id="lista-canciones"></div>
 </section>
 
-<!-- Modal video tracks -->
+<!-- MODAL VIDEO -->
 <div class="modal-video" id="modal-video">
-    <button class="modal-video-close" id="modal-video-close">X</button>
+    <button id="modal-cerrar">✕</button>
     <iframe id="video-frame" src="" allowfullscreen></iframe>
 </div>
 
-<!-- GALLERY -->
-<div class="section-hd">
-    <h2>Listen To Our New Album</h2>
-    <p>Alienum phaedrum torquatos nec eu, vis detraxit periculis exnihil. expetendis in mei. Mei an pericula euripidis, hinc partem ei est.</p>
+<!-- GALERIA FOTOS -->
+    <section class="galeria-seccion">
+    <div class="galeria-encabezado">
+        <h2>Listen To Our New Album</h2>
+        <p>Alienum phaedrum torquatos nec eu, vis detraxit periculis exnihil. expetendis in mei. Mei an pericula euripidis, hinc partem ei est.</p>
+    </div>
+    <div class="galeria-grilla" id="galeria-grilla"></div>
+</section>
+
+<!-- LIGHTBOX FOTOS -->
+<div class="lightbox" id="lightbox">
+    <button id="lightbox-cerrar">✕</button>
+    <img id="lightbox-foto" src="" alt="">
+    <div class="lightbox-controles">
+        <button id="lightbox-anterior">&#8592;</button>
+        <span id="lightbox-contador">1 / 6</span>
+        <button id="lightbox-siguiente">&#8594;</button>
+    </div>
 </div>
 
-<section class="gallery-grid" id="gallery-grid"></section>
+    <!-- TOUR DATES -->
 
-<!-- Image Lightbox -->
-<div class="img-lightbox" id="img-lightbox">
-    <button class="lightbox-close-btn" id="lb-close">X</button>
-    <img class="lightbox-img" id="lb-img" src="" alt="">
-    <div class="lightbox-controls">
-        <button id="lb-prev">&#8592;</button>
-        <span class="lightbox-counter" id="lb-counter">1 / 6</span>
-        <button id="lb-next">&#8594;</button>
-    </div>
-</div>
+    <!-- BLOG -->
 
-<!-- TOUR DATES -->
-<section class="tour-section">
-    <ul id="dates-list"></ul>
-    <div class="view-all-wrap">
-        <button class="btn-outline" id="view-all-btn">View All</button>
-    </div>
-</section>
+    <!-- VIDEO -->
 
-<!-- BLOG -->
-<section class="blog-section">
-    <h2>Latest Blog Posts</h2>
-    <p class="blog-intro">Alienum phaedrum torquatos nec eu, vis detraxit periculis exnihil. expetendis in mei. Mei an pericula euripidis, hinc partem ei est.</p>
-    <div class="posts-grid" id="posts-grid"></div>
-</section>
+    <!-- DISCOGRAPHY -->
 
-<!-- VIDEO SECTION -->
-<section class="video-section" id="video-section">
-    <img class="video-bg" src="assets/images/h1-img-7.jpg" alt="Video background">
-    <button class="video-play-btn" id="video-play-btn" aria-label="Reproducir video">
-        <i class="fas fa-play"></i>
-    </button>
-</section>
+    <!-- FOOTER -->
 
-<div class="video-lightbox" id="video-lightbox">
-    <button class="video-close" id="video-close">X</button>
-    <video id="main-video" controls src="assets/video/76765805.mp4"></video>
-</div>
-
-<!-- DISCOGRAPHY -->
-<section class="disco-section">
-    <h2>Our Discography</h2>
-    <p class="disco-intro">Alienum phaedrum torquatos nec eu, vis detraxit periculis exnihil. expetendis in mei. Mei an pericula euripidis, hinc partem ei est.</p>
-    <div class="disco-grid" id="disco-grid"></div>
-    <div class="disco-btn-wrap">
-        <button class="btn-outline" id="disco-show-more">Show More</button>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <img class="footer-logo-img" src="assets/images/footer-logo.png" alt="Footer Logo">
-            <p class="footer-desc">Alienum phaedrum torquatos nec eu, vis detraxitssa periculiser ex, nihil expetendis in mei eis an pericula es aperiri.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/QodeInteractive/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://x.com/QodeInteractive" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://es.linkedin.com/company/qode-themes" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="footer-col">
-            <h3>Contact</h3>
-            <address>
-                <p>+(123) 456-7890</p>
-                <p>info@yoursite.com</p>
-                <p>123 Main Street, NY</p>
-                <p>Download Resume</p>
-            </address>
-        </div>
-        <div class="footer-col">
-            <h3>Useful Links</h3>
-            <ul class="footer-nav-list">
-                <li><a href="discography.html">Discography</a></li>
-                <li><a href="tour.html">Tour Dates</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h3>Instagram</h3>
-        </div>
-    </div>
-    <hr class="footer-divider">
-    <div class="footer-bottom">
-        <p>Copyright <a href="https://qodeinteractive.com/" target="_blank">Qode Interactive</a></p>
-    </div>
-</footer>
-
-<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-
-<script src="assets/js/script.js"></script>
-
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

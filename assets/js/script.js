@@ -1,170 +1,298 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-    /* ================================================================
-       DATOS GLOBALES
-    ================================================================ */
-    const TRACKS = [
-        { title: 'Black Hole Sun',   dur: '0:32', audio: 'assets/audios/Black-hole-sun.mp3',   video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Work',             dur: '0:27', audio: 'assets/audios/Work.mp3',             video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Lullaby',         dur: '0:30', audio: 'assets/audios/Lullaby.mp3',          video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'The Passenger',   dur: '0:30', audio: 'assets/audios/The-Passanger.mp3',    video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Celebrity Skin',  dur: '0:32', audio: 'assets/audios/Celebrity-Skin.mp3',   video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Creep',           dur: '0:30', audio: 'assets/audios/Creep.mp3',            video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Epic',            dur: '0:30', audio: 'assets/audios/Epic.mp3',             video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Reptilia',        dur: '0:30', audio: 'assets/audios/Reptilia.mp3',         video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Go With A Flow',  dur: '0:30', audio: 'assets/audios/Go-With-a-Flow.mp3',   video: 'https://player.vimeo.com/video/33730560?autoplay=1' },
-        { title: 'Electric Version',dur: '0:31', audio: 'assets/audios/Electric-version.mp3', video: 'https://player.vimeo.com/video/33730560?autoplay=1' }
+document.addEventListener('DOMContentLoaded', function() {
+    // ─── CANCIONES ───────────────────────────────────────
+    const canciones = [
+        { titulo: 'Black Hole Sun',   audio: 'assets/audios/Black-hole-sun.mp3' },
+        { titulo: 'Work',             audio: 'assets/audios/Work.mp3' },
+        { titulo: 'Lullaby',          audio: 'assets/audios/Lullaby.mp3' },
+        { titulo: 'The Passenger',    audio: 'assets/audios/The-Passanger.mp3' },
+        { titulo: 'Celebrity Skin',   audio: 'assets/audios/Celebrity-Skin.mp3' },
+        { titulo: 'Creep',            audio: 'assets/audios/Creep.mp3' },
+        { titulo: 'Epic',             audio: 'assets/audios/Epic.mp3' },
+        { titulo: 'Reptilia',         audio: 'assets/audios/Reptilia.mp3' },
+        { titulo: 'Go With A Flow',   audio: 'assets/audios/Go-With-a-Flow.mp3' },
+        { titulo: 'Electric Version', audio: 'assets/audios/Electric-version.mp3' }
     ];
 
-    /* ================================================================
-       HELPER
-    ================================================================ */
-    function fmt(s) {
-        const m   = Math.floor(s / 60);
-        const sec = String(Math.floor(s % 60)).padStart(2, '0');
-        return m + ':' + sec;
-    }
+    let cancionActual = 0;
 
-    /* ================================================================
-       PLAYER BAR
-    ================================================================ */
-    const audio      = document.getElementById('main-audio');
-    const playBtn    = document.getElementById('btn-play');
-    const prevBtn    = document.getElementById('btn-prev');
-    const nextBtn    = document.getElementById('btn-next');
-    const progFill   = document.getElementById('progress-fill');
-    const progTrack  = document.getElementById('progress-track');
-    const timeEl     = document.getElementById('player-time');
-    const titleEl    = document.getElementById('player-title');
+    // ─── CREAR EL AUDIO ──────────────────────────────────
+    let audio = document.createElement('audio');
+    audio.src = canciones[0].audio;
 
-    let currentIdx = 0;
+    // ─── AGARRAR EL CONTENEDOR ───────────────────────────
+    let playerBar = document.getElementById('player-bar');
 
-    function loadTrack(idx) {
-        currentIdx     = idx;
-        audio.src      = TRACKS[idx].audio;
-        titleEl.textContent = TRACKS[idx].title;
-    }
+    // ─── CREAR LA PORTADA ────────────────────────────────
+    let portada = document.createElement('img');
+    portada.className = 'player-cover';
+    portada.src = 'assets/images/album-16-150x150.jpg';
+    portada.alt = 'Portada';
 
-    function setPlayIcon(playing) {
-        playBtn.innerHTML = playing
-            ? '<i class="fas fa-pause"></i>'
-            : '<i class="fas fa-play"></i>';
-    }
+    // ─── CREAR LA INFO (titulo y artista) ────────────────
+    let info = document.createElement('div');
+    info.className = 'player-info';
 
-    function togglePlay() {
-        if (audio.paused) { audio.play(); setPlayIcon(true); }
-        else              { audio.pause(); setPlayIcon(false); }
-    }
+    let titulo = document.createElement('div');
+    titulo.className = 'player-title';
+    titulo.textContent = canciones[0].titulo;
 
-    audio.addEventListener('timeupdate', function () {
-        if (!audio.duration) return;
-        progFill.style.width  = (audio.currentTime / audio.duration * 100) + '%';
-        timeEl.textContent    = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    let artista = document.createElement('div');
+    artista.className = 'player-artist';
+    artista.textContent = 'Terrible';
+
+    info.appendChild(titulo);
+    info.appendChild(artista);
+
+    // ─── CREAR LOS BOTONES ───────────────────────────────
+    let controles = document.createElement('div');
+    controles.className = 'player-controls';
+
+    let botonAnterior = document.createElement('button');
+    botonAnterior.innerHTML = '<i class="fas fa-step-backward"></i>';
+
+    let botonPlay = document.createElement('button');
+    botonPlay.innerHTML = '<i class="fas fa-play"></i>';
+
+    let botonSiguiente = document.createElement('button');
+    botonSiguiente.innerHTML = '<i class="fas fa-step-forward"></i>';
+
+    controles.appendChild(botonAnterior);
+    controles.appendChild(botonPlay);
+    controles.appendChild(botonSiguiente);
+
+    // ─── CREAR LA BARRA DE PROGRESO ──────────────────────
+    let progreso = document.createElement('div');
+    progreso.className = 'player-progress';
+
+    let barraProgreso = document.createElement('div');
+    barraProgreso.className = 'progress-track';
+
+    let rellenoBarra = document.createElement('div');
+    rellenoBarra.className = 'progress-fill';
+
+    barraProgreso.appendChild(rellenoBarra);
+
+    let tiempo = document.createElement('span');
+    tiempo.className = 'player-time';
+    tiempo.textContent = '0:00 / 0:00';
+
+    progreso.appendChild(barraProgreso);
+    progreso.appendChild(tiempo);
+
+    // ─── CREAR EL VOLUMEN ────────────────────────────────
+    let volumen = document.createElement('div');
+    volumen.className = 'player-volume';
+
+    let iconoVolumen = document.createElement('i');
+    iconoVolumen.className = 'fas fa-volume-up';
+
+    let barraVolumen = document.createElement('div');
+    barraVolumen.className = 'vol-track';
+
+    let rellenovolumen = document.createElement('div');
+    rellenovolumen.className = 'vol-fill';
+
+    barraVolumen.appendChild(rellenovolumen);
+    volumen.appendChild(iconoVolumen);
+    volumen.appendChild(barraVolumen);
+
+    // ─── PONER TODO EN EL PLAYER BAR ─────────────────────
+    playerBar.appendChild(portada);
+    playerBar.appendChild(info);
+    playerBar.appendChild(controles);
+    playerBar.appendChild(progreso);
+    playerBar.appendChild(volumen);
+    playerBar.appendChild(audio);
+
+    // ─── CUANDO APRIETAN PLAY/PAUSE ──────────────────────
+    botonPlay.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            audio.pause();
+            botonPlay.innerHTML = '<i class="fas fa-play"></i>';
+        }
     });
 
-    progTrack.addEventListener('click', function (e) {
-        if (!audio.duration) return;
-        const rect       = progTrack.getBoundingClientRect();
-        audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
-    });
-
-    audio.addEventListener('ended', function () {
-        currentIdx = (currentIdx + 1) % TRACKS.length;
-        loadTrack(currentIdx);
+    // ─── CUANDO APRIETAN SIGUIENTE ───────────────────────
+    botonSiguiente.addEventListener('click', function() {
+        cancionActual = cancionActual + 1;
+        if (cancionActual >= canciones.length) {
+            cancionActual = 0;
+        }
+        audio.src = canciones[cancionActual].audio;
+        titulo.textContent = canciones[cancionActual].titulo;
         audio.play();
-        setPlayIcon(true);
+        botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
     });
 
-    playBtn.addEventListener('click', togglePlay);
-
-    nextBtn.addEventListener('click', function () {
-        currentIdx = (currentIdx + 1) % TRACKS.length;
-        loadTrack(currentIdx);
+    // ─── CUANDO APRIETAN ANTERIOR ────────────────────────
+    botonAnterior.addEventListener('click', function() {
+        cancionActual = cancionActual - 1;
+        if (cancionActual < 0) {
+            cancionActual = canciones.length - 1;
+        }
+        audio.src = canciones[cancionActual].audio;
+        titulo.textContent = canciones[cancionActual].titulo;
         audio.play();
-        setPlayIcon(true);
+        botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
     });
 
-    prevBtn.addEventListener('click', function () {
-        currentIdx = (currentIdx - 1 + TRACKS.length) % TRACKS.length;
-        loadTrack(currentIdx);
+    // ─── ACTUALIZAR LA BARRA MIENTRAS SUENA ──────────────
+    audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+            var porcentaje = (audio.currentTime / audio.duration) * 100;
+            rellenoBarra.style.width = porcentaje + '%';
+
+            let minActual = Math.floor(audio.currentTime / 60);
+            let segActual = Math.floor(audio.currentTime % 60);
+            if (segActual < 10) { segActual = '0' + segActual; }
+
+            let minTotal = Math.floor(audio.duration / 60);
+            let segTotal = Math.floor(audio.duration % 60);
+            if (segTotal < 10) { segTotal = '0' + segTotal; }
+
+            tiempo.textContent = minActual + ':' + segActual + ' / ' + minTotal + ':' + segTotal;
+        }
+    });
+
+    // ─── CLIC EN LA BARRA PARA SALTAR ────────────────────
+    barraProgreso.addEventListener('click', function(e) {
+        if (audio.duration) {
+            let ancho = barraProgreso.getBoundingClientRect();
+            let posicion = e.clientX - ancho.left;
+            let porcentaje = posicion / ancho.width;
+            audio.currentTime = porcentaje * audio.duration;
+        }
+    });
+
+    // ─── CUANDO TERMINA LA CANCION PASA A LA SIGUIENTE ───
+    audio.addEventListener('ended', function() {
+        cancionActual = cancionActual + 1;
+        if (cancionActual >= canciones.length) {
+            cancionActual = 0;
+        }
+        audio.src = canciones[cancionActual].audio;
+        titulo.textContent = canciones[cancionActual].titulo;
         audio.play();
-        setPlayIcon(true);
     });
 
-    loadTrack(0);
+}); 
 
-    /* ================================================================
-       TRACK LIST
-    ================================================================ */
-    const trackListEl  = document.getElementById('track-list');
-    const modalVideo   = document.getElementById('modal-video');
-    const videoFrame   = document.getElementById('video-frame');
-    const modalClose   = document.getElementById('modal-video-close');
-    const trackAudio   = new Audio();
-    let   activeTrackIdx = null;
+document.addEventListener('DOMContentLoaded', function() {
 
-    TRACKS.forEach(function (t, i) {
-        const item = document.createElement('div');
-        item.className = 'track-item';
-        item.innerHTML =
-            '<span class="track-num">' + (i + 1) + '.</span>' +
-            '<span class="track-name">' + t.title + '</span>' +
-            '<span class="track-dur">'  + t.dur   + '</span>' +
-            '<span class="track-actions">' +
-                '<button class="ta-play"  aria-label="Reproducir audio"><i class="fas fa-play"></i></button>' +
-                '<button class="ta-video" aria-label="Ver video"><i class="fas fa-video"></i></button>' +
-            '</span>';
+    // ─── CANCIONES ───────────────────────────────────────
+    const datosCanciones = [
+        { numero: '1.',  titulo: 'Black Hole Sun',   duracion: '0:32', audio: 'assets/audios/Black-hole-sun.mp3' },
+        { numero: '2.',  titulo: 'Work',             duracion: '0:27', audio: 'assets/audios/Work.mp3' },
+        { numero: '3.',  titulo: 'Lullaby',          duracion: '0:30', audio: 'assets/audios/Lullaby.mp3' },
+        { numero: '4.',  titulo: 'The Passenger',    duracion: '0:30', audio: 'assets/audios/The-Passanger.mp3' },
+        { numero: '5.',  titulo: 'Celebrity Skin',   duracion: '0:32', audio: 'assets/audios/Celebrity-Skin.mp3' },
+        { numero: '6.',  titulo: 'Creep',            duracion: '0:30', audio: 'assets/audios/Creep.mp3' },
+        { numero: '7.',  titulo: 'Epic',             duracion: '0:30', audio: 'assets/audios/Epic.mp3' },
+        { numero: '8.',  titulo: 'Reptilia',         duracion: '0:30', audio: 'assets/audios/Reptilia.mp3' },
+        { numero: '9.',  titulo: 'Go With A Flow',   duracion: '0:30', audio: 'assets/audios/Go-With-a-Flow.mp3' },
+        { numero: '10.', titulo: 'Electric Version', duracion: '0:31', audio: 'assets/audios/Electric-version.mp3' }
+    ];
 
-        const btnAudio = item.querySelector('.ta-play');
-        const btnVideo = item.querySelector('.ta-video');
+    // ─── AUDIO PARA LA LISTA DE CANCIONES ────────────────
+    let audioCancion = new Audio();
 
-        btnAudio.addEventListener('click', function () {
-            if (activeTrackIdx === i && !trackAudio.paused) {
-                trackAudio.pause();
-                btnAudio.innerHTML  = '<i class="fas fa-play"></i>';
-                activeTrackIdx      = null;
-                return;
-            }
-            /* Resetear todos los botones */
-            document.querySelectorAll('.ta-play').forEach(function (b) {
-                b.innerHTML = '<i class="fas fa-play"></i>';
-            });
-            trackAudio.src   = t.audio;
-            trackAudio.play();
-            btnAudio.innerHTML = '<i class="fas fa-pause"></i>';
-            activeTrackIdx     = i;
-        });
+    // ─── MODAL DE VIDEO ──────────────────────────────────
+    const modalVideo = document.getElementById('modal-video');
+    const videoFrame = document.getElementById('video-frame');
+    const botonCerrar = document.getElementById('modal-cerrar');
 
-        btnVideo.addEventListener('click', function () {
-            videoFrame.src = t.video;
-            modalVideo.classList.add('active');
-        });
-
-        trackListEl.appendChild(item);
-    });
-
-    trackAudio.addEventListener('ended', function () {
-        document.querySelectorAll('.ta-play').forEach(function (b) {
-            b.innerHTML = '<i class="fas fa-play"></i>';
-        });
-        activeTrackIdx = null;
-    });
-
-    function closeModalVideo() {
-        modalVideo.classList.remove('active');
+    // Cerrar modal con el botón ✕
+    botonCerrar.addEventListener('click', function() {
+        modalVideo.classList.remove('activo');
         videoFrame.src = '';
-    }
-
-    modalClose.addEventListener('click', closeModalVideo);
-    modalVideo.addEventListener('click', function (e) {
-        if (e.target === modalVideo) closeModalVideo();
     });
 
-    /* ================================================================
-       GALLERY + LIGHTBOX
-    ================================================================ */
-    const galleryEl = document.getElementById('gallery-grid');
-    const IMAGES = [
+    // Cerrar modal haciendo clic afuera
+    modalVideo.addEventListener('click', function(e) {
+        if (e.target === modalVideo) {
+            modalVideo.classList.remove('activo');
+            videoFrame.src = '';
+        }
+    });
+
+    // ─── CREAR CADA CANCION EN LA LISTA ──────────────────
+    const listaCanciones = document.getElementById('lista-canciones');
+
+    for (let i = 0; i < datosCanciones.length; i++) {
+
+        let cancion = document.createElement('div');
+        cancion.className = 'cancion';
+
+        let numero = document.createElement('span');
+        numero.className = 'cancion-numero';
+        numero.textContent = datosCanciones[i].numero;
+
+        let tituloCancion = document.createElement('span');
+        tituloCancion.className = 'cancion-titulo';
+        tituloCancion.textContent = datosCanciones[i].titulo;
+
+        let duracion = document.createElement('span');
+        duracion.className = 'cancion-duracion';
+        duracion.textContent = datosCanciones[i].duracion;
+
+        let botonesCancion = document.createElement('div');
+        botonesCancion.className = 'cancion-botones';
+
+        let botonAudio = document.createElement('button');
+        botonAudio.innerHTML = '<i class="fas fa-play"></i>';
+
+        let botonVideo = document.createElement('button');
+        botonVideo.innerHTML = '<i class="fas fa-video"></i>';
+
+        // ─── LOGICA DEL BOTON PLAY ────────────────────────
+        botonAudio.addEventListener('click', function() {
+
+            // Si esta cancion ya esta sonando la pausamos
+            if (audioCancion.src.includes(datosCanciones[i].audio) && !audioCancion.paused) {
+                audioCancion.pause();
+                botonAudio.innerHTML = '<i class="fas fa-play"></i>';
+
+            } else {
+                // Parar lo que estaba sonando
+                audioCancion.pause();
+
+                // Resetear todos los iconos a play
+                let todosLosBotones = document.querySelectorAll('.cancion-botones button:first-child');
+                for (let j = 0; j < todosLosBotones.length; j++) {
+                    todosLosBotones[j].innerHTML = '<i class="fas fa-play"></i>';
+                }
+
+                // Poner la cancion nueva y reproducir
+                audioCancion.src = datosCanciones[i].audio;
+                audioCancion.play();
+                botonAudio.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        });
+
+        // ─── LOGICA DEL BOTON VIDEO ───────────────────────
+        botonVideo.addEventListener('click', function() {
+            videoFrame.src = 'https://player.vimeo.com/video/33730560?autoplay=1';
+            modalVideo.classList.add('activo');
+        });
+
+        botonesCancion.appendChild(botonAudio);
+        botonesCancion.appendChild(botonVideo);
+
+        cancion.appendChild(numero);
+        cancion.appendChild(tituloCancion);
+        cancion.appendChild(duracion);
+        cancion.appendChild(botonesCancion);
+
+        listaCanciones.appendChild(cancion);
+    }
+
+}); 
+
+// ─── GALERIA DE FOTOS ─────────────────────────────────
+    const fotosGaleria = [
         'assets/images/h1-img-1.jpg',
         'assets/images/h1-img-2.jpg',
         'assets/images/h1-img-3.jpg',
@@ -173,188 +301,62 @@ document.addEventListener('DOMContentLoaded', function () {
         'assets/images/h1-img-6.jpg'
     ];
 
-    const lightbox  = document.getElementById('img-lightbox');
-    const lbImg     = document.getElementById('lb-img');
-    const lbClose   = document.getElementById('lb-close');
-    const lbPrev    = document.getElementById('lb-prev');
-    const lbNext    = document.getElementById('lb-next');
-    const lbCounter = document.getElementById('lb-counter');
-    let   lbIdx     = 0;
+    const grilla = document.getElementById('galeria-grilla');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxFoto = document.getElementById('lightbox-foto');
+    const lightboxContador = document.getElementById('lightbox-contador');
+    const botonCerrarLb = document.getElementById('lightbox-cerrar');
+    const botonAnteriorLb = document.getElementById('lightbox-anterior');
+    const botonSiguienteLb = document.getElementById('lightbox-siguiente');
 
-    IMAGES.forEach(function (src, i) {
-        const img = document.createElement('img');
-        img.src   = src;
-        img.alt   = 'Gallery image ' + (i + 1);
-        img.addEventListener('click', function () { openLb(i); });
-        galleryEl.appendChild(img);
-    });
+    let fotoActual = 0;
 
-    function openLb(i) {
-        lbIdx               = i;
-        lbImg.src           = IMAGES[i];
-        lbCounter.textContent = (i + 1) + ' / ' + IMAGES.length;
-        lightbox.classList.add('active');
+    // ─── CREAR LAS FOTOS EN LA GRILLA ────────────────────
+    for (let i = 0; i < fotosGaleria.length; i++) {
+
+        let foto = document.createElement('img');
+        foto.src = fotosGaleria[i];
+        foto.alt = 'Foto ' + (i + 1);
+
+        // Al hacer clic abre el lightbox
+        foto.addEventListener('click', function() {
+            fotoActual = i;
+            lightboxFoto.src = fotosGaleria[fotoActual];
+            lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
+            lightbox.classList.add('activo');
+        });
+
+        grilla.appendChild(foto);
     }
 
-    lbClose.addEventListener('click', function () { lightbox.classList.remove('active'); });
-    lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) lightbox.classList.remove('active');
+    // ─── BOTON CERRAR LIGHTBOX ────────────────────────────
+    botonCerrarLb.addEventListener('click', function() {
+        lightbox.classList.remove('activo');
     });
-    lbNext.addEventListener('click', function () { openLb((lbIdx + 1) % IMAGES.length); });
-    lbPrev.addEventListener('click', function () { openLb((lbIdx - 1 + IMAGES.length) % IMAGES.length); });
 
-    /* ================================================================
-       TOUR DATES
-    ================================================================ */
-    const DATES = [
-        { day: '10', month: 'Jun', dayName: 'Sun', place: 'Gärdet Open Air Stockholm – Sweden',  link: 'event.html' },
-        { day: '12', month: 'Jun', dayName: 'Tue', place: 'Helsinki, Finland – Hartwall Arena',   link: 'event.html' },
-        { day: '14', month: 'Jun', dayName: 'Thu', place: 'Riga, Latvia – Riga Arena',            link: 'event.html' },
-        { day: '15', month: 'Jun', dayName: 'Fri', place: 'Kaunas, Lithuania – Žalgirio Arena',   link: 'event.html' },
-        { day: '18', month: 'Jun', dayName: 'Mon', place: 'Moscow, Russia – Olimpiski',           link: 'event.html' },
-        { day: '19', month: 'Jun', dayName: 'Tue', place: 'Pilton, England – Glastonbury',        link: 'event.html' },
-        { day: '22', month: 'Jun', dayName: 'Fri', place: 'London, England – O2 Arena',           link: 'event.html' },
-        { day: '27', month: 'Jun', dayName: 'Wed', place: 'Rome, Italy – Cola Arena',             link: 'event.html' },
-        { day: '29', month: 'Jun', dayName: 'Fri', place: 'Athens, Greece – PAOK Stadium',        link: 'event.html' },
-        { day: '03', month: 'Jul', dayName: 'Tue', place: 'Budapest, Hungary – Nagy Arena',       link: 'event.html' }
-    ];
-
-    const datesList  = document.getElementById('dates-list');
-    const viewAllBtn = document.getElementById('view-all-btn');
-    const VISIBLE    = 6;
-    let   extraShown = false;
-    const extraEls   = [];
-
-    DATES.forEach(function (d, i) {
-        const li = document.createElement('li');
-        li.className = 'date-item';
-        li.innerHTML =
-            '<div class="date-block">' +
-                '<span class="date-num">'   + d.day     + '</span>' +
-                '<span class="date-label">' + d.month + '<br>' + d.dayName + '</span>' +
-            '</div>' +
-            '<div class="date-venue"><a href="' + d.link + '">' + d.place + '</a></div>' +
-            '<a href="#" class="buy-ticket-link">Buy Tickets</a>';
-
-        if (i < VISIBLE) {
-            datesList.appendChild(li);
-        } else {
-            li.style.display = 'none';
-            datesList.appendChild(li);
-            extraEls.push(li);
+    // ─── CERRAR AL HACER CLIC AFUERA ─────────────────────
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('activo');
         }
     });
 
-    viewAllBtn.addEventListener('click', function () {
-        if (!extraShown) {
-            extraEls.forEach(function (li) { li.style.display = ''; });
-            viewAllBtn.textContent = 'Show Less';
-            extraShown = true;
-        } else {
-            extraEls.forEach(function (li) { li.style.display = 'none'; });
-            viewAllBtn.textContent = 'View All';
-            extraShown = false;
+    // ─── BOTON SIGUIENTE ──────────────────────────────────
+    botonSiguienteLb.addEventListener('click', function() {
+        fotoActual = fotoActual + 1;
+        if (fotoActual >= fotosGaleria.length) {
+            fotoActual = 0;
         }
+        lightboxFoto.src = fotosGaleria[fotoActual];
+        lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
     });
 
-    /* ================================================================
-       BLOG POSTS
-    ================================================================ */
-    const POSTS = [
-        { img: 'assets/images/blog-post-1.jpg', title: 'The Best Night In Baltimore', date: '10 April, 2018', link: '#' },
-        { img: 'assets/images/blog-post-2.jpg', title: 'The Best Night In Detroit',   date: '10 April, 2018', link: '#' },
-        { img: 'assets/images/blog-post-3.jpg', title: 'The Best Night In New York',  date: '10 April, 2018', link: '#' }
-    ];
-
-    const postsGrid = document.getElementById('posts-grid');
-
-    POSTS.forEach(function (p) {
-        const art = document.createElement('article');
-        art.className = 'blog-post';
-        art.innerHTML =
-            '<img src="' + p.img + '" alt="' + p.title + '">' +
-            '<p class="blog-post-title"><a href="' + p.link + '">' + p.title + '</a></p>' +
-            '<p class="blog-post-date">' + p.date + '</p>';
-        postsGrid.appendChild(art);
+    // ─── BOTON ANTERIOR ───────────────────────────────────
+    botonAnteriorLb.addEventListener('click', function() {
+        fotoActual = fotoActual - 1;
+        if (fotoActual < 0) {
+            fotoActual = fotosGaleria.length - 1;
+        }
+        lightboxFoto.src = fotosGaleria[fotoActual];
+        lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
     });
-
-    /* ================================================================
-       VIDEO SECTION
-    ================================================================ */
-    const videoPlayBtn  = document.getElementById('video-play-btn');
-    const videoLightbox = document.getElementById('video-lightbox');
-    const videoClose    = document.getElementById('video-close');
-    const mainVideo     = document.getElementById('main-video');
-
-    videoPlayBtn.addEventListener('click', function () {
-        videoLightbox.classList.add('active');
-        mainVideo.play();
-    });
-
-    function closeVideoLightbox() {
-        videoLightbox.classList.remove('active');
-        mainVideo.pause();
-        mainVideo.currentTime = 0;
-    }
-
-    videoClose.addEventListener('click', closeVideoLightbox);
-    videoLightbox.addEventListener('click', function (e) {
-        if (e.target === videoLightbox) closeVideoLightbox();
-    });
-
-    /* ================================================================
-       DISCOGRAPHY
-    ================================================================ */
-    const ALBUMS = [
-        { img: 'assets/images/album-1.jpg', title: 'Be-Doo',          sub: 'Caller' },
-        { img: 'assets/images/album-2.jpg', title: 'Free Spirit',     sub: 'Go Away' },
-        { img: 'assets/images/album-3.jpg', title: 'Depressed Days',  sub: 'Ritual Spirit' },
-        { img: 'assets/images/album-4.jpg', title: 'Wrong Motion',    sub: 'Love Hate' },
-        { img: 'assets/images/album-5.jpg', title: 'Lost Gravity',    sub: 'Fallen' },
-        { img: 'assets/images/album-6.jpg', title: 'Road Killer',     sub: 'Hater' },
-        { img: 'assets/images/album-7.jpg', title: 'The Minimalists', sub: 'Windows' },
-        { img: 'assets/images/album-8.jpg', title: 'Philip Jax',      sub: 'Blame' }
-    ];
-
-    const discoGrid    = document.getElementById('disco-grid');
-    const discoMoreBtn = document.getElementById('disco-show-more');
-    let   discoShown   = 0;
-    const DISCO_STEP   = 4;
-
-    function renderDiscoCard(album) {
-        const card = document.createElement('div');
-        card.className = 'disco-card';
-        card.innerHTML =
-            '<img src="' + album.img + '" alt="' + album.title + '">' +
-            '<div class="disco-overlay">' +
-                '<h3>' + album.title + '</h3>' +
-                '<p>'  + album.sub   + '</p>' +
-            '</div>';
-        discoGrid.appendChild(card);
-    }
-
-    function loadDiscoRow() {
-        const slice = ALBUMS.slice(discoShown, discoShown + DISCO_STEP);
-        slice.forEach(renderDiscoCard);
-        discoShown += slice.length;
-        if (discoShown >= ALBUMS.length) discoMoreBtn.style.display = 'none';
-    }
-
-    loadDiscoRow(); /* Primera fila al cargar */
-
-    discoMoreBtn.addEventListener('click', loadDiscoRow);
-
-    /* ================================================================
-       SCROLL TO TOP
-    ================================================================ */
-    const scrollTopBtn = document.getElementById('scroll-top');
-
-    window.addEventListener('scroll', function () {
-        scrollTopBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
-    });
-
-    scrollTopBtn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-}); 

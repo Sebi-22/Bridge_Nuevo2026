@@ -440,3 +440,202 @@ document.addEventListener("DOMContentLoaded", function() {
             extrasVisibles = false;
         }
     });
+
+    // ─── BLOG POSTS ───────────────────────────────────────
+    const datosPosts = [
+        { imagen: 'assets/images/blog-post-1.jpg', titulo: 'The Best Night In Baltimore', fecha: '10 April, 2018' },
+        { imagen: 'assets/images/blog-post-2.jpg', titulo: 'The Best Night In Detroit',   fecha: '10 April, 2018' },
+        { imagen: 'assets/images/blog-post-3.jpg', titulo: 'The Best Night In New York',  fecha: '10 April, 2018' }
+    ];
+
+    const blogGrilla = document.getElementById('blog-grilla');
+
+    for (let i = 0; i < datosPosts.length; i++) {
+
+        let post = document.createElement('article');
+        post.className = 'blog-post';
+
+        let imagen = document.createElement('img');
+        imagen.src = datosPosts[i].imagen;
+        imagen.alt = datosPosts[i].titulo;
+
+        let titulo = document.createElement('p');
+        titulo.className = 'blog-post-titulo';
+
+        let link = document.createElement('a');
+        link.href = '#';
+        link.textContent = datosPosts[i].titulo;
+
+        titulo.appendChild(link);
+
+        let fecha = document.createElement('p');
+        fecha.className = 'blog-post-fecha';
+        fecha.textContent = datosPosts[i].fecha;
+
+        post.appendChild(imagen);
+        post.appendChild(titulo);
+        post.appendChild(fecha);
+
+        blogGrilla.appendChild(post);
+    }
+
+    // ─── VIDEO SECTION ────────────────────────────────────
+    const videoBotonPlay = document.getElementById('video-boton-play');
+    const videoLightbox = document.getElementById('video-lightbox');
+    const videoLightboxCerrar = document.getElementById('video-lightbox-cerrar');
+    const videoPrincipal = document.getElementById('video-principal');
+
+    // Abrir el lightbox
+    videoBotonPlay.addEventListener('click', function() {
+        videoLightbox.classList.add('activo');
+        videoPrincipal.play();
+    });
+
+    // Cerrar con el boton X
+    videoLightboxCerrar.addEventListener('click', function() {
+        videoLightbox.classList.remove('activo');
+        videoPrincipal.pause();
+        videoPrincipal.currentTime = 0;
+    });
+
+    // Cerrar haciendo clic afuera
+    videoLightbox.addEventListener('click', function(e) {
+        if (e.target === videoLightbox) {
+            videoLightbox.classList.remove('activo');
+            videoPrincipal.pause();
+            videoPrincipal.currentTime = 0;
+        }
+    });
+
+// ─── DISCOGRAPHY ──────────────────────────────────────
+    const datosAlbumes = [
+        { imagen: 'assets/images/album-1.jpg',  titulo: 'Be-Doo',          subtitulo: 'Caller' },
+        { imagen: 'assets/images/album-2.jpg',  titulo: 'Free Spirit',     subtitulo: 'Go Away' },
+        { imagen: 'assets/images/album-3.jpg',  titulo: 'Depressed Days',  subtitulo: 'Ritual Spirit' },
+        { imagen: 'assets/images/album-4.jpg',  titulo: 'Wrong Motion',    subtitulo: 'Love Hate' },
+        { imagen: 'assets/images/album-5.jpg',  titulo: 'Lost Gravity',    subtitulo: 'Fallen' },
+        { imagen: 'assets/images/album-6.jpg',  titulo: 'Road Killer',     subtitulo: 'Hater' },
+        { imagen: 'assets/images/album-7.jpg',  titulo: 'The Minimalists', subtitulo: 'Windows' },
+        { imagen: 'assets/images/album-8.jpg',  titulo: 'Philip Jax',      subtitulo: 'Blame' },
+        { imagen: 'assets/images/album-9.jpg',  titulo: 'Bad Habits',      subtitulo: 'Joy' },
+        { imagen: 'assets/images/album-10.jpg', titulo: 'Low Distance',    subtitulo: 'Free Your Mind' },
+        { imagen: 'assets/images/album-11.jpg', titulo: 'Fast Track',      subtitulo: 'Low Bass' },
+        { imagen: 'assets/images/album-12.jpg', titulo: 'Neonium',         subtitulo: 'Neon Dreams' }
+    ];
+
+    const discoGrilla = document.getElementById('disco-grilla');
+    const discoBotonMas = document.getElementById('disco-boton-mas');
+    let albumesMostrados = 0;
+    const PASO = 4;
+
+    // Funcion que repite los albumes infinitamente
+    function mostrarAlbumes() {
+
+        for (let i = 0; i < PASO; i++) {
+
+            // Cuando llega al final vuelve al principio
+            let indice = albumesMostrados % datosAlbumes.length;
+
+            let card = document.createElement('div');
+            card.className = 'disco-card';
+
+            let imagen = document.createElement('img');
+            imagen.src = datosAlbumes[indice].imagen;
+            imagen.alt = datosAlbumes[indice].titulo;
+
+            let overlay = document.createElement('div');
+            overlay.className = 'disco-overlay';
+
+            let titulo = document.createElement('h3');
+            titulo.textContent = datosAlbumes[indice].titulo;
+
+            let subtitulo = document.createElement('p');
+            subtitulo.textContent = datosAlbumes[indice].subtitulo;
+
+            overlay.appendChild(titulo);
+            overlay.appendChild(subtitulo);
+
+            card.appendChild(imagen);
+            card.appendChild(overlay);
+
+            discoGrilla.appendChild(card);
+
+            albumesMostrados = albumesMostrados + 1;
+        }
+    }
+
+    // Primera fila al cargar
+    mostrarAlbumes();
+
+    // Cada clic agrega 4 mas, siempre
+    discoBotonMas.addEventListener('click', function() {
+        mostrarAlbumes();
+    });
+
+    // ─── SCROLL TO TOP ────────────────────────────────────
+    const scrollBtn = document.getElementById('scroll-top');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight * 0.5) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+    const campoNombre  = document.getElementById('campo-nombre');
+    const campoEmail   = document.getElementById('campo-email');
+    const campoMensaje = document.getElementById('campo-mensaje');
+    const botonEnviar  = document.getElementById('boton-enviar');
+    const formMensaje  = document.getElementById('form-mensaje');
+
+    botonEnviar.addEventListener('click', function() {
+
+        const nombre  = campoNombre.value.trim();
+        const email   = campoEmail.value.trim();
+        const mensaje = campoMensaje.value.trim();
+
+        // ─── VALIDACION ───────────────────────────────────
+        if (nombre === '' || email === '' || mensaje === '') {
+            formMensaje.textContent = 'Please fill in all fields.';
+            formMensaje.className = 'contact-form-mensaje mensaje-error';
+            return;
+        }
+
+        if (email.includes('@') === false || email.includes('.') === false) {
+            formMensaje.textContent = 'Please enter a valid email.';
+            formMensaje.className = 'contact-form-mensaje mensaje-error';
+            return;
+        }
+
+        // ─── EXITO ────────────────────────────────────────
+        formMensaje.textContent = 'Thank you! Your message has been sent.';
+        formMensaje.className = 'contact-form-mensaje mensaje-ok';
+
+        campoNombre.value  = '';
+        campoEmail.value   = '';
+        campoMensaje.value = '';
+    });
+
+    // ─── SCROLL TO TOP ────────────────────────────────────
+    const scrollBtn = document.getElementById('scroll-top');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight * 0.5) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+}); 

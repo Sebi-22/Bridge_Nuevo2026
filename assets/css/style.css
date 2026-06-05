@@ -420,6 +420,8 @@ nav a.active {
 ============================================================ */
 .galeria-seccion {
     background: var(--black);
+    width: 100%;
+    overflow: hidden;
 }
 
 .galeria-encabezado {
@@ -455,7 +457,7 @@ nav a.active {
     margin-bottom: 5vh;
 }
 
-/* ─── GRILLA ─────────────────────────────────────────── */
+/* ─── GRILLA MÓVIL (Por defecto) ─────────────────────── */
 .galeria-grilla {
     display: flex;
     flex-wrap: wrap;
@@ -463,24 +465,29 @@ nav a.active {
 }
 
 .galeria-grilla img {
+    width: 100%; /* En móviles van al 100% para que no se vean diminutas */
     aspect-ratio: 1/1;
     object-fit: cover;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
     display: block;
 }
 
-.galeria-grilla img:hover { opacity: 0.6; }
+.galeria-grilla img:hover { 
+    opacity: 0.7; 
+}
 
-/* Fila 1: grande - chica - chica */
-.galeria-grilla img:nth-child(1) { width: 50%; }
-.galeria-grilla img:nth-child(2) { width: 25%; }
-.galeria-grilla img:nth-child(3) { width: 25%; }
+@media (min-width: 768px) {
+    /* Fila 1: grande - chica - chica */
+    .galeria-grilla img:nth-child(1) { width: 50%; }
+    .galeria-grilla img:nth-child(2) { width: 25%; }
+    .galeria-grilla img:nth-child(3) { width: 25%; }
 
-/* Fila 2: chica - chica - grande */
-.galeria-grilla img:nth-child(4) { width: 25%; }
-.galeria-grilla img:nth-child(5) { width: 25%; }
-.galeria-grilla img:nth-child(6) { width: 50%; }
+    /* Fila 2: chica - chica - grande */
+    .galeria-grilla img:nth-child(4) { width: 25%; }
+    .galeria-grilla img:nth-child(5) { width: 25%; }
+    .galeria-grilla img:nth-child(6) { width: 50%; }
+}
 
 /* ============================================================
    LIGHTBOX
@@ -489,58 +496,165 @@ nav a.active {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0,0,0,0.95);
     z-index: 1000;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.lightbox.activo { display: flex; }
+.lightbox.activo { 
+    display: flex; 
+}
 
 .lightbox img {
-    max-width: 80vw;
+    max-width: 85vw;
     max-height: 75vh;
     object-fit: contain;
 }
 
 #lightbox-cerrar {
     position: absolute;
-    top: 3vh;
-    right: 2vw;
+    top: 4vh;
+    right: 4vw;
     color: var(--white);
-    font-size: 1.8rem;
+    font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: transform 0.2s, opacity 0.3s;
 }
 
-#lightbox-cerrar:hover { opacity: 0.6; }
+#lightbox-cerrar:hover { 
+    opacity: 0.6; 
+    transform: scale(1.1);
+}
 
 .lightbox-controles {
     display: flex;
     align-items: center;
     gap: 2vw;
-    margin-top: 2vh;
+    margin-top: 3vh;
 }
 
 .lightbox-controles button {
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 44px;
     height: 44px;
     border: 2px solid var(--white);
     border-radius: 50%;
     background: none;
     cursor: pointer;
-    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.lightbox-controles button:hover { background: rgba(255,255,255,0.15); }
+.lightbox-controles button:hover { 
+    background: rgba(255,255,255,0.2); 
+    transform: scale(1.05);
+}
 
 #lightbox-contador {
     font-family: var(--font-mono);
     font-size: 0.9rem;
     color: var(--gray-light);
+    letter-spacing: 1px;
 }
+
+/* ============================================================
+   TOUR DATES
+============================================================ */
+.fechas-seccion {
+    padding: 10vh 15vw;
+    background: var(--black);
+}
+
+.fecha-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray-border);
+    padding: 2vh 0;
+    gap: 1vw;
+    flex-wrap: wrap;
+}
+
+.fecha-numero {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-right: 0.3em;
+}
+
+.fecha-mes {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    border-left: 1px solid var(--gray-border);
+    padding-left: 0.7em;
+    min-width: 40px;
+}
+
+.fecha-lugar {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-left: 2vw;
+}
+
+.fecha-lugar a {
+    color: var(--white);
+    transition: opacity 0.3s;
+}
+
+.fecha-lugar a:hover { opacity: 0.6; }
+
+.fecha-tickets {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.fecha-tickets:hover { opacity: 0.6; }
+
+.fechas-boton-wrap {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.boton-borde {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 1.4vh 3.5vw;
+    transition: background 0.3s, color 0.3s;
+    background: transparent;
+    cursor: pointer;
+}
+
+.boton-borde:hover { background: var(--white); color: var(--black); }

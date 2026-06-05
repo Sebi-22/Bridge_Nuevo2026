@@ -291,7 +291,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }); 
 
-// ─── GALERIA DE FOTOS ─────────────────────────────────
+document.addEventListener("DOMContentLoaded", function() {
+    // Rutas de tus imágenes (asegúrate de que coincidan con tus archivos)
     const fotosGaleria = [
         'assets/images/h1-img-1.jpg',
         'assets/images/h1-img-2.jpg',
@@ -311,23 +312,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let fotoActual = 0;
 
-    // ─── CREAR LAS FOTOS EN LA GRILLA ────────────────────
-    for (let i = 0; i < fotosGaleria.length; i++) {
+    // Actualiza la imagen y el contador del lightbox
+    function actualizarLightbox() {
+        lightboxFoto.src = fotosGaleria[fotoActual];
+        lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
+    }
 
+    // ─── CREAR LAS FOTOS EN LA GRILLA ────────────────────
+    fotosGaleria.forEach((ruta, i) => {
         let foto = document.createElement('img');
-        foto.src = fotosGaleria[i];
+        foto.src = ruta;
         foto.alt = 'Foto ' + (i + 1);
 
         // Al hacer clic abre el lightbox
         foto.addEventListener('click', function() {
             fotoActual = i;
-            lightboxFoto.src = fotosGaleria[fotoActual];
-            lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
+            actualizarLightbox();
             lightbox.classList.add('activo');
         });
 
         grilla.appendChild(foto);
-    }
+    });
 
     // ─── BOTON CERRAR LIGHTBOX ────────────────────────────
     botonCerrarLb.addEventListener('click', function() {
@@ -343,20 +348,95 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ─── BOTON SIGUIENTE ──────────────────────────────────
     botonSiguienteLb.addEventListener('click', function() {
-        fotoActual = fotoActual + 1;
-        if (fotoActual >= fotosGaleria.length) {
-            fotoActual = 0;
-        }
-        lightboxFoto.src = fotosGaleria[fotoActual];
-        lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
+        fotoActual = (fotoActual + 1) % fotosGaleria.length; // Ciclo infinito simplificado
+        actualizarLightbox();
     });
 
     // ─── BOTON ANTERIOR ───────────────────────────────────
     botonAnteriorLb.addEventListener('click', function() {
-        fotoActual = fotoActual - 1;
-        if (fotoActual < 0) {
-            fotoActual = fotosGaleria.length - 1;
+        fotoActual = (fotoActual - 1 + fotosGaleria.length) % fotosGaleria.length; // Ciclo infinito inverso simplificado
+        actualizarLightbox();
+    });
+
+    // OPCIONAL: Cerrar con la tecla Escape y navegar con flechas del teclado
+    window.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('activo')) return;
+        if (e.key === 'Escape') lightbox.classList.remove('activo');
+        if (e.key === 'ArrowRight') botonSiguienteLb.click();
+        if (e.key === 'ArrowLeft') botonAnteriorLb.click();
+    });
+});
+
+    // ─── FECHAS DE CONCIERTOS ─────────────────────────────
+    const datosFechas = [
+        { dia: '10', mes: 'Jun', diaNombre: 'Sun', lugar: 'Gärdet Open Air Stockholm – Sweden' },
+        { dia: '12', mes: 'Jun', diaNombre: 'Tue', lugar: 'Helsinki, Finland – Hartwall Arena' },
+        { dia: '14', mes: 'Jun', diaNombre: 'Thu', lugar: 'Riga, Latvia – Riga Arena' },
+        { dia: '15', mes: 'Jun', diaNombre: 'Fri', lugar: 'Kaunas, Lithuania – Žalgirio Arena' },
+        { dia: '18', mes: 'Jun', diaNombre: 'Mon', lugar: 'Moscow, Russia – Olimpiski' },
+        { dia: '19', mes: 'Jun', diaNombre: 'Tue', lugar: 'Pilton, England – Glastonbury' },
+        { dia: '22', mes: 'Jun', diaNombre: 'Fri', lugar: 'London, England – O2 Arena' },
+        { dia: '27', mes: 'Jun', diaNombre: 'Wed', lugar: 'Rome, Italy – Cola Arena' },
+        { dia: '29', mes: 'Jun', diaNombre: 'Fri', lugar: 'Athens, Greece – PAOK Stadium' },
+        { dia: '03', mes: 'Jul', diaNombre: 'Tue', lugar: 'Budapest, Hungary – Nagy Arena' }
+    ];
+
+    const listaFechas = document.getElementById('lista-fechas');
+    const botonVerTodas = document.getElementById('boton-ver-todas');
+    const FECHAS_VISIBLES = 6;
+    let fechasExtras = [];
+    let extrasVisibles = false;
+
+    for (let i = 0; i < datosFechas.length; i++) {
+
+        let item = document.createElement('li');
+        item.className = 'fecha-item';
+
+        let numero = document.createElement('span');
+        numero.className = 'fecha-numero';
+        numero.textContent = datosFechas[i].dia;
+
+        let mes = document.createElement('span');
+        mes.className = 'fecha-mes';
+        mes.innerHTML = datosFechas[i].mes + '<br>' + datosFechas[i].diaNombre;
+
+        let lugar = document.createElement('div');
+        lugar.className = 'fecha-lugar';
+        lugar.textContent = datosFechas[i].lugar;
+
+        let tickets = document.createElement('button');
+        tickets.className = 'fecha-tickets';
+        tickets.textContent = 'Buy Tickets';
+
+        item.appendChild(numero);
+        item.appendChild(mes);
+        item.appendChild(lugar);
+        item.appendChild(tickets);
+
+        // Las primeras 6 se muestran, el resto se oculta
+        if (i >= FECHAS_VISIBLES) {
+            item.style.display = 'none';
+            fechasExtras.push(item);
         }
-        lightboxFoto.src = fotosGaleria[fotoActual];
-        lightboxContador.textContent = (fotoActual + 1) + ' / ' + fotosGaleria.length;
+
+        listaFechas.appendChild(item);
+    }
+
+    // ─── BOTON VER TODAS ──────────────────────────────────
+    botonVerTodas.addEventListener('click', function() {
+
+        if (extrasVisibles === false) {
+            for (let i = 0; i < fechasExtras.length; i++) {
+                fechasExtras[i].style.display = '';
+            }
+            botonVerTodas.textContent = 'Show Less';
+            extrasVisibles = true;
+
+        } else {
+            for (let i = 0; i < fechasExtras.length; i++) {
+                fechasExtras[i].style.display = 'none';
+            }
+            botonVerTodas.textContent = 'View All';
+            extrasVisibles = false;
+        }
     });

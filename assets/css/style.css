@@ -457,7 +457,7 @@ nav a.active {
     margin-bottom: 5vh;
 }
 
-/* ─── GRILLA MÓVIL (Por defecto) ─────────────────────── */
+/* ─── GRILLA ─────────────────────────────────────────── */
 .galeria-grilla {
     display: flex;
     flex-wrap: wrap;
@@ -465,28 +465,27 @@ nav a.active {
 }
 
 .galeria-grilla img {
-    width: 100%; /* En móviles van al 100% para que no se vean diminutas */
-    aspect-ratio: 1/1;
+    width: 100%;
     object-fit: cover;
     cursor: pointer;
     transition: opacity 0.3s ease;
     display: block;
 }
 
-.galeria-grilla img:hover { 
-    opacity: 0.7; 
+.galeria-grilla img:hover {
+    opacity: 0.7;
 }
 
 @media (min-width: 768px) {
     /* Fila 1: grande - chica - chica */
-    .galeria-grilla img:nth-child(1) { width: 50%; }
-    .galeria-grilla img:nth-child(2) { width: 25%; }
-    .galeria-grilla img:nth-child(3) { width: 25%; }
+    .galeria-grilla img:nth-child(1) { width: 50%; height: 320px; }
+    .galeria-grilla img:nth-child(2) { width: 25%; height: 320px; }
+    .galeria-grilla img:nth-child(3) { width: 25%; height: 320px; }
 
     /* Fila 2: chica - chica - grande */
-    .galeria-grilla img:nth-child(4) { width: 25%; }
-    .galeria-grilla img:nth-child(5) { width: 25%; }
-    .galeria-grilla img:nth-child(6) { width: 50%; }
+    .galeria-grilla img:nth-child(4) { width: 25%; height: 280px; }
+    .galeria-grilla img:nth-child(5) { width: 25%; height: 280px; }
+    .galeria-grilla img:nth-child(6) { width: 50%; height: 280px; }
 }
 
 /* ============================================================
@@ -503,8 +502,8 @@ nav a.active {
     justify-content: center;
 }
 
-.lightbox.activo { 
-    display: flex; 
+.lightbox.activo {
+    display: flex;
 }
 
 .lightbox img {
@@ -525,8 +524,8 @@ nav a.active {
     transition: transform 0.2s, opacity 0.3s;
 }
 
-#lightbox-cerrar:hover { 
-    opacity: 0.6; 
+#lightbox-cerrar:hover {
+    opacity: 0.6;
     transform: scale(1.1);
 }
 
@@ -552,8 +551,8 @@ nav a.active {
     transition: background 0.3s, transform 0.2s;
 }
 
-.lightbox-controles button:hover { 
-    background: rgba(255,255,255,0.2); 
+.lightbox-controles button:hover {
+    background: rgba(255,255,255,0.2);
     transform: scale(1.05);
 }
 
@@ -827,7 +826,7 @@ nav a.active {
 }
 
 .disco-encabezado {
-    padding: 0 15vw;
+    padding: 0 9vw;
     margin-bottom: 5vh;
 }
 
@@ -837,8 +836,7 @@ nav a.active {
     font-weight: 400;
     text-transform: uppercase;
     color: var(--white);
-    position: relative;
-    margin-bottom: 1.5vh;
+    margin-bottom: 0;
 }
 
 .disco-encabezado h2::after {
@@ -855,7 +853,7 @@ nav a.active {
     font-size: 0.88rem;
     color: var(--gray);
     line-height: 1.7;
-    max-width: 55%;
+    max-width: 420px;
     margin-top: 3.5vh;
 }
 
@@ -863,19 +861,20 @@ nav a.active {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 0;
+    gap: 25px;
     margin: 0;
-    padding: 0;
+    padding: 0 9vw;
 }
 
 .disco-card {
-    width: 25%;
+    width: 22%;
     position: relative;
     overflow: hidden;
     margin: 0;
     padding: 0;
     line-height: 0;
-    height: 22vw;
+    height: 18vw;
+    flex-shrink: 0;
 }
 
 .disco-card img {
@@ -885,12 +884,12 @@ nav a.active {
     display: block;
     transition: opacity 0.4s;
     position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
+    inset: 0;
 }
-.disco-card:hover img { opacity: 0.4; }
+
+.disco-card:hover img {
+    opacity: 0.35;
+}
 
 .disco-overlay {
     position: absolute;
@@ -900,6 +899,7 @@ nav a.active {
     transform: translateY(10px);
     transition: opacity 0.35s, transform 0.35s;
     pointer-events: none;
+    z-index: 1;
 }
 
 .disco-card:hover .disco-overlay {
@@ -909,7 +909,7 @@ nav a.active {
 
 .disco-overlay h3 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
     font-weight: 400;
     text-transform: uppercase;
     color: var(--white);
@@ -928,6 +928,35 @@ nav a.active {
     margin-top: 5vh;
 }
 
+.disco-hero {
+    background: var(--black);
+    padding: 12vh 9vw 4vh;
+}
+
+.disco-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5vh;
+}
+
+.breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+
+.breadcrumb a {
+    color: var(--gray);
+    transition: opacity 0.3s;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.6;
+}
 /* ============================================================
    FOOTER
 ============================================================ */
@@ -1113,75 +1142,84 @@ footer {
     padding: 0 20px;
 }
 
-/* La sección oscura */
 .listen-albums {
-    background-color: #000; 
-    padding: 100px 0;      
-    text-align: center;    
-    color: #fff;         
+    background-color: #000;
+    padding: 100px 0;
+    text-align: left;       /* ← el original es LEFT, no centrado */
+    color: #fff;
 }
 
-/* El Título */
+.listen-albums .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 9vw;
+}
+
 .listen-albums h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;       
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+    text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 30px;
-    position: relative;    
+    margin-bottom: 0;
+    position: relative;
 }
 
-/* La línea divisoria  */
 .listen-albums h2::after {
     content: '';
     display: block;
-    width: 60px;          
-    height: 2px;          
+    width: 50px;
+    height: 2px;
     background-color: #fff;
-    margin: 20px auto 0;   
+    margin: 20px 0 0;       /* ← izquierda, NO centrado */
 }
 
-/* El párrafo */
 .before-the-albums {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #999;           
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #888;
     margin-top: 30px;
+    max-width: 860px;
 }
-.popUpMembers{
+.popUpMembers {
     width: 100%;
-    height: 500px;
+    height: 60vh;       
     display: flex;
     background: #000;
     overflow: hidden;
 }
 
-.member{
+.member {
     position: relative;
     flex: 1;
-    transition: all .6s ease;
+    transition: flex 0.6s ease;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.member:hover{
-    flex: 1.7;
-}
-
-.member img{
+.member img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s ease;
 }
-
-.member::after{
+.member::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,.45);
+    background: rgba(0, 0, 0, 0);          
+    transition: background 0.4s ease;
+    z-index: 1;
 }
 
-.member-info{
+.member:hover::after {
+    background: rgba(0, 0, 0, 0.55);       
+}
+
+/* Info — invisible por defecto */
+.member-info {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1189,42 +1227,53 @@ footer {
     z-index: 2;
     text-align: center;
     color: #fff;
-    opacity: 0;
-    transition: opacity .4s ease;
+    opacity: 0;                            
+    white-space: nowrap;
 }
 
-.member:hover .member-info{
-    opacity: 1;
+.member:hover .member-info {
+    opacity: 1;                            
 }
 
-.member-info h3{
-    font-family: 'Oswald', sans-serif;
-    font-size: 48px;
+.member-info h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2.5vw, 2.8rem);
     font-weight: 400;
     text-transform: uppercase;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
+    letter-spacing: 0.05em;
 }
 
-.member-info p{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    margin: 0 0 25px;
+.member-info span {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: #ccc;
+    display: block;
+    margin-bottom: 20px;
 }
 
-.socials{
+.socials {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 14px;
 }
 
-.socials a{
+.socials a {
     color: #fff;
-    font-size: 16px;
-    transition: .3s;
+    font-size: 0.85rem;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
 }
 
-.socials a:hover{
-    opacity: .7;
+.socials a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
 }
 /* ============================================================
    CONTACT HERO

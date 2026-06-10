@@ -64,7 +64,7 @@
     });
 
 // ─── ABOUT US ──────────────────────────────────────    
-    const integrantes = [
+const integrantes = [
     {
         imagen: '/assets/images/team-1.jpg',
         nombre: 'John Smith',
@@ -89,22 +89,16 @@
 
 const contenedor = document.querySelector('.popUpMembers');
 
-integrantes.forEach((integrante, index) => {
+integrantes.forEach((integrante) => {
 
     const card = document.createElement('div');
     card.classList.add('member');
 
-    if(index === 1){
-        card.classList.add('active');
-    }
-
     card.innerHTML = `
         <img src="${integrante.imagen}" alt="${integrante.nombre}">
-
         <div class="member-info">
             <h3>${integrante.nombre}</h3>
             <span>${integrante.rol}</span>
-
             <div class="socials">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>

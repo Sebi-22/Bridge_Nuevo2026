@@ -1077,7 +1077,7 @@ footer {
 /* ============================================================
    TOUR HERO
 ============================================================ */
-.tour-hero {
+.tour-hero,.about-hero {
     position: relative;
     height: 60vh;
     background: url('../images/tour-title-area.png') center/cover no-repeat;
@@ -1086,13 +1086,15 @@ footer {
     align-items: center;
     justify-content: center;
 }
-
+.about-hero {
+    background: url('../images/about-title-area.png') center/cover no-repeat;
+    background-attachment: fixed;
+}
 .tour-hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
 }
-
 .tour-hero-titulo {
     position: relative;
     z-index: 1;
@@ -1102,6 +1104,127 @@ footer {
     text-transform: uppercase;
     color: var(--white);
     text-align: center;
+}
+
+/* Estilo para el contenedor que centra el contenido */
+.container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* La sección oscura */
+.listen-albums {
+    background-color: #000; 
+    padding: 100px 0;      
+    text-align: center;    
+    color: #fff;         
+}
+
+/* El Título */
+.listen-albums h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;       
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;    
+}
+
+/* La línea divisoria  */
+.listen-albums h2::after {
+    content: '';
+    display: block;
+    width: 60px;          
+    height: 2px;          
+    background-color: #fff;
+    margin: 20px auto 0;   
+}
+
+/* El párrafo */
+.before-the-albums {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #999;           
+    margin-top: 30px;
+}
+.popUpMembers{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background: #000;
+    overflow: hidden;
+}
+
+.member{
+    position: relative;
+    flex: 1;
+    transition: all .6s ease;
+    overflow: hidden;
+}
+
+.member:hover{
+    flex: 1.7;
+}
+
+.member img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+}
+
+.member-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.member:hover .member-info{
+    opacity: 1;
+}
+
+.member-info h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+.member-info p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    margin: 0 0 25px;
+}
+
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.socials a{
+    color: #fff;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.socials a:hover{
+    opacity: .7;
 }
 /* ============================================================
    CONTACT HERO

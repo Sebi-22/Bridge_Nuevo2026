@@ -1812,3 +1812,238 @@ background: url('../images/tour-title-area.png') center/cover no-repeat;
 
 .mensaje-error { color: #e74c3c; }
 .mensaje-ok { color: #2ecc71; }
+
+/* ============================================================
+   BREADCRUMB
+============================================================ */
+.event-breadcrumb {
+    background: var(--black);
+    padding: 12vh 15vw 4vh;
+}
+
+.event-breadcrumb h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.5vh;
+    letter-spacing: 0.03em;
+}
+
+.event-breadcrumb p {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+
+.event-breadcrumb a {
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.event-breadcrumb a:hover { color: var(--white); }
+
+/* ============================================================
+   CONTENIDO PRINCIPAL
+============================================================ */
+.event-contenido {
+    padding: 4vh 15vw 12vh;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+/* ============================================================
+   FILA 1 — imagen chica + mapa grande
+============================================================ */
+.event-fila-top {
+    display: flex;
+    align-items: stretch;
+    height: 480px;
+    width: 100%;
+}
+
+.event-imagen {
+    width: 32%;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.event-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.event-mapa {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    margin-left: 6vw;
+    line-height: 0;
+    font-size: 0;
+}
+
+.event-mapa iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    filter: grayscale(1);
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   FILA 2 — details + about tour y follow
+============================================================ */
+.event-fila-medio {
+    display: flex;
+    gap: 6vw;
+    align-items: flex-start;
+}
+
+.event-detalles {
+    width: 22%;
+    flex-shrink: 0;
+}
+
+.event-derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+/* Títulos */
+.event-detalles h2,
+.event-about h2,
+.event-redes h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 2vh;
+    position: relative;
+}
+
+.event-detalles h2::after,
+.event-about h2::after,
+.event-redes h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--white);
+    margin-top: 1.5vh;
+}
+
+/* Info lista */
+.event-info {
+    list-style: none;
+    padding: 0;
+    margin: 3vh 0;
+}
+
+.event-info li {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 1.2vh;
+    line-height: 1.6;
+}
+
+.event-info li span {
+    color: var(--white);
+    font-weight: 600;
+    margin-right: 0.3em;
+}
+
+.event-info li a {
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.event-info li a:hover { color: var(--white); }
+
+/* Botón */
+.event-tickets-btn {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 1.4vh 3vw;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    margin-top: 1vh;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.event-tickets-btn:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* About Tour */
+.event-about p {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-top: 2vh;
+}
+
+/* Follow And Share */
+.event-redes-iconos {
+    display: flex;
+    gap: 14px;
+    margin-top: 2vh;
+    flex-wrap: wrap;
+}
+
+.event-redes-iconos a {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 0.75rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.event-redes-iconos a:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+    .event-contenido { padding: 4vh 8vw 10vh; }
+    .event-breadcrumb { padding: 12vh 8vw 4vh; }
+    .event-fila-top { flex-direction: column; height: auto; }
+    .event-imagen { width: 100%; height: 250px; }
+    .event-mapa iframe { min-height: 250px; }
+    .event-fila-medio { flex-direction: column; }
+    .event-detalles { width: 100%; }
+}

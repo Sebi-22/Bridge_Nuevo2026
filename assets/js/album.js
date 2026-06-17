@@ -39,7 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ─── INFO CANCION ACTUAL ─────────────────────────────
     const cancionInfo = document.getElementById('album-cancion-info');
-    cancionInfo.textContent = canciones[0].titulo;
+
+    let infoTitulo = document.createElement('div');
+    infoTitulo.className = 'info-titulo';
+    infoTitulo.textContent = canciones[0].titulo;
+
+    let infoArtista = document.createElement('div');
+    infoArtista.className = 'info-artista';
+    infoArtista.textContent = 'Ouia Princess';
+
+    cancionInfo.appendChild(infoTitulo);
+    cancionInfo.appendChild(infoArtista);
 
     // ─── CUANDO APRIETAN PLAY ────────────────────────────
     botonPlay.addEventListener('click', function() {
@@ -61,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.src = canciones[cancionActual].audio;
         audio.play();
         botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
-        cancionInfo.textContent = canciones[cancionActual].titulo;
+        infoTitulo.textContent = canciones[cancionActual].titulo;
     });
 
     // ─── CUANDO APRIETAN ANTERIOR ────────────────────────
@@ -73,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audio.src = canciones[cancionActual].audio;
         audio.play();
         botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
-        cancionInfo.textContent = canciones[cancionActual].titulo;
+        infoTitulo.textContent = canciones[cancionActual].titulo;
     });
 
     // ─── ACTUALIZAR BARRA MIENTRAS SUENA ─────────────────
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         audio.src = canciones[cancionActual].audio;
         audio.play();
-        cancionInfo.textContent = canciones[cancionActual].titulo;
+        infoTitulo.textContent = canciones[cancionActual].titulo;
     });
 
     // ─── TRACKLIST ───────────────────────────────────────
@@ -140,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             audio.src = canciones[i].audio;
             audio.play();
             botonPlay.innerHTML = '<i class="fas fa-pause"></i>';
-            cancionInfo.textContent = canciones[i].titulo;
+            infoTitulo.textContent = canciones[i].titulo;
         });
 
         tracklist.appendChild(fila);
@@ -278,4 +288,4 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-}); 
+});

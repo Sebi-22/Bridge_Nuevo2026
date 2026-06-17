@@ -1327,27 +1327,37 @@ background-attachment: fixed;
 }
 
 /* Controles */
+/* Controles - reproductor con fondo gris, 3 columnas iguales */
 .album-controles {
-    display: flex;
-    align-items: center;
-    gap: 1.5vw;
-    margin-bottom: 1.5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #2a2a2a;
+    margin-bottom: 0;
 }
 
 .album-controles button {
     color: var(--white);
     font-size: 1rem;
-    transition: opacity 0.3s;
     background: none;
     border: none;
+    border-right: 1px solid #3a3a3a;
     cursor: pointer;
+    transition: opacity 0.3s;
+    padding: 2vh 0;
+    text-align: center;
+}
+
+.album-controles button:last-child {
+    border-right: none;
 }
 
 .album-controles button:hover { opacity: 0.5; }
 
 /* Barra de progreso */
 .album-progreso-wrap {
-    margin-bottom: 1vh;
+    background: #1c1c1c;
+    padding: 0 1.2vw 1.5vh;
+    margin-bottom: 0;
 }
 
 .album-progreso-track {
@@ -1366,12 +1376,28 @@ background-attachment: fixed;
     transition: width 0.1s linear;
 }
 
-/* Info cancion */
+
+/* Info cancion*/
 .album-cancion-info {
+    background: #1c1c1c;
+    font-family: var(--font-heading);
+    padding: 2vh 1.2vw;
+    margin-bottom: 4vh;
+}
+
+.album-cancion-info .info-titulo {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5vh;
+}
+
+.album-cancion-info .info-artista {
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--gray);
-    margin-bottom: 3vh;
+    text-transform: none;
 }
 
 /* Tracklist */
@@ -1495,6 +1521,15 @@ background-attachment: fixed;
     background: var(--white);
     margin-top: 1.5vh;
 }
+/* Album Reviews — caja con fondo gris */
+.album-reviews {
+    background: #1c1c1c;
+    padding: 4vh 4vw;
+}
+
+.album-reviews h2 {
+    margin-bottom: 2vh;
+}
 
 /* About Album */
 .album-about p {
@@ -1568,16 +1603,22 @@ background-attachment: fixed;
 
 /* Album Reviews */
 .review-contenido {
-    margin: 2vh 0;
+    margin: 2vh 0 0;
 }
 
 .review-texto {
     font-family: var(--font-mono);
     font-size: 0.88rem;
-    color: var(--gray);
+    color: var(--gray-light);
     line-height: 1.9;
     font-style: italic;
-    margin-bottom: 1.5vh;
+    margin-bottom: 3vh;
+}
+
+.review-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .review-autor {
@@ -1595,7 +1636,7 @@ background-attachment: fixed;
 
 .review-nav button {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: var(--white);
     background: none;
     border: none;
@@ -1606,13 +1647,66 @@ background-attachment: fixed;
 
 .review-nav button:hover { opacity: 0.5; }
 
-/* Latest Video */
-.album-video iframe {
+/* Latest Video — sección ancho completo, debajo de las columnas */
+.album-video-seccion {
+    background: var(--black);
+    padding: 4vh 15vw 12vh;
+}
+
+.album-video-seccion h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 2.5vh;
+    position: relative;
+}
+
+.album-video-seccion h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--white);
+    margin-top: 1.5vh;
+}
+
+.album-video-seccion iframe {
     width: 100%;
-    height: 280px;
+    aspect-ratio: 16/9;
+    height: auto;
+    max-height: none;
     border: none;
     display: block;
-    margin-top: 2vh;
+}
+.video-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    padding-top: 3vh;
+}
+
+.video-nav button,
+.video-nav a {
+    color: var(--white);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.video-nav button:hover { opacity: 0.5; }
+
+#video-anterior,
+#video-siguiente {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+#video-grilla {
+    font-size: 1.1rem;
 }
 /* ============================================================
    CONTACT HERO

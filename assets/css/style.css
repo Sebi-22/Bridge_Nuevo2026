@@ -1109,13 +1109,14 @@ footer {
 .tour-hero,.about-hero {
     position: relative;
     height: 60vh;
-    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .tour-hero {
 background: url('../images/tour-title-area.png') center/cover no-repeat;
+background-attachment: fixed;
+
 }
 .about-hero {
     background: url('../images/about-title-area.png') center/cover no-repeat;

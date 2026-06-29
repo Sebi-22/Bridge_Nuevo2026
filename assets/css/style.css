@@ -65,7 +65,6 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
 .logo img {
   height: 32px;
   width: auto;
@@ -1947,7 +1946,6 @@ background-attachment: fixed;
     flex-direction: column;
     gap: 5vh;
 }
-
 /* ============================================================
    FILA 1 — imagen chica + mapa grande
 ============================================================ */
@@ -1957,7 +1955,6 @@ background-attachment: fixed;
     height: 480px;
     width: 100%;
 }
-
 .event-imagen {
     width: 32%;
     flex-shrink: 0;
@@ -1966,7 +1963,6 @@ background-attachment: fixed;
     line-height: 0;
     font-size: 0;
 }
-
 .event-imagen img {
     width: 100%;
     height: 100%;
@@ -1976,7 +1972,6 @@ background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
-
 .event-mapa {
     flex: 1;
     margin: 0;
@@ -1995,7 +1990,6 @@ background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
-
 /* ============================================================
    FILA 2 — details + about tour y follow
 ============================================================ */
@@ -2004,12 +1998,10 @@ background-attachment: fixed;
     gap: 6vw;
     align-items: flex-start;
 }
-
 .event-detalles {
     width: 22%;
     flex-shrink: 0;
 }
-
 .event-derecha {
     flex: 1;
     display: flex;

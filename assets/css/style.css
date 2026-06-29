@@ -87,7 +87,6 @@ nav a {
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
-
 nav a:hover,
 nav a.active {
   border-bottom-color: var(--white);
@@ -102,7 +101,6 @@ nav a.active {
   display: flex;
   align-items: flex-end;
 }
-
 .hero-band-name {
   position: absolute;
   left: 9%;

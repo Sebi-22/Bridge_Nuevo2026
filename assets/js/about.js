@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const discoGrilla = document.getElementById('disco-grilla');
     const discoBotonMas = document.getElementById('disco-boton-mas');
     let albumesMostrados = 0;
-    const PASO = 4;
+    const paso = 4;
 
     function mostrarAlbumes() {
-        for (let i = 0; i < PASO; i++) {
+        for (let i = 0; i < paso; i++) {
             let indice = albumesMostrados % datosAlbumes.length;
 
             let card = document.createElement('div');

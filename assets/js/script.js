@@ -485,6 +485,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');
     if (scrollBtn) {
@@ -496,4 +498,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+});
 });

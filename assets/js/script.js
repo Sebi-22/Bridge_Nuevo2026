@@ -155,6 +155,53 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ─── THE KNOWING — ALBUM INFO ─────────────────────────
+    const datosAlbumHome = {
+        imagen: 'assets/images/home2.jpg',
+        titulo: 'The Knowing – 2018.',
+        descripcion: 'Alienum phaedrum torquatos nec eu, vis detraxit periculis ex, nihil expetendis in mei.',
+        botones: [
+            { href: '#', imagen: 'assets/images/slider-img-2.png', alt: 'App Store' },
+            { href: '#', imagen: 'assets/images/slider-img-3.png', alt: 'Google Play' }
+        ]
+    };
+
+    const contenedorAlbumHome = document.getElementById('album-izquierda');
+
+    if (contenedorAlbumHome) {
+        let portadaAlbum = document.createElement('img');
+        portadaAlbum.className = 'album-portada';
+        portadaAlbum.src = datosAlbumHome.imagen;
+        portadaAlbum.alt = datosAlbumHome.titulo;
+
+        let tituloAlbum = document.createElement('h2');
+        tituloAlbum.textContent = datosAlbumHome.titulo;
+
+        let descripcion = document.createElement('p');
+        descripcion.textContent = datosAlbumHome.descripcion;
+
+        let contenedorBotones = document.createElement('div');
+        contenedorBotones.className = 'album-botones';
+
+        for (let i = 0; i < datosAlbumHome.botones.length; i++) {
+            let enlace = document.createElement('a');
+            enlace.href = datosAlbumHome.botones[i].href;
+            enlace.target = '_blank';
+
+            let imagenBoton = document.createElement('img');
+            imagenBoton.src = datosAlbumHome.botones[i].imagen;
+            imagenBoton.alt = datosAlbumHome.botones[i].alt;
+
+            enlace.appendChild(imagenBoton);
+            contenedorBotones.appendChild(enlace);
+        }
+
+        contenedorAlbumHome.appendChild(portadaAlbum);
+        contenedorAlbumHome.appendChild(tituloAlbum);
+        contenedorAlbumHome.appendChild(descripcion);
+        contenedorAlbumHome.appendChild(contenedorBotones);
+    }
+
     // ─── LISTA DE CANCIONES ───────────────────────────────
     const datosCanciones = [
         { numero: '1.',  titulo: 'Black Hole Sun',   duracion: '0:32', audio: 'assets/audios/Black-hole-sun.mp3' },
@@ -315,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const listaFechas = document.getElementById('lista-fechas');
     const botonVerTodas = document.getElementById('boton-ver-todas');
-    const Fechas_Visibles = 6;
+    const FECHAS_VISIBLES = 6;
     let fechasExtras = [];
     let extrasVisibles = false;
 
@@ -345,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.appendChild(lugar);
             item.appendChild(tickets);
 
-            if (i >= Fechas_Visibles) {
+            if (i >= FECHAS_VISIBLES) {
                 item.style.display = 'none';
                 fechasExtras.push(item);
             }
@@ -484,8 +531,7 @@ document.addEventListener('DOMContentLoaded', function() {
             discoBotonMas.addEventListener('click', mostrarAlbumes);
         }
     }
-    document.addEventListener('DOMContentLoaded', function() {
-        
+
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');
     if (scrollBtn) {
@@ -497,5 +543,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-});
-});
+}); 

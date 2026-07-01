@@ -484,9 +484,8 @@ document.addEventListener('DOMContentLoaded', function() {
             discoBotonMas.addEventListener('click', mostrarAlbumes);
         }
     }
-
     document.addEventListener('DOMContentLoaded', function() {
-
+        
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');
     if (scrollBtn) {

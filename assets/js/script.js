@@ -672,7 +672,109 @@ document.addEventListener('DOMContentLoaded', function() {
         eventContenido.appendChild(filaMedio);
     }
 
-    
+    // ─── CONTACT — INFO COLUMNAS ──────────────────────────
+    const datosContactoInfo = [
+        { titulo: 'Press',      email: 'youremail@yourdomain.com', telefono: '+88 (0) 101 0000 000' },
+        { titulo: 'Management', email: 'youremail@yourdomain.com', telefono: '+88 (0) 101 0000 000' },
+        { titulo: 'Booking',    email: 'youremail@yourdomain.com', telefono: '+88 (0) 101 0000 000' },
+        { titulo: 'Label',      email: 'youremail@yourdomain.com', telefono: '+88 (0) 101 0000 000' }
+    ];
+
+    const contactoInfoGrilla = document.getElementById('contact-info-grilla');
+
+    if (contactoInfoGrilla) {
+        datosContactoInfo.forEach(function(item) {
+            const col = document.createElement('div');
+            col.className = 'contact-info-col';
+
+            col.innerHTML =
+                '<h3>' + item.titulo + '</h3>' +
+                '<p>' + item.email + '</p>' +
+                '<p>' + item.telefono + '</p>';
+
+            contactoInfoGrilla.appendChild(col);
+        });
+    }
+
+    // ─── CONTACT — CIUDADES ────────────────────────────────
+    const datosCiudades = [
+        {
+            nombre: 'Barcelona',
+            direccion: '198 West 21th Street, Suite 721',
+            ciudadCP: 'Barcelona 20020',
+            email: 'youremail@yourdomain.com',
+            telefono: '+88 (0) 101 0000 000'
+        },
+        {
+            nombre: 'New York',
+            direccion: '198 West 21th Street, Suite 521',
+            ciudadCP: 'New York 20020',
+            email: 'youremail@yourdomain.com',
+            telefono: '+88 (0) 101 0000 000'
+        }
+    ];
+
+    const contactoCiudades = document.getElementById('contact-ciudades');
+
+    if (contactoCiudades) {
+        datosCiudades.forEach(function(ciudad) {
+            const bloque = document.createElement('div');
+            bloque.className = 'contact-ciudad';
+
+            bloque.innerHTML =
+                '<h4>' + ciudad.nombre + '</h4>' +
+                '<p>' + ciudad.direccion + '</p>' +
+                '<p>' + ciudad.ciudadCP + '</p>' +
+                '<p>Email: ' + ciudad.email + '</p>' +
+                '<p>Phone: ' + ciudad.telefono + '</p>';
+
+            contactoCiudades.appendChild(bloque);
+        });
+    }
+
+    // ─── CONTACT — VALIDACION DEL FORMULARIO ──────────────
+    const campoNombre  = document.getElementById('campo-nombre');
+    const campoEmail   = document.getElementById('campo-email');
+    const campoMensaje = document.getElementById('campo-mensaje');
+    const formMensaje  = document.getElementById('form-mensaje');
+    const botonEnviar  = document.getElementById('boton-enviar');
+
+    if (botonEnviar) {
+        botonEnviar.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const nombre  = campoNombre.value.trim();
+            const email   = campoEmail.value.trim();
+            const mensaje = campoMensaje.value.trim();
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nombre === '') {
+                formMensaje.textContent = 'Por favor completá tu nombre.';
+                formMensaje.className = 'contact-form-mensaje mensaje-error';
+                return;
+            }
+
+            if (email === '' || !regexEmail.test(email)) {
+                formMensaje.textContent = 'Ingresá un email válido.';
+                formMensaje.className = 'contact-form-mensaje mensaje-error';
+                return;
+            }
+
+            if (mensaje === '') {
+                formMensaje.textContent = 'Por favor escribí tu mensaje.';
+                formMensaje.className = 'contact-form-mensaje mensaje-error';
+                return;
+            }
+
+            // Si esta todo OK
+            formMensaje.textContent = '¡Mensaje enviado con éxito!';
+            formMensaje.className = 'contact-form-mensaje mensaje-ok';
+
+            campoNombre.value = '';
+            campoEmail.value = '';
+            campoMensaje.value = '';
+        });
+    }
 
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');

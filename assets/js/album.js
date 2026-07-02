@@ -273,6 +273,48 @@ document.addEventListener('DOMContentLoaded', function() {
         mostrarReview(reviewActual);
     }, 5000);
 
+    // ─── ABOUT ALBUM ─────────────────────────────────────
+const datosAbout = {
+    titulo: 'About Album',
+    descripcion: 'This is Photoshop\'s version of Lorem Ipsum. Proin gravida nibh vel velia uctor erecs aliquenean sollicitudiem quis bibendum auctor, nisi elit consequat ipsutis sem nibh idelit.',
+    meta: [
+        { etiqueta: 'Artist',       valor: 'Ouia Princess' },
+        { etiqueta: 'Label',        valor: 'Island' },
+        { etiqueta: 'Release Date', valor: 'April 29, 2018' },
+        { etiqueta: 'People',       valor: 'Jack Jones, Madonna, Rout, DJ Sample' }
+    ]
+};
+
+const contenedorAbout = document.getElementById('album-about');
+
+if (contenedorAbout) {
+
+    let tituloAbout = document.createElement('h2');
+    tituloAbout.textContent = datosAbout.titulo;
+
+    let descripcionAbout = document.createElement('p');
+    descripcionAbout.textContent = datosAbout.descripcion;
+
+    let lista = document.createElement('ul');
+    lista.className = 'album-meta';
+
+    for (let i = 0; i < datosAbout.meta.length; i++) {
+        let item = document.createElement('li');
+
+        let etiqueta = document.createElement('span');
+        etiqueta.textContent = datosAbout.meta[i].etiqueta + ':';
+
+        item.appendChild(etiqueta);
+        item.appendChild(document.createTextNode(' ' + datosAbout.meta[i].valor));
+
+        lista.appendChild(item);
+    }
+
+    contenedorAbout.appendChild(tituloAbout);
+    contenedorAbout.appendChild(descripcionAbout);
+    contenedorAbout.appendChild(lista);
+}
+
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');
 

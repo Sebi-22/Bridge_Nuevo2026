@@ -413,6 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    
 
     // ─── BLOG ─────────────────────────────────────────────
     const datosPosts = [

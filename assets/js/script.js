@@ -413,7 +413,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
 
     // ─── BLOG ─────────────────────────────────────────────
     const datosPosts = [
@@ -533,6 +532,148 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ─── EVENTO ───────────────────────────────────────────
+    const datosEvento = {
+        imagen: '../assets/images/tour-single-1.jpg',
+        mapa: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d130266.40107923658!2d17.8419701!3d59.3260668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f763119640bcb%3A0xa80d27d3679d7766!2sStockholm%2C%20Suecia!5e0!3m2!1ses!2sar!4v0000000000000',
+        detalles: [
+            { etiqueta: 'Time',         valor: 'June 10, 2018 from 07 to 11pm',    link: null },
+            { etiqueta: 'Location',     valor: 'Stockholm, Sweden',                link: null },
+            { etiqueta: 'Website',      valor: 'www.bridge217.qodeinteractive.com', link: '#' },
+            { etiqueta: 'Event Type',   valor: 'concert, tour',                    link: null },
+            { etiqueta: 'Organized By', valor: 'Mark Jones',                       link: null }
+        ],
+        aboutTour: 'Lorem ipsum dolor sit amet, est ad graecis principes. Ad vis iisque saperet. Eu eos quod affert. Vim invidunt efficiendi ea, eu eos veniam percipit dignissim, an cum suas laudem. Eum eu ipsum mentitum delectus. Te vix solet consulatu expetendis. Dictas elige ndi antiopam has ne, admodum hendrerit eu vis, sit nonumy operere eu. Ei qui solet offendit. Ius no graeco possim aeterno, eam at omnium diceret accumsan. Eu nec iisque utroque, ad qui veniam hendrerit.',
+        redes: [
+            { href: 'https://x.com/',             icono: 'fab fa-twitter' },
+            { href: 'https://www.instagram.com/', icono: 'fab fa-instagram' },
+            { href: 'https://www.vimeo.com',      icono: 'fab fa-vimeo-v' },
+            { href: 'https://www.tumblr.com',     icono: 'fab fa-tumblr' },
+            { href: 'https://www.youtube.com/',   icono: 'fab fa-youtube' },
+            { href: 'https://www.facebook.com/',  icono: 'fab fa-facebook-f' },
+            { href: 'https://www.pinterest.com/', icono: 'fab fa-pinterest-p' }
+        ]
+    };
+
+    const eventContenido = document.getElementById('event-contenido');
+
+    if (eventContenido) {
+
+        // Fila 1: imagen + mapa
+        let filaTop = document.createElement('div');
+        filaTop.className = 'event-fila-top';
+
+        let contenedorImagen = document.createElement('div');
+        contenedorImagen.className = 'event-imagen';
+
+        let imagenEvento = document.createElement('img');
+        imagenEvento.src = datosEvento.imagen;
+        imagenEvento.alt = 'Event';
+        contenedorImagen.appendChild(imagenEvento);
+
+        let contenedorMapa = document.createElement('div');
+        contenedorMapa.className = 'event-mapa';
+
+        let mapa = document.createElement('iframe');
+        mapa.src = datosEvento.mapa;
+        mapa.allowFullscreen = true;
+        mapa.loading = 'lazy';
+        contenedorMapa.appendChild(mapa);
+
+        filaTop.appendChild(contenedorImagen);
+        filaTop.appendChild(contenedorMapa);
+
+        // Fila 2: detalles + about + redes
+        let filaMedio = document.createElement('div');
+        filaMedio.className = 'event-fila-medio';
+
+        // Columna izquierda — detalles
+        let columnaDetalles = document.createElement('div');
+        columnaDetalles.className = 'event-detalles';
+
+        let tituloDetalles = document.createElement('h2');
+        tituloDetalles.textContent = 'Details';
+
+        let listaDetalles = document.createElement('ul');
+        listaDetalles.className = 'event-info';
+
+        for (let i = 0; i < datosEvento.detalles.length; i++) {
+            let item = document.createElement('li');
+            let etiqueta = document.createElement('span');
+            etiqueta.textContent = datosEvento.detalles[i].etiqueta + ':';
+            item.appendChild(etiqueta);
+
+            if (datosEvento.detalles[i].link) {
+                let enlace = document.createElement('a');
+                enlace.href = datosEvento.detalles[i].link;
+                enlace.textContent = ' ' + datosEvento.detalles[i].valor;
+                item.appendChild(enlace);
+            } else {
+                item.appendChild(document.createTextNode(' ' + datosEvento.detalles[i].valor));
+            }
+            listaDetalles.appendChild(item);
+        }
+
+        let botonTickets = document.createElement('button');
+        botonTickets.className = 'event-tickets-btn';
+        botonTickets.textContent = 'Buy Tickets';
+
+        columnaDetalles.appendChild(tituloDetalles);
+        columnaDetalles.appendChild(listaDetalles);
+        columnaDetalles.appendChild(botonTickets);
+
+        // Columna derecha — about tour + redes
+        let columnaDerecha = document.createElement('div');
+        columnaDerecha.className = 'event-derecha';
+
+        let seccionAbout = document.createElement('div');
+        seccionAbout.className = 'event-about';
+
+        let tituloAbout = document.createElement('h2');
+        tituloAbout.textContent = 'About Tour';
+
+        let textoAbout = document.createElement('p');
+        textoAbout.textContent = datosEvento.aboutTour;
+
+        seccionAbout.appendChild(tituloAbout);
+        seccionAbout.appendChild(textoAbout);
+
+        let seccionRedes = document.createElement('div');
+        seccionRedes.className = 'event-redes';
+
+        let tituloRedes = document.createElement('h2');
+        tituloRedes.textContent = 'Follow And Share:';
+
+        let iconosRedes = document.createElement('div');
+        iconosRedes.className = 'event-redes-iconos';
+
+        for (let i = 0; i < datosEvento.redes.length; i++) {
+            let enlace = document.createElement('a');
+            enlace.href = datosEvento.redes[i].href;
+            enlace.target = '_blank';
+
+            let icono = document.createElement('i');
+            icono.className = datosEvento.redes[i].icono;
+
+            enlace.appendChild(icono);
+            iconosRedes.appendChild(enlace);
+        }
+
+        seccionRedes.appendChild(tituloRedes);
+        seccionRedes.appendChild(iconosRedes);
+
+        columnaDerecha.appendChild(seccionAbout);
+        columnaDerecha.appendChild(seccionRedes);
+
+        filaMedio.appendChild(columnaDetalles);
+        filaMedio.appendChild(columnaDerecha);
+
+        eventContenido.appendChild(filaTop);
+        eventContenido.appendChild(filaMedio);
+    }
+
+    
+
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');
     if (scrollBtn) {
@@ -544,4 +685,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-}); 
+});

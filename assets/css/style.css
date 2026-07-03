@@ -180,9 +180,7 @@ nav a.active {
 }
 
 .player-artist,
-.breadcrumb,
-.album-breadcrumb p,
-.event-breadcrumb p {
+.breadcrumb {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--gray);
@@ -1234,20 +1232,10 @@ background-attachment: fixed;
 /* ============================================================
    BREADCRUMB
 ============================================================ */
-.album-breadcrumb {
-    background: var(--black);
-    padding: 12vh 15vw 2vh;
-    border-bottom: 0.0625em solid var(--gray-border);
-}
-
-.album-breadcrumb a,
-.event-breadcrumb a,
 .event-info li a {
     color: var(--gray);
     transition: color 0.3s;
 }
-
-.album-breadcrumb a:hover { color: var(--white); }
 
 /* ============================================================
    CONTENIDO PRINCIPAL — dos columnas
@@ -1414,7 +1402,6 @@ background-attachment: fixed;
 .album-about h2::after,
 .album-lyrics h2::after,
 .album-reviews h2::after,
-.album-video h2::after,
 .album-video-seccion h2::after,
 .event-detalles h2::after,
 .event-about h2::after,
@@ -1448,8 +1435,7 @@ background-attachment: fixed;
 /* Títulos de sección derecha */
 .album-about h2,
 .album-lyrics h2,
-.album-reviews h2,
-.album-video h2 {
+.album-reviews h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 400;
@@ -1816,26 +1802,6 @@ background-attachment: fixed;
 .mensaje-ok { color: #2ecc71; }
 
 /* ============================================================
-   BREADCRUMB
-============================================================ */
-.event-breadcrumb {
-    background: var(--black);
-    padding: 12vh 15vw 4vh;
-}
-
-.event-breadcrumb h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 1.5vh;
-    letter-spacing: 0.03em;
-}
-
-.event-breadcrumb a:hover { color: var(--white); }
-
-/* ============================================================
    CONTENIDO PRINCIPAL
 ============================================================ */
 .event-contenido {
@@ -1998,7 +1964,6 @@ background-attachment: fixed;
 ============================================================ */
 @media (max-width: 56.25em) {
     .event-contenido { padding: 4vh 8vw 10vh; }
-    .event-breadcrumb { padding: 12vh 8vw 4vh; }
     .event-fila-top { flex-direction: column; height: auto; }
     .event-imagen { width: 100%; height: 15.625em; }
     .event-mapa iframe { min-height: 15.625em; }

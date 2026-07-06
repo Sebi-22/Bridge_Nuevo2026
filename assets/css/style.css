@@ -1,15 +1,38 @@
-/*RESET BASE */
-*,*::before,*::after {box-sizing: border-box;margin: 0;padding: 0;
+/* RESET BASE*/
+*,*::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html {scroll-behavior: smooth;}
-body {font-family: "Open Sans", sans-serif;background: #000;color: #fff;overflow-x: hidden;}
-img {max-width: 100%;height: auto;display: block;
+html {
+  scroll-behavior: smooth;
 }
-a {text-decoration: none;color: inherit;
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
 }
-ul,ol {list-style: none;}
-button {cursor: pointer;font: inherit;background: none;border: none;color: inherit;}
-/* VARIABLES*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,ol {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+}
+/* VARIABLES */
 :root {
   --black: #000;
   --white: #fff;
@@ -19,7 +42,7 @@ button {cursor: pointer;font: inherit;background: none;border: none;color: inher
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
 }
-/* HEADER */
+/*  HEADER */
 header {
   position: absolute;
   top: 0;
@@ -35,12 +58,10 @@ header {
   height: 2em;
   width: auto;
 }
-
 nav ul {
   display: flex;
   gap: 2vw;
 }
-
 nav a {
   font-family: var(--font-heading);
   font-size: 0.8rem;
@@ -52,13 +73,10 @@ nav a {
   border-bottom: 0.0625em solid transparent;
   transition: border-color 0.3s;
 }
-nav a:hover,
-nav a.active {
+nav a:hover,nav a.active {
   border-bottom-color: var(--white);
 }
-/* ============================================================
-   HERO
-============================================================ */
+/* HERO */
 .hero {
   position: relative;
   min-height: 110vh;
@@ -79,14 +97,12 @@ nav a.active {
   letter-spacing: 0.08em;
   text-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.5);
 }
-
 .hero-cta {
   position: absolute;
   right: 14%;
   bottom: 8%;
   max-width: 30em;
 }
-
 .hero-cta h2 {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.5vw, 3.5rem);
@@ -95,9 +111,7 @@ nav a.active {
   line-height: 1.05;
   margin-bottom: 2.5vh;
 }
-
-.store-btns,
-.album-disponible-btns {
+.store-btns,.album-disponible-btns {
   display: flex;
   gap: 0.875em;
   flex-wrap: wrap;
@@ -110,9 +124,7 @@ nav a.active {
 .store-btns img:hover {
   opacity: 0.7;
 }
-/* ============================================================
-   PLAYER BAR
-============================================================ */
+/* PLAYER BAR */
 .player-bar {
   background: var(--white);
   display: flex;
@@ -123,19 +135,16 @@ nav a.active {
   z-index: 10;
   gap: 1vw;
 }
-
 .player-cover {
   width: 4.5em;
   height: 4.5em;
   object-fit: cover;
   flex-shrink: 0;
 }
-
 .player-info {
   padding: 0 2vw;
   min-width: 8.75em;
 }
-
 .player-title {
   font-family: var(--font-heading);
   font-size: 1rem;
@@ -144,31 +153,25 @@ nav a.active {
   font-weight: 400;
   line-height: 1.2;
 }
-
-.player-artist,
-.breadcrumb {
+.player-artist,.breadcrumb {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--gray);
 }
-
 .player-controls {
   display: flex;
   align-items: center;
   gap: 1.5vw;
   margin-left: 1vw;
 }
-
 .player-controls button {
   color: #111;
   font-size: 1rem;
   transition: opacity 0.3s;
 }
-
 .player-controls button:hover {
   opacity: 0.45;
 }
-
 .player-progress {
   flex: 1;
   margin: 0 2vw;
@@ -176,7 +179,6 @@ nav a.active {
   align-items: center;
   gap: 1vw;
 }
-
 .progress-track {
   flex: 1;
   height: 0.1875em;
@@ -185,7 +187,6 @@ nav a.active {
   border-radius: 0.125em;
   position: relative;
 }
-
 .progress-fill {
   height: 100%;
   width: 0%;
@@ -193,41 +194,34 @@ nav a.active {
   border-radius: 0.125em;
   transition: width 0.1s linear;
 }
-
 .player-time {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--gray);
   white-space: nowrap;
 }
-
 .player-volume {
   display: flex;
   align-items: center;
   gap: 0.6vw;
 }
-
 .player-volume i {
   color: var(--gray);
   font-size: 0.9rem;
 }
-
 .vol-track {
   width: 4.375em;
   height: 0.1875em;
   background: #d0d0d0;
   border-radius: 0.125em;
 }
-
 .vol-fill {
   width: 75%;
   height: 100%;
   background: #111;
   border-radius: 0.125em;
 }
-/* ============================================================
-   ALBUM SECTION
-============================================================ */
+/* ALBUM SECTION*/
 .album-section {
   display: flex;
   background: url("../images/h1-img-8.jpg") center/cover no-repeat;
@@ -235,14 +229,12 @@ nav a.active {
   padding: 10vh 0;
   position: relative;
 }
-
 .album-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
 }
-
 .album-izquierda {
   position: relative;
   z-index: 1;
@@ -250,12 +242,10 @@ nav a.active {
   width: 28vw;
   flex-shrink: 0;
 }
-
 .album-portada {
   width: 100%;
   max-width: 21.25em;
 }
-
 .album-izquierda h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.4rem, 2vw, 2rem);
@@ -264,7 +254,6 @@ nav a.active {
   color: var(--white);
   margin: 3vh 0 1.5vh;
 }
-
 .album-izquierda p {
   font-family: var(--font-mono);
   font-size: 0.88rem;
@@ -272,22 +261,18 @@ nav a.active {
   line-height: 1.7;
   margin-bottom: 2.5vh;
 }
-
 .album-botones {
   display: flex;
   gap: 0.875em;
 }
-
 .album-botones img {
   height: 2.75em;
   width: auto;
   transition: opacity 0.3s;
 }
-
 .album-botones img:hover {
   opacity: 0.7;
 }
-
 /* Lista de canciones */
 .lista-canciones {
   position: relative;
@@ -296,7 +281,6 @@ nav a.active {
   margin: 0 13vw 0 5vw;
   align-self: center;
 }
-
 .cancion {
   display: flex;
   align-items: center;
@@ -309,14 +293,12 @@ nav a.active {
   gap: 1.2vw;
   transition: color 0.3s;
 }
-
 .cancion:last-child {
   border-bottom: none;
 }
 .cancion:hover {
   color: var(--white);
 }
-
 .cancion-numero {
   min-width: 2ch;
 }
@@ -327,25 +309,19 @@ nav a.active {
 .cancion-duracion {
   margin-right: 1vw;
 }
-
-.cancion-botones,
-.review-nav {
+.cancion-botones,.review-nav {
   display: flex;
   gap: 1vw;
 }
-
 .cancion-botones button {
   color: var(--gray);
   font-size: 0.82rem;
   transition: color 0.3s;
 }
-
 .cancion-botones button:hover {
   color: var(--white);
 }
-/* ============================================================
-   MODAL VIDEO
-============================================================ */
+/* MODAL VIDEO */
 .modal-video {
   display: none;
   position: fixed;
@@ -355,17 +331,14 @@ nav a.active {
   align-items: center;
   justify-content: center;
 }
-
 .modal-video.activo {
   display: flex;
 }
-
 .modal-video iframe {
   width: 62vw;
   height: 35vw;
   border: none;
-}#modal-cerrar,
-#video-lightbox-cerrar {
+}#modal-cerrar,#video-lightbox-cerrar {
   position: absolute;
   top: 3vh;
   right: 2vw;
@@ -376,37 +349,36 @@ nav a.active {
   border: none;
   transition: opacity 0.3s;
 }
-
 #modal-cerrar:hover {
   opacity: 0.6;
 }
-/* ============================================================
-   GALERIA
-============================================================ */
+/* GALERIA*/
 .galeria-seccion {
     background: var(--black);
     width: 100%;
     overflow: hidden;
 }
-
 .galeria-encabezado {
     padding: 9vh 15vw 0;
 }
-
-.galeria-encabezado h2,
-.blog-encabezado h2 {
+.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 3rem);
     font-weight: 400;
     text-transform: uppercase;
     color: var(--white);
-    position: relative;
-    margin-bottom: 1.5vh;
 }
-
-.galeria-encabezado h2::after,
-.blog-encabezado h2::after,
-.disco-encabezado h2::after {
+.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2 {
+    position: relative;
+}
+.galeria-encabezado h2, .blog-encabezado h2, .disco-encabezado h2 { font-size: clamp(2rem, 3vw, 3rem); }
+.album-about h2, .album-lyrics h2, .album-reviews h2, .album-video-seccion h2 { font-size: clamp(1.5rem, 2vw, 2rem); }
+.contact-form-izquierda h2 { font-size: clamp(1.8rem, 2.5vw, 2.5rem); }
+.event-detalles h2, .event-about h2, .event-redes h2 { font-size: clamp(1.2rem, 1.8vw, 1.8rem); }
+.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2, .album-reviews h2 { margin-bottom: 1.5vh; }
+.album-video-seccion h2 { margin-bottom: 2.5vh; }
+.contact-form-izquierda h2, .event-detalles h2, .event-about h2, .event-redes h2 { margin-bottom: 2vh; }
+.disco-encabezado h2 { margin-bottom: 0; }
+.galeria-encabezado h2::after,.blog-encabezado h2::after,.disco-encabezado h2::after {
     content: '';
     display: block;
     width: 3.125em;
@@ -414,7 +386,6 @@ nav a.active {
     background: var(--white);
     margin-top: 2.5vh;
 }
-
 .galeria-encabezado p {
     font-family: var(--font-mono);
     font-size: 0.88rem;
@@ -424,14 +395,12 @@ nav a.active {
     margin-top: 3.5vh;
     margin-bottom: 5vh;
 }
-
-/* ─── GRILLA ─────────────────────────────────────────── */
+/* GRILLA  */
 .galeria-grilla {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
-
 .galeria-grilla img {
     width: 100%;
     object-fit: cover;
@@ -439,11 +408,9 @@ nav a.active {
     transition: opacity 0.3s ease;
     display: block;
 }
-
 .galeria-grilla img:hover {
     opacity: 0.7;
 }
-
 @media (min-width: 48em) {
     /* Fila 1: grande - chica - chica */
     .galeria-grilla img:nth-child(1) { width: 50%; height: 20em; }
@@ -455,10 +422,7 @@ nav a.active {
     .galeria-grilla img:nth-child(5) { width: 25%; height: 17.5em; }
     .galeria-grilla img:nth-child(6) { width: 50%; height: 17.5em; }
 }
-
-/* ============================================================
-   LIGHTBOX
-============================================================ */
+/*LIGHTBOX */
 .lightbox {
     display: none;
     position: fixed;
@@ -469,17 +433,14 @@ nav a.active {
     align-items: center;
     justify-content: center;
 }
-
 .lightbox.activo {
     display: flex;
 }
-
 .lightbox img {
     max-width: 85vw;
     max-height: 75vh;
     object-fit: contain;
 }
-
 #lightbox-cerrar {
     position: absolute;
     top: 4vh;
@@ -491,19 +452,16 @@ nav a.active {
     cursor: pointer;
     transition: transform 0.2s, opacity 0.3s;
 }
-
 #lightbox-cerrar:hover {
     opacity: 0.6;
     transform: scale(1.1);
 }
-
 .lightbox-controles {
     display: flex;
     align-items: center;
     gap: 2vw;
     margin-top: 3vh;
 }
-
 .lightbox-controles button {
     color: var(--white);
     font-size: 1.2rem;
@@ -518,27 +476,21 @@ nav a.active {
     justify-content: center;
     transition: background 0.3s, transform 0.2s;
 }
-
 .lightbox-controles button:hover {
     background: rgba(255,255,255,0.2);
     transform: scale(1.05);
 }
-
 #lightbox-contador {
     font-family: var(--font-mono);
     font-size: 0.9rem;
     color: var(--gray-light);
     letter-spacing: 0.0625em;
 }
-
-/* ============================================================
-   TOUR DATES
-============================================================ */
+/* TOUR DATES*/
 .fechas-seccion {
     padding: 10vh 15vw;
     background: var(--black);
 }
-
 .fecha-item {
     display: flex;
     align-items: center;
@@ -547,7 +499,6 @@ nav a.active {
     gap: 1vw;
     flex-wrap: wrap;
 }
-
 .fecha-numero {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 4vw, 3.8rem);
@@ -556,7 +507,6 @@ nav a.active {
     line-height: 1;
     margin-right: 0.3em;
 }
-
 .fecha-mes {
     font-family: var(--font-heading);
     font-size: 0.75rem;
@@ -568,7 +518,6 @@ nav a.active {
     padding-left: 0.7em;
     min-width: 2.5em;
 }
-
 .fecha-lugar {
     flex: 1;
     font-family: var(--font-heading);
@@ -579,15 +528,11 @@ nav a.active {
     letter-spacing: 0.04em;
     padding-left: 2vw;
 }
-
-.fecha-lugar a,
-.blog-post-titulo a {
+.fecha-lugar a,.blog-post-titulo a {
     color: var(--white);
     transition: opacity 0.3s;
 }
-
 .fecha-lugar a:hover { opacity: 0.6; }
-
 .fecha-tickets {
     font-family: var(--font-heading);
     font-size: 0.8rem;
@@ -602,15 +547,11 @@ nav a.active {
     border: none;
     cursor: pointer;
 }
-
 .fecha-tickets:hover { opacity: 0.6; }
-
-.fechas-boton-wrap,
-.disco-boton-wrap {
+.fechas-boton-wrap,.disco-boton-wrap {
     text-align: center;
     margin-top: 5vh;
 }
-
 .boton-borde {
     display: inline-block;
     font-family: var(--font-heading);
@@ -625,23 +566,15 @@ nav a.active {
     background: transparent;
     cursor: pointer;
 }
-
-.boton-borde:hover,
-.footer-redes a:hover,
-.event-tickets-btn:hover,
-.event-redes-iconos a:hover { background: var(--white); color: var(--black); }
-/* ============================================================
-   BLOG
-============================================================ */
+.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover { background: var(--white); color: var(--black); }
+/* BLOG */
 .blog-seccion {
     padding: 10vh 15vw 12vh;
     background: var(--black);
 }
-
 .blog-encabezado {
     margin-bottom: 5vh;
 }
-
 .blog-encabezado p {
     font-family: var(--font-mono);
     font-size: 0.88rem;
@@ -650,18 +583,15 @@ nav a.active {
     max-width: 55%;
     margin-top: 3.5vh;
 }
-
 .blog-grilla {
     display: flex;
     gap: 3vw;
     flex-wrap: wrap;
 }
-
 .blog-post {
     width: calc(33.33% - 2vw);
     overflow: hidden;
 }
-
 .blog-post img {
     width: 100%;
     aspect-ratio: 4/3;
@@ -669,9 +599,7 @@ nav a.active {
     display: block;
     transition: transform 0.4s ease;
 }
-
 .blog-post:hover img { transform: scale(1.03); }
-
 .blog-post-titulo {
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -681,24 +609,19 @@ nav a.active {
     margin-top: 1.5vh;
     letter-spacing: 0.03em;
 }
-
 .blog-post-titulo a:hover { opacity: 0.6; }
-
 .blog-post-fecha {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--gray);
     margin-top: 0.6vh;
 }
-/* ============================================================
-   VIDEO SECTION
-============================================================ */
+/*  VIDEO SECTION*/
 .video-seccion {
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
-
 .video-fondo {
     width: 100%;
     aspect-ratio: 16/7;
@@ -706,9 +629,7 @@ nav a.active {
     display: block;
     transition: transform 0.5s ease;
 }
-
 .video-seccion:hover .video-fondo { transform: scale(1.02); }
-
 .video-boton-play {
     position: absolute;
     top: 50%;
@@ -727,14 +648,10 @@ nav a.active {
     cursor: pointer;
     transition: background 0.3s;
 }
-
 .video-seccion:hover .video-boton-play {
     background: rgba(255,255,255,0.15);
 }
-
-/* ============================================================
-   VIDEO LIGHTBOX
-============================================================ */
+/* VIDEO LIGHTBOX*/
 .video-lightbox {
     display: none;
     position: fixed;
@@ -744,38 +661,21 @@ nav a.active {
     align-items: center;
     justify-content: center;
 }
-
 .video-lightbox.activo { display: flex; }
-
 .video-lightbox video {
     max-width: 80vw;
     max-height: 80vh;
 }
-
 #video-lightbox-cerrar:hover { opacity: 0.6; }
-
-/* ============================================================
-   DISCOGRAPHY
-============================================================ */
+/* DISCOGRAPHY*/
 .disco-seccion {
     padding: 10vh 0 12vh 0;
     background: var(--black);
 }
-
 .disco-encabezado {
     padding: 0 9vw;
     margin-bottom: 5vh;
 }
-
-.disco-encabezado h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 0;
-}
-
 .disco-encabezado p {
     font-family: var(--font-mono);
     font-size: 0.88rem;
@@ -784,7 +684,6 @@ nav a.active {
     max-width: 26.25em;
     margin-top: 3.5vh;
 }
-
 .disco-grilla {
     display: flex;
     flex-wrap: wrap;
@@ -793,7 +692,6 @@ nav a.active {
     margin: 0;
     padding: 0 9vw;
 }
-
 .disco-card {
     width: 22%;
     position: relative;
@@ -804,7 +702,6 @@ nav a.active {
     height: 18vw;
     flex-shrink: 0;
 }
-
 .disco-card img {
     width: 100%;
     height: 100%;
@@ -814,11 +711,9 @@ nav a.active {
     position: absolute;
     inset: 0;
 }
-
 .disco-card:hover img {
     opacity: 0.35;
 }
-
 .disco-overlay {
     position: absolute;
     left: 10%;
@@ -829,12 +724,10 @@ nav a.active {
     pointer-events: none;
     z-index: 1;
 }
-
 .disco-card:hover .disco-overlay {
     opacity: 1;
     transform: translateY(0);
 }
-
 .disco-overlay h3 {
     font-family: var(--font-heading);
     font-size: clamp(1rem, 1.5vw, 1.4rem);
@@ -844,18 +737,15 @@ nav a.active {
     line-height: 1.1;
     margin-bottom: 0.3em;
 }
-
 .disco-overlay p {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--gray-light);
 }
-
 .disco-hero {
     background: var(--black);
     padding: 12vh 9vw 4vh;
 }
-
 .disco-hero h1 {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3.5rem);
@@ -865,42 +755,33 @@ nav a.active {
     letter-spacing: 0.05em;
     margin-bottom: 1.5vh;
 }
-
 .breadcrumb a {
     color: var(--gray);
     transition: opacity 0.3s;
 }
-
 .breadcrumb a:hover {
     opacity: 0.6;
 }
-/* ============================================================
-   FOOTER
-============================================================ */
+/* FOOTER*/
 footer {
     padding: 10vh 4vw 0;
     background: var(--black);
 }
-
 .footer-grilla {
     display: flex;
     gap: 2vw;
     padding-bottom: 8vh;
     flex-wrap: wrap;
 }
-
-.footer-col,
-.contact-info-col {
+.footer-col,.contact-info-col {
     flex: 1;
     min-width: 11.25em;
 }
-
 .footer-logo {
     height: 1.875em;
     width: auto;
     margin-bottom: 2.5vh;
 }
-
 .footer-descripcion {
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -909,12 +790,10 @@ footer {
     margin-bottom: 3vh;
     max-width: 15em;
 }
-
 .footer-redes {
     display: flex;
     gap: 0.625em;
 }
-
 .footer-redes a {
     width: 2.25em;
     height: 2.25em;
@@ -927,7 +806,6 @@ footer {
     color: var(--white);
     transition: background 0.3s, color 0.3s;
 }
-
 .footer-col h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -937,11 +815,9 @@ footer {
     color: var(--white);
     margin-bottom: 3vh;
 }
-
 .footer-col address {
     font-style: normal;
 }
-
 .footer-col address p {
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -949,17 +825,13 @@ footer {
     margin-bottom: 1.5vh;
     line-height: 1.5;
 }
-
-.footer-links,
-.album-meta {
+.footer-links,.album-meta {
     list-style: none;
     padding: 0;
 }
-
 .footer-links li {
     margin-bottom: 1.8vh;
 }
-
 .footer-links a {
     font-family: var(--font-heading);
     font-size: 0.88rem;
@@ -969,15 +841,12 @@ footer {
     color: var(--white);
     transition: opacity 0.3s;
 }
-
 .footer-links a:hover { opacity: 0.6; }
-
 .footer-linea {
     border: none;
     border-top: 0.0625em solid var(--gray-border);
     margin: 0;
 }
-
 .footer-copyright {
     text-align: center;
     padding: 2.5vh 0;
@@ -985,15 +854,11 @@ footer {
     font-size: 0.8rem;
     color: var(--gray);
 }
-
 .footer-copyright a {
     color: var(--gray);
     text-decoration: underline;
 }
-
-/* ============================================================
-   SCROLL TO TOP
-============================================================ */
+/* SCROLL TO TOP*/
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -1013,13 +878,9 @@ footer {
     background: transparent;
     cursor: pointer;
 }
-
 .scroll-top.visible { opacity: 1; }
 .scroll-top:hover { background: rgba(255,255,255,0.1); color: var(--white); }
-
-/* ============================================================
-   TOUR HERO
-============================================================ */
+/* TOUR HERO*/
 .tour-hero,.about-hero {
     position: relative;
     height: 60vh;
@@ -1030,15 +891,12 @@ footer {
 .tour-hero {
 background: url('../images/tour-title-area.png') center/cover no-repeat;
 background-attachment: fixed;
-
 }
 .about-hero {
     background: url('../images/about-title-area.png') center/cover no-repeat;
     background-attachment: fixed;
 }
-
-.tour-hero-overlay,
-.contact-hero-overlay {
+.tour-hero-overlay,.contact-hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
@@ -1053,27 +911,23 @@ background-attachment: fixed;
     color: var(--white);
     text-align: center;
 }
-
 /* Estilo para el contenedor que centra el contenido */
 .container {
     max-width: 50em; 
     margin: 0 auto;
     padding: 0 1.25em;
 }
-
 .listen-albums {
     background-color: #000;
     padding: 6.25em 0;
     text-align: left;       /* ← el original es LEFT, no centrado */
     color: #fff;
 }
-
 .listen-albums .container {
     max-width: 53.75em;
     margin: 0 auto;
     padding: 0 9vw;
 }
-
 .listen-albums h2 {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 3vw, 3rem);
@@ -1083,7 +937,6 @@ background-attachment: fixed;
     margin-bottom: 0;
     position: relative;
 }
-
 .listen-albums h2::after {
     content: '';
     display: block;
@@ -1108,7 +961,6 @@ background-attachment: fixed;
     background: #000;
     overflow: hidden;
 }
-
 .member {
     position: relative;
     flex: 1;
@@ -1116,7 +968,6 @@ background-attachment: fixed;
     overflow: hidden;
     cursor: pointer;
 }
-
 .member img {
     width: 100%;
     height: 100%;
@@ -1132,11 +983,9 @@ background-attachment: fixed;
     transition: background 0.4s ease;
     z-index: 1;
 }
-
 .member:hover::after {
     background: rgba(0, 0, 0, 0.55);       
 }
-
 /* Info — invisible por defecto */
 .member-info {
     position: absolute;
@@ -1149,11 +998,9 @@ background-attachment: fixed;
     opacity: 0;                            
     white-space: nowrap;
 }
-
 .member:hover .member-info {
     opacity: 1;                            
 }
-
 .member-info h3 {
     font-family: var(--font-heading);
     font-size: clamp(1.2rem, 2.5vw, 2.8rem);
@@ -1162,7 +1009,6 @@ background-attachment: fixed;
     margin: 0 0 0.5em;
     letter-spacing: 0.05em;
 }
-
 .member-info span {
     font-family: var(--font-mono);
     font-size: 0.9rem;
@@ -1170,13 +1016,11 @@ background-attachment: fixed;
     display: block;
     margin-bottom: 1.25em;
 }
-
 .socials {
     display: flex;
     justify-content: center;
     gap: 0.875em;
 }
-
 .socials a {
     color: #fff;
     font-size: 0.85rem;
@@ -1189,17 +1033,16 @@ background-attachment: fixed;
     justify-content: center;
     transition: background 0.3s, border-color 0.3s;
 }
-
 .socials a:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: #fff;
 }
-/* BREADCRUMB */
+/* BREADCRUMB*/
 .event-info li a {
     color: var(--gray);
     transition: color 0.3s;
 }
-/* CONTENIDO PRINCIPAL — dos columnas */
+/* CONTENIDO PRINCIPAL — dos columnas*/
 .album-contenido {
     display: flex;
     gap: 6vw;
@@ -1207,7 +1050,7 @@ background-attachment: fixed;
     background: var(--black);
     align-items: flex-start;
 }
-/* COLUMNA IZQUIERDA*/
+/* COLUMNA IZQUIERDA */
 .album-col-izquierda {
     width: 35%;
     flex-shrink: 0;
@@ -1348,22 +1191,12 @@ background-attachment: fixed;
     transition: opacity 0.3s;
 }
 .album-disponible-btns img:hover { opacity: 0.7; }
-/* COLUMNA DERECHA*/
+/*COLUMNA DERECHA */
 .album-col-derecha {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 6vh;
-}
-/* Títulos de sección derecha */
-.album-about h2,.album-lyrics h2,.album-reviews h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 1.5vh;
-    position: relative;
 }
 /* Album Reviews — caja con fondo gris */
 .album-reviews {
@@ -1468,15 +1301,6 @@ background-attachment: fixed;
     background: var(--black);
     padding: 4vh 15vw 12vh;
 }
-.album-video-seccion h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 2.5vh;
-    position: relative;
-}
 .album-video-seccion iframe {
     width: 100%;
     aspect-ratio: 16/9;
@@ -1507,7 +1331,7 @@ background-attachment: fixed;
 #video-grilla {
     font-size: 1.1rem;
 }
-/* CONTACT HERO */
+/* CONTACT HERO*/
 .contact-hero {
     position: relative;
     height: 60vh;
@@ -1528,7 +1352,7 @@ background-attachment: fixed;
     letter-spacing: 0.1em;
     text-align: center;
 }
-/* SECCION 1 — 4 columnas*/
+/*  SECCION 1 — 4 columnas*/
 .contact-info-seccion {
     background: #000;
     padding: 10vh 15vw;
@@ -1554,7 +1378,7 @@ background-attachment: fixed;
     color: var(--gray);
     line-height: 1.8;
 }
-/* SECCION 2 — info + formulario*/
+/* SECCION 2 — info + formulario */
 .contact-form-seccion {
     background: #0d0d0d;
     padding: 10vh 15vw;
@@ -1564,15 +1388,6 @@ background-attachment: fixed;
 }
 .contact-form-izquierda {
     flex: 1;
-}
-.contact-form-izquierda h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 2vh;
-    position: relative;
 }
 .contact-form-izquierda h2::after {
     content: '';
@@ -1661,8 +1476,9 @@ background-attachment: fixed;
     font-size: 0.82rem;
     padding: 0.8vh 0;
 }
-.mensaje-error { color: #e74c3c; }.mensaje-ok { color: #2ecc71; }
-/* CONTENIDO PRINCIPAL*/
+.mensaje-error { color: #e74c3c; }
+.mensaje-ok { color: #2ecc71; }
+/*  CONTENIDO PRINCIPAL*/
 .event-contenido {
     padding: 4vh 15vw 12vh;
     background: var(--black);
@@ -1670,7 +1486,7 @@ background-attachment: fixed;
     flex-direction: column;
     gap: 5vh;
 }
-/* FILA 1 — imagen chica + mapa grande*/
+/* FILA 1 — imagen chica + mapa grande */
 .event-fila-top {
     display: flex;
     align-items: stretch;
@@ -1711,7 +1527,7 @@ background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
-/* FILA 2 — details + about tour y follow*/
+/* FILA 2 — details + about tour y follow */
 .event-fila-medio {
     display: flex;
     gap: 6vw;
@@ -1726,16 +1542,6 @@ background-attachment: fixed;
     display: flex;
     flex-direction: column;
     gap: 4vh;
-}
-/* Títulos */
-.event-detalles h2,.event-about h2,.event-redes h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 2vh;
-    position: relative;
 }
 /* Info lista */
 .event-info {
@@ -1801,7 +1607,9 @@ background-attachment: fixed;
     font-size: 0.75rem;
     transition: background 0.3s, color 0.3s;
 }
-/* RESPONSIVE*/
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 @media (max-width: 56.25em) {
     .event-contenido { padding: 4vh 8vw 10vh; }
     .event-fila-top { flex-direction: column; height: auto; }

@@ -775,6 +775,7 @@ document.addEventListener('DOMContentLoaded', function() {
             campoMensaje.value = '';
         });
     }
+    
 
     // ─── SCROLL TO TOP ────────────────────────────────────
     const scrollBtn = document.getElementById('scroll-top');

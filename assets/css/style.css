@@ -1,47 +1,15 @@
-/* ============================================================
-   RESET BASE
-============================================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/*RESET BASE */
+*,*::before,*::after {box-sizing: border-box;margin: 0;padding: 0;
 }
-html {
-  scroll-behavior: smooth;
+html {scroll-behavior: smooth;}
+body {font-family: "Open Sans", sans-serif;background: #000;color: #fff;overflow-x: hidden;}
+img {max-width: 100%;height: auto;display: block;
 }
-
-body {
-  font-family: "Open Sans", sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
+a {text-decoration: none;color: inherit;
 }
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-ul,
-ol {
-  list-style: none;
-}
-button {
-  cursor: pointer;
-  font: inherit;
-  background: none;
-  border: none;
-  color: inherit;
-}
-/* ============================================================
-   VARIABLES
-============================================================ */
+ul,ol {list-style: none;}
+button {cursor: pointer;font: inherit;background: none;border: none;color: inherit;}
+/* VARIABLES*/
 :root {
   --black: #000;
   --white: #fff;
@@ -51,9 +19,7 @@ button {
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
 }
-/* ============================================================
-   HEADER
-============================================================ */
+/* HEADER */
 header {
   position: absolute;
   top: 0;
@@ -1228,18 +1194,12 @@ background-attachment: fixed;
     background: rgba(255, 255, 255, 0.15);
     border-color: #fff;
 }
-
-/* ============================================================
-   BREADCRUMB
-============================================================ */
+/* BREADCRUMB */
 .event-info li a {
     color: var(--gray);
     transition: color 0.3s;
 }
-
-/* ============================================================
-   CONTENIDO PRINCIPAL — dos columnas
-============================================================ */
+/* CONTENIDO PRINCIPAL — dos columnas */
 .album-contenido {
     display: flex;
     gap: 6vw;
@@ -1247,22 +1207,16 @@ background-attachment: fixed;
     background: var(--black);
     align-items: flex-start;
 }
-
-/* ============================================================
-   COLUMNA IZQUIERDA
-============================================================ */
+/* COLUMNA IZQUIERDA*/
 .album-col-izquierda {
     width: 35%;
     flex-shrink: 0;
 }
-
 .album-img {
     width: 100%;
     display: block;
     margin-bottom: 3vh;
 }
-
-/* Controles */
 /* Controles - reproductor con fondo gris, 3 columnas iguales */
 .album-controles {
     display: grid;
@@ -1270,7 +1224,6 @@ background-attachment: fixed;
     background: #2a2a2a;
     margin-bottom: 0;
 }
-
 .album-controles button {
     color: var(--white);
     font-size: 1rem;
@@ -1282,20 +1235,16 @@ background-attachment: fixed;
     padding: 2vh 0;
     text-align: center;
 }
-
 .album-controles button:last-child {
     border-right: none;
 }
-
 .album-controles button:hover { opacity: 0.5; }
-
 /* Barra de progreso */
 .album-progreso-wrap {
     background: #1c1c1c;
     padding: 0 1.2vw 1.5vh;
     margin-bottom: 0;
 }
-
 .album-progreso-track {
     width: 100%;
     height: 0.1875em;
@@ -1303,7 +1252,6 @@ background-attachment: fixed;
     cursor: pointer;
     border-radius: 0.125em;
 }
-
 .album-progreso-fill {
     height: 100%;
     width: 0%;
@@ -1311,7 +1259,6 @@ background-attachment: fixed;
     border-radius: 0.125em;
     transition: width 0.1s linear;
 }
-
 /* Info cancion*/
 .album-cancion-info {
     background: #1c1c1c;
@@ -1319,7 +1266,6 @@ background-attachment: fixed;
     padding: 2vh 1.2vw;
     margin-bottom: 4vh;
 }
-
 .album-cancion-info .info-titulo {
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -1327,19 +1273,16 @@ background-attachment: fixed;
     letter-spacing: 0.05em;
     margin-bottom: 0.5vh;
 }
-
 .album-cancion-info .info-artista {
     font-family: var(--font-mono);
     font-size: 0.78rem;
     color: var(--gray);
     text-transform: none;
 }
-
 /* Tracklist */
 .album-tracklist {
     margin-bottom: 4vh;
 }
-
 .album-tracklist h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -1351,7 +1294,6 @@ background-attachment: fixed;
     padding-bottom: 1vh;
     border-bottom: 0.0625em solid var(--gray-border);
 }
-
 .track-fila {
     display: flex;
     align-items: center;
@@ -1360,9 +1302,7 @@ background-attachment: fixed;
     border-bottom: 0.0625em solid var(--gray-border);
     transition: background 0.3s;
 }
-
 .track-fila:hover { background: rgba(255,255,255,0.03); }
-
 .track-fila-titulo {
     font-family: var(--font-heading);
     font-size: 0.88rem;
@@ -1372,7 +1312,6 @@ background-attachment: fixed;
     letter-spacing: 0.03em;
     flex: 1;
 }
-
 .track-fila-comprar {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -1383,9 +1322,7 @@ background-attachment: fixed;
     border: none;
     cursor: pointer;
 }
-
 .track-fila-comprar:hover { color: var(--white); }
-
 /* Available On */
 .album-disponible h2 {
     font-family: var(--font-heading);
@@ -1397,15 +1334,7 @@ background-attachment: fixed;
     margin-bottom: 2vh;
     position: relative;
 }
-
-.album-disponible h2::after,
-.album-about h2::after,
-.album-lyrics h2::after,
-.album-reviews h2::after,
-.album-video-seccion h2::after,
-.event-detalles h2::after,
-.event-about h2::after,
-.event-redes h2::after {
+.album-disponible h2::after,.album-about h2::after,.album-lyrics h2::after,.album-reviews h2::after,.album-video-seccion h2::after,.event-detalles h2::after,.event-about h2::after,.event-redes h2::after {
     content: '';
     display: block;
     width: 2.5em;
@@ -1413,29 +1342,21 @@ background-attachment: fixed;
     background: var(--white);
     margin-top: 1.5vh;
 }
-
 .album-disponible-btns img {
     height: 2.5em;
     width: auto;
     transition: opacity 0.3s;
 }
-
 .album-disponible-btns img:hover { opacity: 0.7; }
-
-/* ============================================================
-   COLUMNA DERECHA
-============================================================ */
+/* COLUMNA DERECHA*/
 .album-col-derecha {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 6vh;
 }
-
 /* Títulos de sección derecha */
-.album-about h2,
-.album-lyrics h2,
-.album-reviews h2 {
+.album-about h2,.album-lyrics h2,.album-reviews h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 400;
@@ -1449,11 +1370,9 @@ background-attachment: fixed;
     background: #1c1c1c;
     padding: 4vh 4vw;
 }
-
 .album-reviews h2 {
     margin-bottom: 2vh;
 }
-
 /* About Album */
 .album-about p {
     font-family: var(--font-mono);
@@ -1463,7 +1382,6 @@ background-attachment: fixed;
     margin-top: 2vh;
     margin-bottom: 2.5vh;
 }
-
 .album-meta li {
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -1471,18 +1389,15 @@ background-attachment: fixed;
     margin-bottom: 1vh;
     line-height: 1.5;
 }
-
 .album-meta li span {
     color: var(--white);
     font-weight: 600;
     margin-right: 0.5em;
 }
-
 /* Available Lyrics — acordeon */
 .lyric-item {
     border-bottom: 0.0625em solid var(--gray-border);
 }
-
 .lyric-titulo {
     display: flex;
     justify-content: space-between;
@@ -1497,17 +1412,13 @@ background-attachment: fixed;
     letter-spacing: 0.04em;
     transition: opacity 0.3s;
 }
-
 .lyric-titulo:hover { opacity: 0.7; }
-
 .lyric-titulo i {
     font-size: 0.8rem;
     transition: transform 0.3s;
     color: var(--gray);
 }
-
 .lyric-titulo.abierto i { transform: rotate(180deg); }
-
 .lyric-cuerpo {
     display: none;
     padding: 1vh 0 2vh;
@@ -1516,14 +1427,11 @@ background-attachment: fixed;
     color: var(--gray);
     line-height: 2;
 }
-
 .lyric-cuerpo.abierto { display: block; }
-
 /* Album Reviews */
 .review-contenido {
     margin: 2vh 0 0;
 }
-
 .review-texto {
     font-family: var(--font-mono);
     font-size: 0.88rem;
@@ -1532,13 +1440,11 @@ background-attachment: fixed;
     font-style: italic;
     margin-bottom: 3vh;
 }
-
 .review-pie {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .review-autor {
     font-family: var(--font-heading);
     font-size: 0.85rem;
@@ -1546,7 +1452,6 @@ background-attachment: fixed;
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
-
 .review-nav button {
     font-family: var(--font-heading);
     font-size: 1.4rem;
@@ -1557,15 +1462,12 @@ background-attachment: fixed;
     transition: opacity 0.3s;
     line-height: 1;
 }
-
 .review-nav button:hover { opacity: 0.5; }
-
 /* Latest Video — sección ancho completo, debajo de las columnas */
 .album-video-seccion {
     background: var(--black);
     padding: 4vh 15vw 12vh;
 }
-
 .album-video-seccion h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 2vw, 2rem);
@@ -1575,7 +1477,6 @@ background-attachment: fixed;
     margin-bottom: 2.5vh;
     position: relative;
 }
-
 .album-video-seccion iframe {
     width: 100%;
     aspect-ratio: 16/9;
@@ -1591,30 +1492,22 @@ background-attachment: fixed;
     gap: 4vw;
     padding-top: 3vh;
 }
-
-.video-nav button,
-.video-nav a {
+.video-nav button,.video-nav a {
     color: var(--white);
     background: none;
     border: none;
     cursor: pointer;
     transition: opacity 0.3s;
 }
-
 .video-nav button:hover { opacity: 0.5; }
-
-#video-anterior,
-#video-siguiente {
+#video-anterior,#video-siguiente {
     font-size: 1.6rem;
     line-height: 1;
 }
-
 #video-grilla {
     font-size: 1.1rem;
 }
-/* ============================================================
-   CONTACT HERO
-============================================================ */
+/* CONTACT HERO */
 .contact-hero {
     position: relative;
     height: 60vh;
@@ -1624,7 +1517,6 @@ background-attachment: fixed;
     align-items: center;
     justify-content: center;
 }
-
 .contact-hero-titulo {
     position: relative;
     z-index: 1;
@@ -1636,23 +1528,17 @@ background-attachment: fixed;
     letter-spacing: 0.1em;
     text-align: center;
 }
-
-/* ============================================================
-   SECCION 1 — 4 columnas
-============================================================ */
+/* SECCION 1 — 4 columnas*/
 .contact-info-seccion {
     background: #000;
     padding: 10vh 15vw;
     border-bottom: 0.0625em solid #1a1a1a;
 }
-
-.contact-info-grilla,
-.contact-ciudades {
+.contact-info-grilla,.contact-ciudades {
     display: flex;
     gap: 4vw;
     flex-wrap: wrap;
 }
-
 .contact-info-col h3 {
     font-family: var(--font-heading);
     font-size: 1.1rem;
@@ -1662,17 +1548,13 @@ background-attachment: fixed;
     letter-spacing: 0.08em;
     margin-bottom: 2vh;
 }
-
 .contact-info-col p {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--gray);
     line-height: 1.8;
 }
-
-/* ============================================================
-   SECCION 2 — info + formulario
-============================================================ */
+/* SECCION 2 — info + formulario*/
 .contact-form-seccion {
     background: #0d0d0d;
     padding: 10vh 15vw;
@@ -1680,11 +1562,9 @@ background-attachment: fixed;
     gap: 8vw;
     align-items: flex-start;
 }
-
 .contact-form-izquierda {
     flex: 1;
 }
-
 .contact-form-izquierda h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.8rem, 2.5vw, 2.5rem);
@@ -1694,7 +1574,6 @@ background-attachment: fixed;
     margin-bottom: 2vh;
     position: relative;
 }
-
 .contact-form-izquierda h2::after {
     content: '';
     display: block;
@@ -1703,7 +1582,6 @@ background-attachment: fixed;
     background: var(--white);
     margin-top: 2vh;
 }
-
 .contact-form-izquierda > p {
     font-family: var(--font-mono);
     font-size: 0.88rem;
@@ -1713,12 +1591,10 @@ background-attachment: fixed;
     margin-bottom: 4vh;
     max-width: 26.25em;
 }
-
 .contact-ciudad {
     flex: 1;
     min-width: 0;
 }
-
 .contact-ciudad h4 {
     font-family: var(--font-heading);
     font-size: 0.95rem;
@@ -1728,14 +1604,12 @@ background-attachment: fixed;
     letter-spacing: 0.08em;
     margin-bottom: 1.5vh;
 }
-
 .contact-ciudad p {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--gray);
     line-height: 1.9;
 }
-
 /* ── Formulario ── */
 .contact-form-derecha {
     flex: 1;
@@ -1743,9 +1617,7 @@ background-attachment: fixed;
     flex-direction: column;
     gap: 1.5vh;
 }
-
-.contact-form-derecha input,
-.contact-form-derecha textarea {
+.contact-form-derecha input,.contact-form-derecha textarea {
     width: 100%;
     background: transparent;
     border: 0.0625em solid var(--white);
@@ -1756,22 +1628,16 @@ background-attachment: fixed;
     outline: none;
     transition: border-color 0.3s;
 }
-
-.contact-form-derecha input::placeholder,
-.contact-form-derecha textarea::placeholder {
+.contact-form-derecha input::placeholder,.contact-form-derecha textarea::placeholder {
     color: var(--gray);
 }
-
-.contact-form-derecha input:focus,
-.contact-form-derecha textarea:focus {
+.contact-form-derecha input:focus,.contact-form-derecha textarea:focus {
     border-color: var(--gray-light);
 }
-
 .contact-form-derecha textarea {
     min-height: 9.375em;
     resize: none;
 }
-
 .contact-form-derecha button {
     align-self: flex-start;
     font-family: var(--font-heading);
@@ -1786,24 +1652,17 @@ background-attachment: fixed;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
 }
-
 .contact-form-derecha button:hover {
     background: transparent;
     color: var(--white);
 }
-
 .contact-form-mensaje {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     padding: 0.8vh 0;
 }
-
-.mensaje-error { color: #e74c3c; }
-.mensaje-ok { color: #2ecc71; }
-
-/* ============================================================
-   CONTENIDO PRINCIPAL
-============================================================ */
+.mensaje-error { color: #e74c3c; }.mensaje-ok { color: #2ecc71; }
+/* CONTENIDO PRINCIPAL*/
 .event-contenido {
     padding: 4vh 15vw 12vh;
     background: var(--black);
@@ -1811,9 +1670,7 @@ background-attachment: fixed;
     flex-direction: column;
     gap: 5vh;
 }
-/* ============================================================
-   FILA 1 — imagen chica + mapa grande
-============================================================ */
+/* FILA 1 — imagen chica + mapa grande*/
 .event-fila-top {
     display: flex;
     align-items: stretch;
@@ -1845,7 +1702,6 @@ background-attachment: fixed;
     line-height: 0;
     font-size: 0;
 }
-
 .event-mapa iframe {
     width: 100%;
     height: 100%;
@@ -1855,9 +1711,7 @@ background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
-/* ============================================================
-   FILA 2 — details + about tour y follow
-============================================================ */
+/* FILA 2 — details + about tour y follow*/
 .event-fila-medio {
     display: flex;
     gap: 6vw;
@@ -1873,11 +1727,8 @@ background-attachment: fixed;
     flex-direction: column;
     gap: 4vh;
 }
-
 /* Títulos */
-.event-detalles h2,
-.event-about h2,
-.event-redes h2 {
+.event-detalles h2,.event-about h2,.event-redes h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.2rem, 1.8vw, 1.8rem);
     font-weight: 400;
@@ -1886,14 +1737,12 @@ background-attachment: fixed;
     margin-bottom: 2vh;
     position: relative;
 }
-
 /* Info lista */
 .event-info {
     list-style: none;
     padding: 0;
     margin: 3vh 0;
 }
-
 .event-info li {
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -1901,15 +1750,12 @@ background-attachment: fixed;
     margin-bottom: 1.2vh;
     line-height: 1.6;
 }
-
 .event-info li span {
     color: var(--white);
     font-weight: 600;
     margin-right: 0.3em;
 }
-
 .event-info li a:hover { color: var(--white); }
-
 /* Botón */
 .event-tickets-btn {
     font-family: var(--font-heading);
@@ -1928,7 +1774,6 @@ background-attachment: fixed;
     width: 100%;
     text-align: center;
 }
-
 /* About Tour */
 .event-about p {
     font-family: var(--font-mono);
@@ -1937,7 +1782,6 @@ background-attachment: fixed;
     line-height: 1.9;
     margin-top: 2vh;
 }
-
 /* Follow And Share */
 .event-redes-iconos {
     display: flex;
@@ -1945,7 +1789,6 @@ background-attachment: fixed;
     margin-top: 2vh;
     flex-wrap: wrap;
 }
-
 .event-redes-iconos a {
     width: 2.125em;
     height: 2.125em;
@@ -1958,10 +1801,7 @@ background-attachment: fixed;
     font-size: 0.75rem;
     transition: background 0.3s, color 0.3s;
 }
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
+/* RESPONSIVE*/
 @media (max-width: 56.25em) {
     .event-contenido { padding: 4vh 8vw 10vh; }
     .event-fila-top { flex-direction: column; height: auto; }

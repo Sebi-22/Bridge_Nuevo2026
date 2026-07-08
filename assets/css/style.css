@@ -42,6 +42,7 @@ button {
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
 }
+header,nav ul,.event-redes-iconos a,.event-redes-iconos,.event-derecha,.event-fila-medio,.event-fila-top,.event-contenido,.contact-form-derecha,.contact-form-seccion,.contact-info-grilla,.contact-ciudades,.contact-hero,.video-nav,.review-pie,.lyric-titulo,.album-col-derecha,.album-contenido,.track-fila,.socials a,.socials,.popUpMembers,.tour-hero,.about-hero,.scroll-top,.footer-redes,.footer-redes a,.footer-grilla,.disco-grilla,.video-lightbox.activo,.video-boton-play,.blog-grilla,.fecha-item,.lightbox-controles button,.lightbox-controles,.lightbox.activo,.galeria-grilla,.modal-video.activo,.cancion-botones,.review-nav,.cancion,.album-botones,.album-section,.player-volume,.player-progress,.player-controls,.player-bar,.store-btns,.album-disponible-btns,.hero{display: flex;}
 /*  HEADER */
 header {
   position: absolute;
@@ -50,7 +51,6 @@ header {
   width: 100%;
   z-index: 100;
   padding: 2.5vh 5vw;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -59,14 +59,15 @@ header {
   width: auto;
 }
 nav ul {
-  display: flex;
   gap: 2vw;
+}
+nav a,.hero-band-name,.album-izquierda h2,.cancion:hover,.cancion-botones button:hover,#modal-cerrar,#video-lightbox-cerrar,.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2,#lightbox-cerrar,.lightbox-controles button,.fecha-numero,.fecha-lugar,.fecha-lugar a,.blog-post-titulo a,.fecha-tickets,.boton-borde,.blog-post-titulo,.event-redes-iconos a,.event-tickets-btn,.event-info li a:hover,.event-info li span,.contact-form-derecha button:hover,.contact-form-derecha input,.contact-form-derecha textarea,.contact-ciudad h4,.contact-info-col h3,.contact-hero-titulo,.video-nav button,.video-nav a,.review-nav button,.review-autor,.lyric-titulo,.album-meta li span,.album-disponible h2,.track-fila-comprar:hover,.track-fila-titulo,.album-tracklist h3,.album-cancion-info .info-titulo,.album-controles button,.tour-hero-titulo,.scroll-top:hover,.footer-links a,.footer-col h3,.footer-redes a,.disco-hero h1,.disco-overlay h3,.video-boton-play  {
+color: var(--white);
 }
 nav a {
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding-bottom: 0.1875em;
@@ -81,7 +82,6 @@ nav a:hover,nav a.active {
   position: relative;
   min-height: 110vh;
   background: url("../images/background-1.png") center/cover no-repeat;
-  display: flex;
   align-items: flex-end;
 }
 .hero-band-name {
@@ -93,7 +93,6 @@ nav a:hover,nav a.active {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 7vw, 7rem);
   font-weight: 700;
-  color: var(--white);
   letter-spacing: 0.08em;
   text-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.5);
 }
@@ -112,7 +111,6 @@ nav a:hover,nav a.active {
   margin-bottom: 2.5vh;
 }
 .store-btns,.album-disponible-btns {
-  display: flex;
   gap: 0.875em;
   flex-wrap: wrap;
 }
@@ -121,13 +119,10 @@ nav a:hover,nav a.active {
   width: auto;
   transition: opacity 0.3s;
 }
-.store-btns img:hover {
-  opacity: 0.7;
-}
+.store-btns img:hover,.album-botones img:hover,.galeria-grilla img:hover,.album-disponible-btns img:hover,.lyric-titulo:hover {opacity: 0.7;}
 /* PLAYER BAR */
 .player-bar {
   background: var(--white);
-  display: flex;
   align-items: center;
   padding: 0 9vw;
   height: 5.5em;
@@ -159,7 +154,6 @@ nav a:hover,nav a.active {
   color: var(--gray);
 }
 .player-controls {
-  display: flex;
   align-items: center;
   gap: 1.5vw;
   margin-left: 1vw;
@@ -175,7 +169,6 @@ nav a:hover,nav a.active {
 .player-progress {
   flex: 1;
   margin: 0 2vw;
-  display: flex;
   align-items: center;
   gap: 1vw;
 }
@@ -201,7 +194,6 @@ nav a:hover,nav a.active {
   white-space: nowrap;
 }
 .player-volume {
-  display: flex;
   align-items: center;
   gap: 0.6vw;
 }
@@ -223,7 +215,6 @@ nav a:hover,nav a.active {
 }
 /* ALBUM SECTION*/
 .album-section {
-  display: flex;
   background: url("../images/h1-img-8.jpg") center/cover no-repeat;
   min-height: 80vh;
   padding: 10vh 0;
@@ -251,7 +242,6 @@ nav a:hover,nav a.active {
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: 400;
   text-transform: uppercase;
-  color: var(--white);
   margin: 3vh 0 1.5vh;
 }
 .album-izquierda p {
@@ -262,16 +252,12 @@ nav a:hover,nav a.active {
   margin-bottom: 2.5vh;
 }
 .album-botones {
-  display: flex;
   gap: 0.875em;
 }
 .album-botones img {
   height: 2.75em;
   width: auto;
   transition: opacity 0.3s;
-}
-.album-botones img:hover {
-  opacity: 0.7;
 }
 /* Lista de canciones */
 .lista-canciones {
@@ -282,7 +268,6 @@ nav a:hover,nav a.active {
   align-self: center;
 }
 .cancion {
-  display: flex;
   align-items: center;
   border-bottom: 0.0625em solid var(--gray-border);
   padding: 1.8vh 0;
@@ -296,9 +281,6 @@ nav a:hover,nav a.active {
 .cancion:last-child {
   border-bottom: none;
 }
-.cancion:hover {
-  color: var(--white);
-}
 .cancion-numero {
   min-width: 2ch;
 }
@@ -310,16 +292,12 @@ nav a:hover,nav a.active {
   margin-right: 1vw;
 }
 .cancion-botones,.review-nav {
-  display: flex;
   gap: 1vw;
 }
 .cancion-botones button {
   color: var(--gray);
   font-size: 0.82rem;
   transition: color 0.3s;
-}
-.cancion-botones button:hover {
-  color: var(--white);
 }
 /* MODAL VIDEO */
 .modal-video {
@@ -331,27 +309,22 @@ nav a:hover,nav a.active {
   align-items: center;
   justify-content: center;
 }
-.modal-video.activo {
-  display: flex;
-}
 .modal-video iframe {
   width: 62vw;
   height: 35vw;
   border: none;
-}#modal-cerrar,#video-lightbox-cerrar {
+}
+#modal-cerrar,#video-lightbox-cerrar {
   position: absolute;
   top: 3vh;
   right: 2vw;
-  color: var(--white);
   font-size: 1.8rem;
   cursor: pointer;
   background: none;
   border: none;
   transition: opacity 0.3s;
 }
-#modal-cerrar:hover {
-  opacity: 0.6;
-}
+#modal-cerrar:hover,#lightbox-cerrar:hover,.fecha-lugar a:hover,.fecha-tickets:hover,.blog-post-titulo a:hover,#video-lightbox-cerrar:hover,.breadcrumb a:hover,.footer-links a:hover  {opacity: 0.6;}
 /* GALERIA*/
 .galeria-seccion {
     background: var(--black);
@@ -365,7 +338,6 @@ nav a:hover,nav a.active {
     font-family: var(--font-heading);
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
 }
 .galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2 {
     position: relative;
@@ -397,7 +369,6 @@ nav a:hover,nav a.active {
 }
 /* GRILLA  */
 .galeria-grilla {
-    display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -407,9 +378,6 @@ nav a:hover,nav a.active {
     cursor: pointer;
     transition: opacity 0.3s ease;
     display: block;
-}
-.galeria-grilla img:hover {
-    opacity: 0.7;
 }
 @media (min-width: 48em) {
     /* Fila 1: grande - chica - chica */
@@ -433,9 +401,6 @@ nav a:hover,nav a.active {
     align-items: center;
     justify-content: center;
 }
-.lightbox.activo {
-    display: flex;
-}
 .lightbox img {
     max-width: 85vw;
     max-height: 75vh;
@@ -445,7 +410,6 @@ nav a:hover,nav a.active {
     position: absolute;
     top: 4vh;
     right: 4vw;
-    color: var(--white);
     font-size: 2rem;
     background: none;
     border: none;
@@ -453,17 +417,14 @@ nav a:hover,nav a.active {
     transition: transform 0.2s, opacity 0.3s;
 }
 #lightbox-cerrar:hover {
-    opacity: 0.6;
-    transform: scale(1.1);
+transform: scale(1.1);
 }
 .lightbox-controles {
-    display: flex;
     align-items: center;
     gap: 2vw;
     margin-top: 3vh;
 }
 .lightbox-controles button {
-    color: var(--white);
     font-size: 1.2rem;
     width: 2.75em;
     height: 2.75em;
@@ -471,7 +432,6 @@ nav a:hover,nav a.active {
     border-radius: 50%;
     background: none;
     cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.3s, transform 0.2s;
@@ -492,7 +452,6 @@ nav a:hover,nav a.active {
     background: var(--black);
 }
 .fecha-item {
-    display: flex;
     align-items: center;
     border-bottom: 0.0625em solid var(--gray-border);
     padding: 2vh 0;
@@ -503,7 +462,6 @@ nav a:hover,nav a.active {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 4vw, 3.8rem);
     font-weight: 700;
-    color: var(--white);
     line-height: 1;
     margin-right: 0.3em;
 }
@@ -523,21 +481,17 @@ nav a:hover,nav a.active {
     font-family: var(--font-heading);
     font-size: 0.88rem;
     font-weight: 400;
-    color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     padding-left: 2vw;
 }
 .fecha-lugar a,.blog-post-titulo a {
-    color: var(--white);
     transition: opacity 0.3s;
 }
-.fecha-lugar a:hover { opacity: 0.6; }
 .fecha-tickets {
     font-family: var(--font-heading);
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--white);
     text-transform: uppercase;
     text-decoration: underline;
     letter-spacing: 0.05em;
@@ -547,7 +501,6 @@ nav a:hover,nav a.active {
     border: none;
     cursor: pointer;
 }
-.fecha-tickets:hover { opacity: 0.6; }
 .fechas-boton-wrap,.disco-boton-wrap {
     text-align: center;
     margin-top: 5vh;
@@ -559,7 +512,6 @@ nav a:hover,nav a.active {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--white);
     border: 0.0625em solid var(--white);
     padding: 1.4vh 3.5vw;
     transition: background 0.3s, color 0.3s;
@@ -584,7 +536,6 @@ nav a:hover,nav a.active {
     margin-top: 3.5vh;
 }
 .blog-grilla {
-    display: flex;
     gap: 3vw;
     flex-wrap: wrap;
 }
@@ -604,12 +555,10 @@ nav a:hover,nav a.active {
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 400;
-    color: var(--white);
     text-transform: uppercase;
     margin-top: 1.5vh;
     letter-spacing: 0.03em;
 }
-.blog-post-titulo a:hover { opacity: 0.6; }
 .blog-post-fecha {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -639,11 +588,9 @@ nav a:hover,nav a.active {
     height: 4.375em;
     border: 0.1875em solid var(--white);
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    color: var(--white);
     background: transparent;
     cursor: pointer;
     transition: background 0.3s;
@@ -661,13 +608,10 @@ nav a:hover,nav a.active {
     align-items: center;
     justify-content: center;
 }
-.video-lightbox.activo { display: flex; }
 .video-lightbox video {
     max-width: 80vw;
     max-height: 80vh;
-}
-#video-lightbox-cerrar:hover { opacity: 0.6; }
-/* DISCOGRAPHY*/
+}/* DISCOGRAPHY*/
 .disco-seccion {
     padding: 10vh 0 12vh 0;
     background: var(--black);
@@ -685,7 +629,6 @@ nav a:hover,nav a.active {
     margin-top: 3.5vh;
 }
 .disco-grilla {
-    display: flex;
     flex-wrap: wrap;
     width: 100%;
     gap: 1.5625em;
@@ -724,16 +667,15 @@ nav a:hover,nav a.active {
     pointer-events: none;
     z-index: 1;
 }
+.disco-card:hover .disco-overlay,.scroll-top.visible,.member:hover .member-info {  opacity: 1;}
 .disco-card:hover .disco-overlay {
-    opacity: 1;
-    transform: translateY(0);
+transform: translateY(0);
 }
 .disco-overlay h3 {
     font-family: var(--font-heading);
     font-size: clamp(1rem, 1.5vw, 1.4rem);
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     line-height: 1.1;
     margin-bottom: 0.3em;
 }
@@ -751,7 +693,6 @@ nav a:hover,nav a.active {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.05em;
     margin-bottom: 1.5vh;
 }
@@ -759,16 +700,12 @@ nav a:hover,nav a.active {
     color: var(--gray);
     transition: opacity 0.3s;
 }
-.breadcrumb a:hover {
-    opacity: 0.6;
-}
 /* FOOTER*/
 footer {
     padding: 10vh 4vw 0;
     background: var(--black);
 }
 .footer-grilla {
-    display: flex;
     gap: 2vw;
     padding-bottom: 8vh;
     flex-wrap: wrap;
@@ -791,7 +728,6 @@ footer {
     max-width: 15em;
 }
 .footer-redes {
-    display: flex;
     gap: 0.625em;
 }
 .footer-redes a {
@@ -799,11 +735,9 @@ footer {
     height: 2.25em;
     border: 0.125em solid var(--white);
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
-    color: var(--white);
     transition: background 0.3s, color 0.3s;
 }
 .footer-col h3 {
@@ -812,7 +746,6 @@ footer {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--white);
     margin-bottom: 3vh;
 }
 .footer-col address {
@@ -838,10 +771,8 @@ footer {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--white);
     transition: opacity 0.3s;
 }
-.footer-links a:hover { opacity: 0.6; }
 .footer-linea {
     border: none;
     border-top: 0.0625em solid var(--gray-border);
@@ -868,7 +799,6 @@ footer {
     border: 0.125em solid var(--gray);
     border-radius: 50%;
     color: var(--gray);
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
@@ -878,13 +808,11 @@ footer {
     background: transparent;
     cursor: pointer;
 }
-.scroll-top.visible { opacity: 1; }
-.scroll-top:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+.scroll-top:hover { background: rgba(255,255,255,0.1); }
 /* TOUR HERO*/
 .tour-hero,.about-hero {
     position: relative;
     height: 60vh;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -908,7 +836,6 @@ background-attachment: fixed;
     font-size: 2em;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     text-align: center;
 }
 /* Estilo para el contenedor que centra el contenido */
@@ -957,7 +884,6 @@ background-attachment: fixed;
 .popUpMembers {
     width: 100%;
     height: 60vh;       
-    display: flex;
     background: #000;
     overflow: hidden;
 }
@@ -998,9 +924,6 @@ background-attachment: fixed;
     opacity: 0;                            
     white-space: nowrap;
 }
-.member:hover .member-info {
-    opacity: 1;                            
-}
 .member-info h3 {
     font-family: var(--font-heading);
     font-size: clamp(1.2rem, 2.5vw, 2.8rem);
@@ -1017,7 +940,6 @@ background-attachment: fixed;
     margin-bottom: 1.25em;
 }
 .socials {
-    display: flex;
     justify-content: center;
     gap: 0.875em;
 }
@@ -1028,7 +950,6 @@ background-attachment: fixed;
     height: 1.875em;
     border: 0.0625em solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.3s, border-color 0.3s;
@@ -1044,7 +965,6 @@ background-attachment: fixed;
 }
 /* CONTENIDO PRINCIPAL — dos columnas*/
 .album-contenido {
-    display: flex;
     gap: 6vw;
     padding: 6vh 15vw 12vh;
     background: var(--black);
@@ -1068,7 +988,6 @@ background-attachment: fixed;
     margin-bottom: 0;
 }
 .album-controles button {
-    color: var(--white);
     font-size: 1rem;
     background: none;
     border: none;
@@ -1081,7 +1000,7 @@ background-attachment: fixed;
 .album-controles button:last-child {
     border-right: none;
 }
-.album-controles button:hover { opacity: 0.5; }
+.album-controles button:hover,.review-nav button:hover,.video-nav button:hover{ opacity: 0.5; }
 /* Barra de progreso */
 .album-progreso-wrap {
     background: #1c1c1c;
@@ -1112,7 +1031,6 @@ background-attachment: fixed;
 .album-cancion-info .info-titulo {
     font-size: 0.95rem;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.05em;
     margin-bottom: 0.5vh;
 }
@@ -1131,14 +1049,12 @@ background-attachment: fixed;
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.05em;
     margin-bottom: 2vh;
     padding-bottom: 1vh;
     border-bottom: 0.0625em solid var(--gray-border);
 }
 .track-fila {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.2vh 0;
@@ -1151,7 +1067,6 @@ background-attachment: fixed;
     font-size: 0.88rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.03em;
     flex: 1;
 }
@@ -1164,15 +1079,12 @@ background-attachment: fixed;
     background: none;
     border: none;
     cursor: pointer;
-}
-.track-fila-comprar:hover { color: var(--white); }
-/* Available On */
+}/* Available On */
 .album-disponible h2 {
     font-family: var(--font-heading);
     font-size: 1.2rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.05em;
     margin-bottom: 2vh;
     position: relative;
@@ -1189,12 +1101,9 @@ background-attachment: fixed;
     height: 2.5em;
     width: auto;
     transition: opacity 0.3s;
-}
-.album-disponible-btns img:hover { opacity: 0.7; }
-/*COLUMNA DERECHA */
+}/*COLUMNA DERECHA */
 .album-col-derecha {
     flex: 1;
-    display: flex;
     flex-direction: column;
     gap: 6vh;
 }
@@ -1223,7 +1132,6 @@ background-attachment: fixed;
     line-height: 1.5;
 }
 .album-meta li span {
-    color: var(--white);
     font-weight: 600;
     margin-right: 0.5em;
 }
@@ -1232,7 +1140,6 @@ background-attachment: fixed;
     border-bottom: 0.0625em solid var(--gray-border);
 }
 .lyric-titulo {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5vh 0;
@@ -1241,11 +1148,9 @@ background-attachment: fixed;
     font-size: 0.95rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.04em;
     transition: opacity 0.3s;
 }
-.lyric-titulo:hover { opacity: 0.7; }
 .lyric-titulo i {
     font-size: 0.8rem;
     transition: transform 0.3s;
@@ -1274,29 +1179,24 @@ background-attachment: fixed;
     margin-bottom: 3vh;
 }
 .review-pie {
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .review-autor {
     font-family: var(--font-heading);
     font-size: 0.85rem;
-    color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
 .review-nav button {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    color: var(--white);
     background: none;
     border: none;
     cursor: pointer;
     transition: opacity 0.3s;
     line-height: 1;
-}
-.review-nav button:hover { opacity: 0.5; }
-/* Latest Video — sección ancho completo, debajo de las columnas */
+}/* Latest Video — sección ancho completo, debajo de las columnas */
 .album-video-seccion {
     background: var(--black);
     padding: 4vh 15vw 12vh;
@@ -1310,20 +1210,17 @@ background-attachment: fixed;
     display: block;
 }
 .video-nav {
-    display: flex;
     justify-content: center;
     align-items: center;
     gap: 4vw;
     padding-top: 3vh;
 }
 .video-nav button,.video-nav a {
-    color: var(--white);
     background: none;
     border: none;
     cursor: pointer;
     transition: opacity 0.3s;
 }
-.video-nav button:hover { opacity: 0.5; }
 #video-anterior,#video-siguiente {
     font-size: 1.6rem;
     line-height: 1;
@@ -1337,7 +1234,6 @@ background-attachment: fixed;
     height: 60vh;
     background: url('../images/contact-us-title.png') center/cover no-repeat;
     background-attachment: fixed;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -1348,7 +1244,6 @@ background-attachment: fixed;
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.1em;
     text-align: center;
 }
@@ -1359,7 +1254,6 @@ background-attachment: fixed;
     border-bottom: 0.0625em solid #1a1a1a;
 }
 .contact-info-grilla,.contact-ciudades {
-    display: flex;
     gap: 4vw;
     flex-wrap: wrap;
 }
@@ -1368,7 +1262,6 @@ background-attachment: fixed;
     font-size: 1.1rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.08em;
     margin-bottom: 2vh;
 }
@@ -1382,7 +1275,6 @@ background-attachment: fixed;
 .contact-form-seccion {
     background: #0d0d0d;
     padding: 10vh 15vw;
-    display: flex;
     gap: 8vw;
     align-items: flex-start;
 }
@@ -1415,7 +1307,6 @@ background-attachment: fixed;
     font-size: 0.95rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--white);
     letter-spacing: 0.08em;
     margin-bottom: 1.5vh;
 }
@@ -1428,7 +1319,6 @@ background-attachment: fixed;
 /* ── Formulario ── */
 .contact-form-derecha {
     flex: 1;
-    display: flex;
     flex-direction: column;
     gap: 1.5vh;
 }
@@ -1436,7 +1326,6 @@ background-attachment: fixed;
     width: 100%;
     background: transparent;
     border: 0.0625em solid var(--white);
-    color: var(--white);
     font-family: var(--font-mono);
     font-size: 0.85rem;
     padding: 1.2vh 1vw;
@@ -1469,7 +1358,6 @@ background-attachment: fixed;
 }
 .contact-form-derecha button:hover {
     background: transparent;
-    color: var(--white);
 }
 .contact-form-mensaje {
     font-family: var(--font-mono);
@@ -1482,13 +1370,11 @@ background-attachment: fixed;
 .event-contenido {
     padding: 4vh 15vw 12vh;
     background: var(--black);
-    display: flex;
     flex-direction: column;
     gap: 5vh;
 }
 /* FILA 1 — imagen chica + mapa grande */
 .event-fila-top {
-    display: flex;
     align-items: stretch;
     height: 30em;
     width: 100%;
@@ -1529,7 +1415,6 @@ background-attachment: fixed;
 }
 /* FILA 2 — details + about tour y follow */
 .event-fila-medio {
-    display: flex;
     gap: 6vw;
     align-items: flex-start;
 }
@@ -1539,7 +1424,6 @@ background-attachment: fixed;
 }
 .event-derecha {
     flex: 1;
-    display: flex;
     flex-direction: column;
     gap: 4vh;
 }
@@ -1557,19 +1441,15 @@ background-attachment: fixed;
     line-height: 1.6;
 }
 .event-info li span {
-    color: var(--white);
     font-weight: 600;
     margin-right: 0.3em;
-}
-.event-info li a:hover { color: var(--white); }
-/* Botón */
+}/* Botón */
 .event-tickets-btn {
     font-family: var(--font-heading);
     font-size: 0.8rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--white);
     border: 0.0625em solid var(--white);
     padding: 1.4vh 3vw;
     background: transparent;
@@ -1590,7 +1470,6 @@ background-attachment: fixed;
 }
 /* Follow And Share */
 .event-redes-iconos {
-    display: flex;
     gap: 0.875em;
     margin-top: 2vh;
     flex-wrap: wrap;
@@ -1600,10 +1479,8 @@ background-attachment: fixed;
     height: 2.125em;
     border: 0.09375em solid var(--white);
     border-radius: 50%;
-    display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
     font-size: 0.75rem;
     transition: background 0.3s, color 0.3s;
 }

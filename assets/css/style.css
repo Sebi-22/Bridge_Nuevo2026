@@ -300,15 +300,15 @@ nav a:hover,nav a.active {
   transition: color 0.3s;
 }
 /* MODAL VIDEO */
-.modal-video {
+.modal-video, .lightbox, .video-lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
   z-index: 1000;
   align-items: center;
   justify-content: center;
 }
+.modal-video { background: rgba(0, 0, 0, 0.88); }
 .modal-video iframe {
   width: 62vw;
   height: 35vw;
@@ -391,16 +391,7 @@ nav a:hover,nav a.active {
     .galeria-grilla img:nth-child(6) { width: 50%; height: 17.5em; }
 }
 /*LIGHTBOX */
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    z-index: 1000;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+.lightbox { background: rgba(0,0,0,0.95); flex-direction: column; }
 .lightbox img {
     max-width: 85vw;
     max-height: 75vh;
@@ -599,15 +590,7 @@ transform: scale(1.1);
     background: rgba(255,255,255,0.15);
 }
 /* VIDEO LIGHTBOX*/
-.video-lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.92);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-}
+.video-lightbox { background: rgba(0,0,0,0.92); }
 .video-lightbox video {
     max-width: 80vw;
     max-height: 80vh;
@@ -730,16 +713,14 @@ footer {
 .footer-redes {
     gap: 0.625em;
 }
-.footer-redes a {
-    width: 2.25em;
-    height: 2.25em;
-    border: 0.125em solid var(--white);
+.footer-redes a, .event-redes-iconos a {
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
     transition: background 0.3s, color 0.3s;
 }
+.footer-redes a { width: 2.25em; height: 2.25em; border: 0.125em solid var(--white); }
 .footer-col h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -829,15 +810,15 @@ background-attachment: fixed;
     inset: 0;
     background: rgba(0,0,0,0.45);
 }
-.tour-hero-titulo {
+.tour-hero-titulo, .contact-hero-titulo {
     position: relative;
     z-index: 1;
     font-family: var(--font-heading);
-    font-size: 2em;
     font-weight: 400;
     text-transform: uppercase;
     text-align: center;
 }
+.tour-hero-titulo { font-size: 2em; }
 /* Estilo para el contenedor que centra el contenido */
 .container {
     max-width: 50em; 
@@ -1237,16 +1218,7 @@ background-attachment: fixed;
     align-items: center;
     justify-content: center;
 }
-.contact-hero-titulo {
-    position: relative;
-    z-index: 1;
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-}
+.contact-hero-titulo { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 0.1em; }
 /*  SECCION 1 — 4 columnas*/
 .contact-info-seccion {
     background: #000;
@@ -1474,16 +1446,7 @@ background-attachment: fixed;
     margin-top: 2vh;
     flex-wrap: wrap;
 }
-.event-redes-iconos a {
-    width: 2.125em;
-    height: 2.125em;
-    border: 0.09375em solid var(--white);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    transition: background 0.3s, color 0.3s;
-}
+.event-redes-iconos a { width: 2.125em; height: 2.125em; border: 0.09375em solid var(--white); }
 /* ============================================================
    RESPONSIVE
 ============================================================ */

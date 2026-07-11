@@ -42,18 +42,60 @@ button {
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
 }
-header,nav ul,.event-redes-iconos a,.event-redes-iconos,.event-derecha,.event-fila-medio,.event-fila-top,.event-contenido,.contact-form-derecha,.contact-form-seccion,.contact-info-grilla,.contact-ciudades,.contact-hero,.video-nav,.review-pie,.lyric-titulo,.album-col-derecha,.album-contenido,.track-fila,.socials a,.socials,.popUpMembers,.tour-hero,.about-hero,.scroll-top,.footer-redes,.footer-redes a,.footer-grilla,.disco-grilla,.video-lightbox.activo,.video-boton-play,.blog-grilla,.fecha-item,.lightbox-controles button,.lightbox-controles,.lightbox.activo,.galeria-grilla,.modal-video.activo,.cancion-botones,.review-nav,.cancion,.album-botones,.album-section,.player-volume,.player-progress,.player-controls,.player-bar,.store-btns,.album-disponible-btns,.hero{display: flex;}
 /*  HEADER */
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 2.5vh 5vw;
-  justify-content: space-between;
-  align-items: center;
-}
+header,.hero-band-name,.hero-cta,.album-section::before,#modal-cerrar,#video-lightbox-cerrar,#lightbox-cerrar,.video-boton-play,.disco-card img,.disco-overlay,.tour-hero-overlay,.contact-hero-overlay,.member::after,
+.member-info { position: absolute; }
+
+.modal-video iframe,#modal-cerrar,#video-lightbox-cerrar,#lightbox-cerrar,.fecha-tickets,.footer-linea,.album-controles button,.track-fila-comprar,.review-nav button,.album-video-seccion iframe,.video-nav button,.video-nav a,.event-mapa iframe { border: none; }
+
+/* PLAYER BAR */
+.player-bar,.galeria-encabezado h2::after,.blog-encabezado h2::after,.disco-encabezado h2::after,.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover,.album-progreso-fill,.album-disponible h2::after,.album-about h2::after,.album-lyrics h2::after,.album-reviews h2::after,.album-video-seccion h2::after,.event-detalles h2::after,.event-about h2::after,.event-redes h2::after,.contact-form-izquierda h2::after,.contact-form-derecha button { background: var(--white); }
+
+/*  HEADER */
+header,.album-portada,
+.galeria-seccion,
+.galeria-grilla,.galeria-grilla img,.blog-post img,.video-fondo,.disco-grilla,.disco-card img,.popUpMembers,.member img,.album-img,.album-progreso-track,.album-video-seccion iframe,.contact-form-derecha input,.contact-form-derecha textarea,
+.event-fila-top,.event-imagen img,.event-mapa iframe,
+.event-tickets-btn { width: 100%; }
+
+.progress-track,#modal-cerrar,#video-lightbox-cerrar,.galeria-grilla img,#lightbox-cerrar,.lightbox-controles button,.fecha-tickets,.boton-borde,
+.video-seccion,.video-boton-play,
+.scroll-top,.member,.album-controles button,.album-progreso-track,.track-fila-comprar,.lyric-titulo,.review-nav button,.video-nav button,.video-nav a,.contact-form-derecha button,
+.event-tickets-btn { cursor: pointer; }
+
+/*  HEADER */
+header,
+.player-bar,.player-controls,.player-progress,.player-volume,.cancion,
+.modal-video,.lightbox,.video-lightbox,.lightbox-controles,.lightbox-controles button,.fecha-item,.video-boton-play,.footer-redes a,.event-redes-iconos a,
+.scroll-top,
+.tour-hero,.about-hero,.socials a,.track-fila,.lyric-titulo,.review-pie,.video-nav,
+.contact-hero { align-items: center; }
+
+/* HERO */
+.hero,
+.player-bar,.progress-track,
+.album-section,.album-izquierda,
+.lista-canciones,.galeria-encabezado h2,.blog-encabezado h2,.album-about h2,.album-lyrics h2,.album-reviews h2,.album-video-seccion h2,.contact-form-izquierda h2,.event-detalles h2,.event-about h2,.event-redes h2,
+.video-seccion,.disco-card,
+.tour-hero,.about-hero,.tour-hero-titulo,.contact-hero-titulo,.listen-albums h2,.member,
+.album-disponible h2,
+.contact-hero { position: relative; }
+
+.player-artist,.breadcrumb,.player-time,.album-izquierda p,.galeria-encabezado p,#lightbox-contador,.blog-encabezado p,.blog-post-fecha,.disco-encabezado p,.disco-overlay p,.footer-descripcion,.footer-col address p,.footer-copyright,.before-the-albums,.member-info span,.album-cancion-info .info-artista,.track-fila-comprar,
+.album-about p,.album-meta li,.lyric-cuerpo,.review-texto,.contact-info-col p,.contact-form-izquierda > p,.contact-ciudad p,.contact-form-derecha input,.contact-form-derecha textarea,.contact-form-mensaje,.event-info li,
+.event-about p { font-family: var(--font-mono); }
+
+nav a,.hero-cta h2,.player-title,.album-izquierda h2,.cancion,.galeria-encabezado h2,.blog-encabezado h2,.album-about h2,.album-lyrics h2,.album-reviews h2,.album-video-seccion h2,.contact-form-izquierda h2,.event-detalles h2,.event-about h2,.event-redes h2,.disco-encabezado h2,.fecha-mes,.fecha-lugar,.fecha-tickets,.boton-borde,.blog-post-titulo,.disco-overlay h3,.disco-hero h1,.footer-col h3,.footer-links a,.tour-hero-titulo,.contact-hero-titulo,.listen-albums h2,.member-info h3,.album-cancion-info .info-titulo,.album-tracklist h3,.track-fila-titulo,
+.album-disponible h2,.lyric-titulo,.review-autor,.contact-info-col h3,.contact-ciudad h4,.contact-form-derecha button,
+.event-tickets-btn { text-transform: uppercase; }
+
+nav a,.hero-band-name,.hero-cta h2,.player-title,.album-izquierda h2,.cancion,.galeria-encabezado h2,.blog-encabezado h2,.album-about h2,.album-lyrics h2,.album-reviews h2,.album-video-seccion h2,.contact-form-izquierda h2,.event-detalles h2,.event-about h2,.event-redes h2,.disco-encabezado h2,.fecha-numero,.fecha-mes,.fecha-lugar,.fecha-tickets,.boton-borde,.blog-post-titulo,.disco-overlay h3,.disco-hero h1,.footer-col h3,.footer-links a,.tour-hero-titulo,.contact-hero-titulo,.listen-albums h2,.member-info h3,
+.album-cancion-info,.album-tracklist h3,.track-fila-titulo,
+.album-disponible h2,.lyric-titulo,.review-autor,.review-nav button,.contact-info-col h3,.contact-ciudad h4,.contact-form-derecha button,
+.event-tickets-btn { font-family: var(--font-heading); }
+
+header,nav ul,.event-redes-iconos a,.event-redes-iconos,.event-derecha,.event-fila-medio,.event-fila-top,.event-contenido,.contact-form-derecha,.contact-form-seccion,.contact-info-grilla,.contact-ciudades,.contact-hero,.video-nav,.review-pie,.lyric-titulo,.album-col-derecha,.album-contenido,.track-fila,.socials a,.socials,.popUpMembers,.tour-hero,.about-hero,.scroll-top,.footer-redes,.footer-redes a,.footer-grilla,.disco-grilla,.video-lightbox.activo,.video-boton-play,.blog-grilla,.fecha-item,.lightbox-controles button,.lightbox-controles,.lightbox.activo,.galeria-grilla,.modal-video.activo,.cancion-botones,.review-nav,.cancion,.album-botones,.album-section,.player-volume,.player-progress,.player-controls,.player-bar,.store-btns,.album-disponible-btns,.hero{display: flex;}/*  HEADER */
+header { top: 0; left: 0; z-index: 100; padding: 2.5vh 5vw; justify-content: space-between; }
 .logo img {
   height: 2em;
   width: auto;
@@ -63,53 +105,11 @@ nav ul {
 }
 nav a,.hero-band-name,.album-izquierda h2,.cancion:hover,.cancion-botones button:hover,#modal-cerrar,#video-lightbox-cerrar,.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2,#lightbox-cerrar,.lightbox-controles button,.fecha-numero,.fecha-lugar,.fecha-lugar a,.blog-post-titulo a,.fecha-tickets,.boton-borde,.blog-post-titulo,.event-redes-iconos a,.event-tickets-btn,.event-info li a:hover,.event-info li span,.contact-form-derecha button:hover,.contact-form-derecha input,.contact-form-derecha textarea,.contact-ciudad h4,.contact-info-col h3,.contact-hero-titulo,.video-nav button,.video-nav a,.review-nav button,.review-autor,.lyric-titulo,.album-meta li span,.album-disponible h2,.track-fila-comprar:hover,.track-fila-titulo,.album-tracklist h3,.album-cancion-info .info-titulo,.album-controles button,.tour-hero-titulo,.scroll-top:hover,.footer-links a,.footer-col h3,.footer-redes a,.disco-hero h1,.disco-overlay h3,.video-boton-play  {
 color: var(--white);
-}
-nav a {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-bottom: 0.1875em;
-  border-bottom: 0.0625em solid transparent;
-  transition: border-color 0.3s;
-}
+}nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.05em; padding-bottom: 0.1875em; border-bottom: 0.0625em solid transparent; transition: border-color 0.3s; }
 nav a:hover,nav a.active {
   border-bottom-color: var(--white);
-}
-/* HERO */
-.hero {
-  position: relative;
-  min-height: 110vh;
-  background: url("../images/background-1.png") center/cover no-repeat;
-  align-items: flex-end;
-}
-.hero-band-name {
-  position: absolute;
-  left: 9%;
-  top: 50%;
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 7vw, 7rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.5);
-}
-.hero-cta {
-  position: absolute;
-  right: 14%;
-  bottom: 8%;
-  max-width: 30em;
-}
-.hero-cta h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1.05;
-  margin-bottom: 2.5vh;
-}
+}/* HERO */
+.hero { min-height: 110vh; background: url("../images/background-1.png") center/cover no-repeat; align-items: flex-end; }.hero-band-name { left: 9%; top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; font-size: clamp(3rem, 7vw, 7rem); font-weight: 700; letter-spacing: 0.08em; text-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.5); }.hero-cta { right: 14%; bottom: 8%; max-width: 30em; }.hero-cta h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 400; line-height: 1.05; margin-bottom: 2.5vh; }
 .store-btns,.album-disponible-btns {
   gap: 0.875em;
   flex-wrap: wrap;
@@ -119,17 +119,8 @@ nav a:hover,nav a.active {
   width: auto;
   transition: opacity 0.3s;
 }
-.store-btns img:hover,.album-botones img:hover,.galeria-grilla img:hover,.album-disponible-btns img:hover,.lyric-titulo:hover {opacity: 0.7;}
-/* PLAYER BAR */
-.player-bar {
-  background: var(--white);
-  align-items: center;
-  padding: 0 9vw;
-  height: 5.5em;
-  position: relative;
-  z-index: 10;
-  gap: 1vw;
-}
+.store-btns img:hover,.album-botones img:hover,.galeria-grilla img:hover,.album-disponible-btns img:hover,.lyric-titulo:hover {opacity: 0.7;}/* PLAYER BAR */
+.player-bar { padding: 0 9vw; height: 5.5em; z-index: 10; gap: 1vw; }
 .player-cover {
   width: 4.5em;
   height: 4.5em;
@@ -139,25 +130,7 @@ nav a:hover,nav a.active {
 .player-info {
   padding: 0 2vw;
   min-width: 8.75em;
-}
-.player-title {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  color: #111;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 1.2;
-}
-.player-artist,.breadcrumb {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--gray);
-}
-.player-controls {
-  align-items: center;
-  gap: 1.5vw;
-  margin-left: 1vw;
-}
+}.player-title { font-size: 1rem; color: #111; font-weight: 400; line-height: 1.2; }.player-artist,.breadcrumb { font-size: 0.82rem; color: var(--gray); }.player-controls { gap: 1.5vw; margin-left: 1vw; }
 .player-controls button {
   color: #111;
   font-size: 1rem;
@@ -165,38 +138,14 @@ nav a:hover,nav a.active {
 }
 .player-controls button:hover {
   opacity: 0.45;
-}
-.player-progress {
-  flex: 1;
-  margin: 0 2vw;
-  align-items: center;
-  gap: 1vw;
-}
-.progress-track {
-  flex: 1;
-  height: 0.1875em;
-  background: #d0d0d0;
-  cursor: pointer;
-  border-radius: 0.125em;
-  position: relative;
-}
+}.player-progress { flex: 1; margin: 0 2vw; gap: 1vw; }.progress-track { flex: 1; height: 0.1875em; background: #d0d0d0; border-radius: 0.125em; }
 .progress-fill {
   height: 100%;
   width: 0%;
   background: #111;
   border-radius: 0.125em;
   transition: width 0.1s linear;
-}
-.player-time {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--gray);
-  white-space: nowrap;
-}
-.player-volume {
-  align-items: center;
-  gap: 0.6vw;
-}
+}.player-time { font-size: 0.82rem; color: var(--gray); white-space: nowrap; }.player-volume { gap: 0.6vw; }
 .player-volume i {
   color: var(--gray);
   font-size: 0.9rem;
@@ -212,45 +161,8 @@ nav a:hover,nav a.active {
   height: 100%;
   background: #111;
   border-radius: 0.125em;
-}
-/* ALBUM SECTION*/
-.album-section {
-  background: url("../images/h1-img-8.jpg") center/cover no-repeat;
-  min-height: 80vh;
-  padding: 10vh 0;
-  position: relative;
-}
-.album-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-.album-izquierda {
-  position: relative;
-  z-index: 1;
-  margin-left: 15vw;
-  width: 28vw;
-  flex-shrink: 0;
-}
-.album-portada {
-  width: 100%;
-  max-width: 21.25em;
-}
-.album-izquierda h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 3vh 0 1.5vh;
-}
-.album-izquierda p {
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: var(--gray);
-  line-height: 1.7;
-  margin-bottom: 2.5vh;
-}
+}/* ALBUM SECTION*/
+.album-section { background: url("../images/h1-img-8.jpg") center/cover no-repeat; min-height: 80vh; padding: 10vh 0; }.album-section::before { content: ""; inset: 0; background: rgba(0, 0, 0, 0.55); }.album-izquierda { z-index: 1; margin-left: 15vw; width: 28vw; flex-shrink: 0; }.album-portada { max-width: 21.25em; }.album-izquierda h2 { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 400; margin: 3vh 0 1.5vh; }.album-izquierda p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin-bottom: 2.5vh; }
 .album-botones {
   gap: 0.875em;
 }
@@ -258,26 +170,8 @@ nav a:hover,nav a.active {
   height: 2.75em;
   width: auto;
   transition: opacity 0.3s;
-}
-/* Lista de canciones */
-.lista-canciones {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  margin: 0 13vw 0 5vw;
-  align-self: center;
-}
-.cancion {
-  align-items: center;
-  border-bottom: 0.0625em solid var(--gray-border);
-  padding: 1.8vh 0;
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  color: var(--gray);
-  font-size: 0.95rem;
-  gap: 1.2vw;
-  transition: color 0.3s;
-}
+}/* Lista de canciones */
+.lista-canciones { z-index: 1; flex: 1; margin: 0 13vw 0 5vw; align-self: center; }.cancion { border-bottom: 0.0625em solid var(--gray-border); padding: 1.8vh 0; color: var(--gray); font-size: 0.95rem; gap: 1.2vw; transition: color 0.3s; }
 .cancion:last-child {
   border-bottom: none;
 }
@@ -298,50 +192,14 @@ nav a:hover,nav a.active {
   color: var(--gray);
   font-size: 0.82rem;
   transition: color 0.3s;
-}
-/* MODAL VIDEO */
-.modal-video, .lightbox, .video-lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-}
-.modal-video { background: rgba(0, 0, 0, 0.88); }
-.modal-video iframe {
-  width: 62vw;
-  height: 35vw;
-  border: none;
-}
-#modal-cerrar,#video-lightbox-cerrar {
-  position: absolute;
-  top: 3vh;
-  right: 2vw;
-  font-size: 1.8rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: opacity 0.3s;
-}
-#modal-cerrar:hover,#lightbox-cerrar:hover,.fecha-lugar a:hover,.fecha-tickets:hover,.blog-post-titulo a:hover,#video-lightbox-cerrar:hover,.breadcrumb a:hover,.footer-links a:hover  {opacity: 0.6;}
-/* GALERIA*/
-.galeria-seccion {
-    background: var(--black);
-    width: 100%;
-    overflow: hidden;
-}
+}/* MODAL VIDEO */
+.modal-video, .lightbox, .video-lightbox { display: none; position: fixed; inset: 0; z-index: 1000; justify-content: center; }
+.modal-video { background: rgba(0, 0, 0, 0.88); }.modal-video iframe { width: 62vw; height: 35vw; }#modal-cerrar,#video-lightbox-cerrar { top: 3vh; right: 2vw; font-size: 1.8rem; background: none; transition: opacity 0.3s; }
+#modal-cerrar:hover,#lightbox-cerrar:hover,.fecha-lugar a:hover,.fecha-tickets:hover,.blog-post-titulo a:hover,#video-lightbox-cerrar:hover,.breadcrumb a:hover,.footer-links a:hover  {opacity: 0.6;}/* GALERIA*/
+.galeria-seccion { background: var(--black); overflow: hidden; }
 .galeria-encabezado {
     padding: 9vh 15vw 0;
-}
-.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2 {
-    font-family: var(--font-heading);
-    font-weight: 400;
-    text-transform: uppercase;
-}
-.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2 {
-    position: relative;
-}
+}.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2 { font-weight: 400; }
 .galeria-encabezado h2, .blog-encabezado h2, .disco-encabezado h2 { font-size: clamp(2rem, 3vw, 3rem); }
 .album-about h2, .album-lyrics h2, .album-reviews h2, .album-video-seccion h2 { font-size: clamp(1.5rem, 2vw, 2rem); }
 .contact-form-izquierda h2 { font-size: clamp(1.8rem, 2.5vw, 2.5rem); }
@@ -349,36 +207,8 @@ nav a:hover,nav a.active {
 .galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2, .album-reviews h2 { margin-bottom: 1.5vh; }
 .album-video-seccion h2 { margin-bottom: 2.5vh; }
 .contact-form-izquierda h2, .event-detalles h2, .event-about h2, .event-redes h2 { margin-bottom: 2vh; }
-.disco-encabezado h2 { margin-bottom: 0; }
-.galeria-encabezado h2::after,.blog-encabezado h2::after,.disco-encabezado h2::after {
-    content: '';
-    display: block;
-    width: 3.125em;
-    height: 0.125em;
-    background: var(--white);
-    margin-top: 2.5vh;
-}
-.galeria-encabezado p {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 55%;
-    margin-top: 3.5vh;
-    margin-bottom: 5vh;
-}
-/* GRILLA  */
-.galeria-grilla {
-    flex-wrap: wrap;
-    width: 100%;
-}
-.galeria-grilla img {
-    width: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    display: block;
-}
+.disco-encabezado h2 { margin-bottom: 0; }.galeria-encabezado h2::after,.blog-encabezado h2::after,.disco-encabezado h2::after { content: ''; display: block; width: 3.125em; height: 0.125em; margin-top: 2.5vh; }.galeria-encabezado p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 55%; margin-top: 3.5vh; margin-bottom: 5vh; }/* GRILLA  */
+.galeria-grilla { flex-wrap: wrap; }.galeria-grilla img { object-fit: cover; transition: opacity 0.3s ease; display: block; }
 @media (min-width: 48em) {
     /* Fila 1: grande - chica - chica */
     .galeria-grilla img:nth-child(1) { width: 50%; height: 20em; }
@@ -396,120 +226,26 @@ nav a:hover,nav a.active {
     max-width: 85vw;
     max-height: 75vh;
     object-fit: contain;
-}
-#lightbox-cerrar {
-    position: absolute;
-    top: 4vh;
-    right: 4vw;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.3s;
-}
+}#lightbox-cerrar { top: 4vh; right: 4vw; font-size: 2rem; background: none; transition: transform 0.2s, opacity 0.3s; }
 #lightbox-cerrar:hover {
 transform: scale(1.1);
-}
-.lightbox-controles {
-    align-items: center;
-    gap: 2vw;
-    margin-top: 3vh;
-}
-.lightbox-controles button {
-    font-size: 1.2rem;
-    width: 2.75em;
-    height: 2.75em;
-    border: 0.125em solid var(--white);
-    border-radius: 50%;
-    background: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s, transform 0.2s;
-}
+}.lightbox-controles { gap: 2vw; margin-top: 3vh; }.lightbox-controles button { font-size: 1.2rem; width: 2.75em; height: 2.75em; border: 0.125em solid var(--white); border-radius: 50%; background: none; justify-content: center; transition: background 0.3s, transform 0.2s; }
 .lightbox-controles button:hover {
     background: rgba(255,255,255,0.2);
     transform: scale(1.05);
-}
-#lightbox-contador {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--gray-light);
-    letter-spacing: 0.0625em;
-}
+}#lightbox-contador { font-size: 0.9rem; color: var(--gray-light); letter-spacing: 0.0625em; }
 /* TOUR DATES*/
 .fechas-seccion {
     padding: 10vh 15vw;
     background: var(--black);
-}
-.fecha-item {
-    align-items: center;
-    border-bottom: 0.0625em solid var(--gray-border);
-    padding: 2vh 0;
-    gap: 1vw;
-    flex-wrap: wrap;
-}
-.fecha-numero {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4vw, 3.8rem);
-    font-weight: 700;
-    line-height: 1;
-    margin-right: 0.3em;
-}
-.fecha-mes {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    color: var(--gray);
-    text-transform: uppercase;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-    border-left: 0.0625em solid var(--gray-border);
-    padding-left: 0.7em;
-    min-width: 2.5em;
-}
-.fecha-lugar {
-    flex: 1;
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding-left: 2vw;
-}
+}.fecha-item { border-bottom: 0.0625em solid var(--gray-border); padding: 2vh 0; gap: 1vw; flex-wrap: wrap; }.fecha-numero { font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 700; line-height: 1; margin-right: 0.3em; }.fecha-mes { font-size: 0.75rem; color: var(--gray); line-height: 1.4; letter-spacing: 0.08em; border-left: 0.0625em solid var(--gray-border); padding-left: 0.7em; min-width: 2.5em; }.fecha-lugar { flex: 1; font-size: 0.88rem; font-weight: 400; letter-spacing: 0.04em; padding-left: 2vw; }
 .fecha-lugar a,.blog-post-titulo a {
     transition: opacity 0.3s;
-}
-.fecha-tickets {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: underline;
-    letter-spacing: 0.05em;
-    transition: opacity 0.3s;
-    margin-left: auto;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+}.fecha-tickets { font-size: 0.8rem; font-weight: 600; text-decoration: underline; letter-spacing: 0.05em; transition: opacity 0.3s; margin-left: auto; background: none; }
 .fechas-boton-wrap,.disco-boton-wrap {
     text-align: center;
     margin-top: 5vh;
-}
-.boton-borde {
-    display: inline-block;
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 0.0625em solid var(--white);
-    padding: 1.4vh 3.5vw;
-    transition: background 0.3s, color 0.3s;
-    background: transparent;
-    cursor: pointer;
-}
-.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover { background: var(--white); color: var(--black); }
+}.boton-borde { display: inline-block; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; border: 0.0625em solid var(--white); padding: 1.4vh 3.5vw; transition: background 0.3s, color 0.3s; background: transparent; }.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover { color: var(--black); }
 /* BLOG */
 .blog-seccion {
     padding: 10vh 15vw 12vh;
@@ -517,15 +253,7 @@ transform: scale(1.1);
 }
 .blog-encabezado {
     margin-bottom: 5vh;
-}
-.blog-encabezado p {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 55%;
-    margin-top: 3.5vh;
-}
+}.blog-encabezado p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 55%; margin-top: 3.5vh; }
 .blog-grilla {
     gap: 3vw;
     flex-wrap: wrap;
@@ -533,59 +261,10 @@ transform: scale(1.1);
 .blog-post {
     width: calc(33.33% - 2vw);
     overflow: hidden;
-}
-.blog-post img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-.blog-post:hover img { transform: scale(1.03); }
-.blog-post-titulo {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    margin-top: 1.5vh;
-    letter-spacing: 0.03em;
-}
-.blog-post-fecha {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--gray);
-    margin-top: 0.6vh;
-}
-/*  VIDEO SECTION*/
-.video-seccion {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-.video-fondo {
-    width: 100%;
-    aspect-ratio: 16/7;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-.video-seccion:hover .video-fondo { transform: scale(1.02); }
-.video-boton-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 4.375em;
-    height: 4.375em;
-    border: 0.1875em solid var(--white);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.3s;
-}
+}.blog-post img { aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.blog-post:hover img { transform: scale(1.03); }.blog-post-titulo { font-size: 1rem; font-weight: 400; margin-top: 1.5vh; letter-spacing: 0.03em; }.blog-post-fecha { font-size: 0.8rem; color: var(--gray); margin-top: 0.6vh; }/*  VIDEO SECTION*/
+.video-seccion { overflow: hidden; }.video-fondo { aspect-ratio: 16/7; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.video-seccion:hover .video-fondo { transform: scale(1.02); }.video-boton-play { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 4.375em; height: 4.375em; border: 0.1875em solid var(--white); border-radius: 50%; justify-content: center; font-size: 1.4rem; background: transparent; transition: background 0.3s; }
 .video-seccion:hover .video-boton-play {
     background: rgba(255,255,255,0.15);
 }
@@ -602,83 +281,18 @@ transform: scale(1.1);
 .disco-encabezado {
     padding: 0 9vw;
     margin-bottom: 5vh;
-}
-.disco-encabezado p {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 26.25em;
-    margin-top: 3.5vh;
-}
-.disco-grilla {
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 1.5625em;
-    margin: 0;
-    padding: 0 9vw;
-}
-.disco-card {
-    width: 22%;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-    height: 18vw;
-    flex-shrink: 0;
-}
-.disco-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.4s;
-    position: absolute;
-    inset: 0;
-}
+}.disco-encabezado p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 26.25em; margin-top: 3.5vh; }.disco-grilla { flex-wrap: wrap; gap: 1.5625em; margin: 0; padding: 0 9vw; }.disco-card { width: 22%; overflow: hidden; margin: 0; padding: 0; line-height: 0; height: 18vw; flex-shrink: 0; }.disco-card img { height: 100%; object-fit: cover; display: block; transition: opacity 0.4s; inset: 0; }
 .disco-card:hover img {
     opacity: 0.35;
-}
-.disco-overlay {
-    position: absolute;
-    left: 10%;
-    bottom: 8%;
-    opacity: 0;
-    transform: translateY(0.625em);
-    transition: opacity 0.35s, transform 0.35s;
-    pointer-events: none;
-    z-index: 1;
-}
+}.disco-overlay { left: 10%; bottom: 8%; opacity: 0; transform: translateY(0.625em); transition: opacity 0.35s, transform 0.35s; pointer-events: none; z-index: 1; }
 .disco-card:hover .disco-overlay,.scroll-top.visible,.member:hover .member-info {  opacity: 1;}
 .disco-card:hover .disco-overlay {
 transform: translateY(0);
-}
-.disco-overlay h3 {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.5vw, 1.4rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 0.3em;
-}
-.disco-overlay p {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray-light);
-}
+}.disco-overlay h3 { font-size: clamp(1rem, 1.5vw, 1.4rem); font-weight: 400; line-height: 1.1; margin-bottom: 0.3em; }.disco-overlay p { font-size: 0.82rem; color: var(--gray-light); }
 .disco-hero {
     background: var(--black);
     padding: 12vh 9vw 4vh;
-}
-.disco-hero h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.5vh;
-}
+}.disco-hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 1.5vh; }
 .breadcrumb a {
     color: var(--gray);
     transition: opacity 0.3s;
@@ -701,102 +315,28 @@ footer {
     height: 1.875em;
     width: auto;
     margin-bottom: 2.5vh;
-}
-.footer-descripcion {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 3vh;
-    max-width: 15em;
-}
+}.footer-descripcion { font-size: 0.82rem; color: var(--gray); line-height: 1.8; margin-bottom: 3vh; max-width: 15em; }
 .footer-redes {
     gap: 0.625em;
-}
-.footer-redes a, .event-redes-iconos a {
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    transition: background 0.3s, color 0.3s;
-}
-.footer-redes a { width: 2.25em; height: 2.25em; border: 0.125em solid var(--white); }
-.footer-col h3 {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 3vh;
-}
+}.footer-redes a, .event-redes-iconos a { border-radius: 50%; justify-content: center; font-size: 0.75rem; transition: background 0.3s, color 0.3s; }
+.footer-redes a { width: 2.25em; height: 2.25em; border: 0.125em solid var(--white); }.footer-col h3 { font-size: 1rem; font-weight: 400; letter-spacing: 0.05em; margin-bottom: 3vh; }
 .footer-col address {
     font-style: normal;
-}
-.footer-col address p {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    margin-bottom: 1.5vh;
-    line-height: 1.5;
-}
+}.footer-col address p { font-size: 0.82rem; color: var(--gray); margin-bottom: 1.5vh; line-height: 1.5; }
 .footer-links,.album-meta {
     list-style: none;
     padding: 0;
 }
 .footer-links li {
     margin-bottom: 1.8vh;
-}
-.footer-links a {
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    transition: opacity 0.3s;
-}
-.footer-linea {
-    border: none;
-    border-top: 0.0625em solid var(--gray-border);
-    margin: 0;
-}
-.footer-copyright {
-    text-align: center;
-    padding: 2.5vh 0;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--gray);
-}
+}.footer-links a { font-size: 0.88rem; font-weight: 400; letter-spacing: 0.04em; transition: opacity 0.3s; }.footer-linea { border-top: 0.0625em solid var(--gray-border); margin: 0; }.footer-copyright { text-align: center; padding: 2.5vh 0; font-size: 0.8rem; color: var(--gray); }
 .footer-copyright a {
     color: var(--gray);
     text-decoration: underline;
-}
-/* SCROLL TO TOP*/
-.scroll-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 2.75em;
-    height: 2.75em;
-    border: 0.125em solid var(--gray);
-    border-radius: 50%;
-    color: var(--gray);
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    opacity: 0;
-    transition: opacity 0.4s, background 0.3s;
-    z-index: 500;
-    background: transparent;
-    cursor: pointer;
-}
-.scroll-top:hover { background: rgba(255,255,255,0.1); }
-/* TOUR HERO*/
-.tour-hero,.about-hero {
-    position: relative;
-    height: 60vh;
-    align-items: center;
-    justify-content: center;
-}
+}/* SCROLL TO TOP*/
+.scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 2.75em; height: 2.75em; border: 0.125em solid var(--gray); border-radius: 50%; color: var(--gray); justify-content: center; font-size: 1.1rem; opacity: 0; transition: opacity 0.4s, background 0.3s; z-index: 500; background: transparent; }
+.scroll-top:hover { background: rgba(255,255,255,0.1); }/* TOUR HERO*/
+.tour-hero,.about-hero { height: 60vh; justify-content: center; }
 .tour-hero {
 background: url('../images/tour-title-area.png') center/cover no-repeat;
 background-attachment: fixed;
@@ -804,20 +344,7 @@ background-attachment: fixed;
 .about-hero {
     background: url('../images/about-title-area.png') center/cover no-repeat;
     background-attachment: fixed;
-}
-.tour-hero-overlay,.contact-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-}
-.tour-hero-titulo, .contact-hero-titulo {
-    position: relative;
-    z-index: 1;
-    font-family: var(--font-heading);
-    font-weight: 400;
-    text-transform: uppercase;
-    text-align: center;
-}
+}.tour-hero-overlay,.contact-hero-overlay { inset: 0; background: rgba(0,0,0,0.45); }.tour-hero-titulo, .contact-hero-titulo { z-index: 1; font-weight: 400; text-align: center; }
 .tour-hero-titulo { font-size: 2em; }
 /* Estilo para el contenedor que centra el contenido */
 .container {
@@ -835,16 +362,7 @@ background-attachment: fixed;
     max-width: 53.75em;
     margin: 0 auto;
     padding: 0 9vw;
-}
-.listen-albums h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.125em;
-    margin-bottom: 0;
-    position: relative;
-}
+}.listen-albums h2 { font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; letter-spacing: 0.125em; margin-bottom: 0; }
 .listen-albums h2::after {
     content: '';
     display: block;
@@ -852,89 +370,15 @@ background-attachment: fixed;
     height: 0.125em;
     background-color: #fff;
     margin: 1.25em 0 0;       /* ← izquierda, NO centrado */
-}
-
-.before-the-albums {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    line-height: 1.8;
-    color: #888;
-    margin-top: 1.875em;
-    max-width: 53.75em;
-}
-.popUpMembers {
-    width: 100%;
-    height: 60vh;       
-    background: #000;
-    overflow: hidden;
-}
-.member {
-    position: relative;
-    flex: 1;
-    transition: flex 0.6s ease;
-    overflow: hidden;
-    cursor: pointer;
-}
-.member img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-}
-.member::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0);          
-    transition: background 0.4s ease;
-    z-index: 1;
-}
+}.before-the-albums { font-size: 0.88rem; line-height: 1.8; color: #888; margin-top: 1.875em; max-width: 53.75em; }.popUpMembers { height: 60vh; background: #000; overflow: hidden; }.member { flex: 1; transition: flex 0.6s ease; overflow: hidden; }.member img { height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }.member::after { content: ""; inset: 0; background: rgba(0, 0, 0, 0); transition: background 0.4s ease; z-index: 1; }
 .member:hover::after {
     background: rgba(0, 0, 0, 0.55);       
-}
-/* Info — invisible por defecto */
-.member-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
-    color: #fff;
-    opacity: 0;                            
-    white-space: nowrap;
-}
-.member-info h3 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.2rem, 2.5vw, 2.8rem);
-    font-weight: 400;
-    text-transform: uppercase;
-    margin: 0 0 0.5em;
-    letter-spacing: 0.05em;
-}
-.member-info span {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: #ccc;
-    display: block;
-    margin-bottom: 1.25em;
-}
+}/* Info — invisible por defecto */
+.member-info { top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; opacity: 0; white-space: nowrap; }.member-info h3 { font-size: clamp(1.2rem, 2.5vw, 2.8rem); font-weight: 400; margin: 0 0 0.5em; letter-spacing: 0.05em; }.member-info span { font-size: 0.9rem; color: #ccc; display: block; margin-bottom: 1.25em; }
 .socials {
     justify-content: center;
     gap: 0.875em;
-}
-.socials a {
-    color: #fff;
-    font-size: 0.85rem;
-    width: 1.875em;
-    height: 1.875em;
-    border: 0.0625em solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s, border-color 0.3s;
-}
+}.socials a { color: #fff; font-size: 0.85rem; width: 1.875em; height: 1.875em; border: 0.0625em solid rgba(255, 255, 255, 0.6); border-radius: 50%; justify-content: center; transition: background 0.3s, border-color 0.3s; }
 .socials a:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: #fff;
@@ -955,29 +399,14 @@ background-attachment: fixed;
 .album-col-izquierda {
     width: 35%;
     flex-shrink: 0;
-}
-.album-img {
-    width: 100%;
-    display: block;
-    margin-bottom: 3vh;
-}
+}.album-img { display: block; margin-bottom: 3vh; }
 /* Controles - reproductor con fondo gris, 3 columnas iguales */
 .album-controles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background: #2a2a2a;
     margin-bottom: 0;
-}
-.album-controles button {
-    font-size: 1rem;
-    background: none;
-    border: none;
-    border-right: 0.0625em solid #3a3a3a;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    padding: 2vh 0;
-    text-align: center;
-}
+}.album-controles button { font-size: 1rem; background: none; border-right: 0.0625em solid #3a3a3a; transition: opacity 0.3s; padding: 2vh 0; text-align: center; }
 .album-controles button:last-child {
     border-right: none;
 }
@@ -987,97 +416,14 @@ background-attachment: fixed;
     background: #1c1c1c;
     padding: 0 1.2vw 1.5vh;
     margin-bottom: 0;
-}
-.album-progreso-track {
-    width: 100%;
-    height: 0.1875em;
-    background: var(--gray-border);
-    cursor: pointer;
-    border-radius: 0.125em;
-}
-.album-progreso-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--white);
-    border-radius: 0.125em;
-    transition: width 0.1s linear;
-}
-/* Info cancion*/
-.album-cancion-info {
-    background: #1c1c1c;
-    font-family: var(--font-heading);
-    padding: 2vh 1.2vw;
-    margin-bottom: 4vh;
-}
-.album-cancion-info .info-titulo {
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5vh;
-}
-.album-cancion-info .info-artista {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--gray);
-    text-transform: none;
-}
+}.album-progreso-track { height: 0.1875em; background: var(--gray-border); border-radius: 0.125em; }.album-progreso-fill { height: 100%; width: 0%; border-radius: 0.125em; transition: width 0.1s linear; }/* Info cancion*/
+.album-cancion-info { background: #1c1c1c; padding: 2vh 1.2vw; margin-bottom: 4vh; }.album-cancion-info .info-titulo { font-size: 0.95rem; letter-spacing: 0.05em; margin-bottom: 0.5vh; }.album-cancion-info .info-artista { font-size: 0.78rem; color: var(--gray); text-transform: none; }
 /* Tracklist */
 .album-tracklist {
     margin-bottom: 4vh;
-}
-.album-tracklist h3 {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2vh;
-    padding-bottom: 1vh;
-    border-bottom: 0.0625em solid var(--gray-border);
-}
-.track-fila {
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2vh 0;
-    border-bottom: 0.0625em solid var(--gray-border);
-    transition: background 0.3s;
-}
-.track-fila:hover { background: rgba(255,255,255,0.03); }
-.track-fila-titulo {
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    flex: 1;
-}
-.track-fila-comprar {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--gray);
-    text-decoration: underline;
-    transition: color 0.3s;
-    background: none;
-    border: none;
-    cursor: pointer;
-}/* Available On */
-.album-disponible h2 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2vh;
-    position: relative;
-}
-.album-disponible h2::after,.album-about h2::after,.album-lyrics h2::after,.album-reviews h2::after,.album-video-seccion h2::after,.event-detalles h2::after,.event-about h2::after,.event-redes h2::after {
-    content: '';
-    display: block;
-    width: 2.5em;
-    height: 0.125em;
-    background: var(--white);
-    margin-top: 1.5vh;
-}
+}.album-tracklist h3 { font-size: 1rem; font-weight: 400; letter-spacing: 0.05em; margin-bottom: 2vh; padding-bottom: 1vh; border-bottom: 0.0625em solid var(--gray-border); }.track-fila { justify-content: space-between; padding: 1.2vh 0; border-bottom: 0.0625em solid var(--gray-border); transition: background 0.3s; }
+.track-fila:hover { background: rgba(255,255,255,0.03); }.track-fila-titulo { font-size: 0.88rem; font-weight: 400; letter-spacing: 0.03em; flex: 1; }.track-fila-comprar { font-size: 0.75rem; color: var(--gray); text-decoration: underline; transition: color 0.3s; background: none; }/* Available On */
+.album-disponible h2 { font-size: 1.2rem; font-weight: 400; letter-spacing: 0.05em; margin-bottom: 2vh; }.album-disponible h2::after,.album-about h2::after,.album-lyrics h2::after,.album-reviews h2::after,.album-video-seccion h2::after,.event-detalles h2::after,.event-about h2::after,.event-redes h2::after { content: ''; display: block; width: 2.5em; height: 0.125em; margin-top: 1.5vh; }
 .album-disponible-btns img {
     height: 2.5em;
     width: auto;
@@ -1095,23 +441,8 @@ background-attachment: fixed;
 }
 .album-reviews h2 {
     margin-bottom: 2vh;
-}
-/* About Album */
-.album-about p {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--gray);
-    line-height: 1.8;
-    margin-top: 2vh;
-    margin-bottom: 2.5vh;
-}
-.album-meta li {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    margin-bottom: 1vh;
-    line-height: 1.5;
-}
+}/* About Album */
+.album-about p { font-size: 0.85rem; color: var(--gray); line-height: 1.8; margin-top: 2vh; margin-bottom: 2.5vh; }.album-meta li { font-size: 0.82rem; color: var(--gray); margin-bottom: 1vh; line-height: 1.5; }
 .album-meta li span {
     font-weight: 600;
     margin-right: 0.5em;
@@ -1119,105 +450,30 @@ background-attachment: fixed;
 /* Available Lyrics — acordeon */
 .lyric-item {
     border-bottom: 0.0625em solid var(--gray-border);
-}
-.lyric-titulo {
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5vh 0;
-    cursor: pointer;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    transition: opacity 0.3s;
-}
+}.lyric-titulo { justify-content: space-between; padding: 1.5vh 0; font-size: 0.95rem; font-weight: 400; letter-spacing: 0.04em; transition: opacity 0.3s; }
 .lyric-titulo i {
     font-size: 0.8rem;
     transition: transform 0.3s;
     color: var(--gray);
 }
-.lyric-titulo.abierto i { transform: rotate(180deg); }
-.lyric-cuerpo {
-    display: none;
-    padding: 1vh 0 2vh;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    line-height: 2;
-}
+.lyric-titulo.abierto i { transform: rotate(180deg); }.lyric-cuerpo { display: none; padding: 1vh 0 2vh; font-size: 0.82rem; color: var(--gray); line-height: 2; }
 .lyric-cuerpo.abierto { display: block; }
 /* Album Reviews */
 .review-contenido {
     margin: 2vh 0 0;
-}
-.review-texto {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--gray-light);
-    line-height: 1.9;
-    font-style: italic;
-    margin-bottom: 3vh;
-}
-.review-pie {
-    justify-content: space-between;
-    align-items: center;
-}
-.review-autor {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-.review-nav button {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    line-height: 1;
-}/* Latest Video — sección ancho completo, debajo de las columnas */
+}.review-texto { font-size: 0.88rem; color: var(--gray-light); line-height: 1.9; font-style: italic; margin-bottom: 3vh; }.review-pie { justify-content: space-between; }.review-autor { font-size: 0.85rem; letter-spacing: 0.08em; }.review-nav button { font-size: 1.4rem; background: none; transition: opacity 0.3s; line-height: 1; }/* Latest Video — sección ancho completo, debajo de las columnas */
 .album-video-seccion {
     background: var(--black);
     padding: 4vh 15vw 12vh;
-}
-.album-video-seccion iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    height: auto;
-    max-height: none;
-    border: none;
-    display: block;
-}
-.video-nav {
-    justify-content: center;
-    align-items: center;
-    gap: 4vw;
-    padding-top: 3vh;
-}
-.video-nav button,.video-nav a {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
+}.album-video-seccion iframe { aspect-ratio: 16/9; height: auto; max-height: none; display: block; }.video-nav { justify-content: center; gap: 4vw; padding-top: 3vh; }.video-nav button,.video-nav a { background: none; transition: opacity 0.3s; }
 #video-anterior,#video-siguiente {
     font-size: 1.6rem;
     line-height: 1;
 }
 #video-grilla {
     font-size: 1.1rem;
-}
-/* CONTACT HERO*/
-.contact-hero {
-    position: relative;
-    height: 60vh;
-    background: url('../images/contact-us-title.png') center/cover no-repeat;
-    background-attachment: fixed;
-    align-items: center;
-    justify-content: center;
-}
+}/* CONTACT HERO*/
+.contact-hero { height: 60vh; background: url('../images/contact-us-title.png') center/cover no-repeat; background-attachment: fixed; justify-content: center; }
 .contact-hero-titulo { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 0.1em; }
 /*  SECCION 1 — 4 columnas*/
 .contact-info-seccion {
@@ -1228,21 +484,7 @@ background-attachment: fixed;
 .contact-info-grilla,.contact-ciudades {
     gap: 4vw;
     flex-wrap: wrap;
-}
-.contact-info-col h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 2vh;
-}
-.contact-info-col p {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    line-height: 1.8;
-}
+}.contact-info-col h3 { font-size: 1.1rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 2vh; }.contact-info-col p { font-size: 0.82rem; color: var(--gray); line-height: 1.8; }
 /* SECCION 2 — info + formulario */
 .contact-form-seccion {
     background: #0d0d0d;
@@ -1252,58 +494,17 @@ background-attachment: fixed;
 }
 .contact-form-izquierda {
     flex: 1;
-}
-.contact-form-izquierda h2::after {
-    content: '';
-    display: block;
-    width: 3.125em;
-    height: 0.125em;
-    background: var(--white);
-    margin-top: 2vh;
-}
-.contact-form-izquierda > p {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.8;
-    margin-top: 3vh;
-    margin-bottom: 4vh;
-    max-width: 26.25em;
-}
+}.contact-form-izquierda h2::after { content: ''; display: block; width: 3.125em; height: 0.125em; margin-top: 2vh; }.contact-form-izquierda > p { font-size: 0.88rem; color: var(--gray); line-height: 1.8; margin-top: 3vh; margin-bottom: 4vh; max-width: 26.25em; }
 .contact-ciudad {
     flex: 1;
     min-width: 0;
-}
-.contact-ciudad h4 {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1.5vh;
-}
-.contact-ciudad p {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--gray);
-    line-height: 1.9;
-}
+}.contact-ciudad h4 { font-size: 0.95rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 1.5vh; }.contact-ciudad p { font-size: 0.8rem; color: var(--gray); line-height: 1.9; }
 /* ── Formulario ── */
 .contact-form-derecha {
     flex: 1;
     flex-direction: column;
     gap: 1.5vh;
-}
-.contact-form-derecha input,.contact-form-derecha textarea {
-    width: 100%;
-    background: transparent;
-    border: 0.0625em solid var(--white);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    padding: 1.2vh 1vw;
-    outline: none;
-    transition: border-color 0.3s;
-}
+}.contact-form-derecha input,.contact-form-derecha textarea { background: transparent; border: 0.0625em solid var(--white); font-size: 0.85rem; padding: 1.2vh 1vw; outline: none; transition: border-color 0.3s; }
 .contact-form-derecha input::placeholder,.contact-form-derecha textarea::placeholder {
     color: var(--gray);
 }
@@ -1313,29 +514,10 @@ background-attachment: fixed;
 .contact-form-derecha textarea {
     min-height: 9.375em;
     resize: none;
-}
-.contact-form-derecha button {
-    align-self: flex-start;
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--black);
-    background: var(--white);
-    border: 0.0625em solid var(--white);
-    padding: 1.4vh 3vw;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-}
+}.contact-form-derecha button { align-self: flex-start; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; color: var(--black); border: 0.0625em solid var(--white); padding: 1.4vh 3vw; transition: background 0.3s, color 0.3s; }
 .contact-form-derecha button:hover {
     background: transparent;
-}
-.contact-form-mensaje {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    padding: 0.8vh 0;
-}
+}.contact-form-mensaje { font-size: 0.82rem; padding: 0.8vh 0; }
 .mensaje-error { color: #e74c3c; }
 .mensaje-ok { color: #2ecc71; }
 /*  CONTENIDO PRINCIPAL*/
@@ -1344,13 +526,8 @@ background-attachment: fixed;
     background: var(--black);
     flex-direction: column;
     gap: 5vh;
-}
-/* FILA 1 — imagen chica + mapa grande */
-.event-fila-top {
-    align-items: stretch;
-    height: 30em;
-    width: 100%;
-}
+}/* FILA 1 — imagen chica + mapa grande */
+.event-fila-top { align-items: stretch; height: 30em; }
 .event-imagen {
     width: 32%;
     flex-shrink: 0;
@@ -1358,16 +535,7 @@ background-attachment: fixed;
     padding: 0;
     line-height: 0;
     font-size: 0;
-}
-.event-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
+}.event-imagen img { height: 100%; object-fit: cover; object-position: center top; display: block; margin: 0; padding: 0; }
 .event-mapa {
     flex: 1;
     margin: 0;
@@ -1375,16 +543,7 @@ background-attachment: fixed;
     margin-left: 6vw;
     line-height: 0;
     font-size: 0;
-}
-.event-mapa iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-    filter: grayscale(1);
-    margin: 0;
-    padding: 0;
-}
+}.event-mapa iframe { height: 100%; display: block; filter: grayscale(1); margin: 0; padding: 0; }
 /* FILA 2 — details + about tour y follow */
 .event-fila-medio {
     gap: 6vw;
@@ -1404,42 +563,13 @@ background-attachment: fixed;
     list-style: none;
     padding: 0;
     margin: 3vh 0;
-}
-.event-info li {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--gray);
-    margin-bottom: 1.2vh;
-    line-height: 1.6;
-}
+}.event-info li { font-size: 0.82rem; color: var(--gray); margin-bottom: 1.2vh; line-height: 1.6; }
 .event-info li span {
     font-weight: 600;
     margin-right: 0.3em;
 }/* Botón */
-.event-tickets-btn {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 0.0625em solid var(--white);
-    padding: 1.4vh 3vw;
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    margin-top: 1vh;
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-/* About Tour */
-.event-about p {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--gray);
-    line-height: 1.9;
-    margin-top: 2vh;
-}
+.event-tickets-btn { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; border: 0.0625em solid var(--white); padding: 1.4vh 3vw; background: transparent; transition: background 0.3s, color 0.3s; margin-top: 1vh; display: block; text-align: center; }/* About Tour */
+.event-about p { font-size: 0.85rem; color: var(--gray); line-height: 1.9; margin-top: 2vh; }
 /* Follow And Share */
 .event-redes-iconos {
     gap: 0.875em;
@@ -1447,9 +577,7 @@ background-attachment: fixed;
     flex-wrap: wrap;
 }
 .event-redes-iconos a { width: 2.125em; height: 2.125em; border: 0.09375em solid var(--white); }
-/* ============================================================
-   RESPONSIVE
-============================================================ */
+/* RESPONSIVE */
 @media (max-width: 56.25em) {
     .event-contenido { padding: 4vh 8vw 10vh; }
     .event-fila-top { flex-direction: column; height: auto; }

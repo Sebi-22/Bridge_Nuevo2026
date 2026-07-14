@@ -1178,6 +1178,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+   // ─── MENÚ HAMBURGUESA (todas las páginas) ──
+{
+    const menuBtn = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+    let menuAbierto = false; 
+
+    if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function () {
+            if (menuAbierto === false) {
+                // estaba cerrado -> lo abrimos
+                nav.classList.add('abierto');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                menuAbierto = true;
+            } else {
+                // estaba abierto -> lo cerramos
+                nav.classList.remove('abierto');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuAbierto = false;
+            }
+        });
+    }
+} 
     // ─── SCROLL TO TOP (todas las páginas — una sola vez) ──
     {
         const scrollBtn = document.getElementById('scroll-top');

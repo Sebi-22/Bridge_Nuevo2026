@@ -577,6 +577,55 @@ background-attachment: fixed;
     flex-wrap: wrap;
 }
 .event-redes-iconos a { width: 2.125em; height: 2.125em; border: 0.09375em solid var(--white); }
+/* ===== MENÚ HAMBURGUESA ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1.75em;
+    height: 1.25em;
+    z-index: 200;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 0.125em;
+    background: var(--white);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ===== RESPONSIVE — HEADER/NAV ===== */
+@media (max-width: 56.25em) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        max-width: 20em;
+        background: var(--black);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 150;
+        padding-top: 10vh;
+    }
+
+    nav.abierto {
+        transform: translateX(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0 2em;
+        gap: 3vh;
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 56.25em) {
     .event-contenido { padding: 4vh 8vw 10vh; }
@@ -585,4 +634,97 @@ background-attachment: fixed;
     .event-mapa iframe { min-height: 15.625em; }
     .event-fila-medio { flex-direction: column; }
     .event-detalles { width: 100%; }
+}
+/* ===== RESPONSIVE GENERAL — MOBILE ===== */
+@media (max-width: 56.25em) {
+
+    /* --- Padding lateral: 15vw en un celular de 375px es ~56px por lado, demasiado --- */
+    .fechas-seccion,
+    .galeria-encabezado,
+    .blog-seccion,
+    .album-contenido,
+    .contact-info-seccion,
+    .contact-form-seccion {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+    /* --- HERO: texto vertical estorba en mobile, lo pasamos a horizontal y centrado --- */
+    .hero {
+        min-height: 90vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 4vh 6vw;
+    }
+    .hero-band-name {
+        position: static;
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: clamp(2rem, 10vw, 3rem);
+        margin-bottom: 4vh;
+    }
+    .hero-cta {
+        position: static;
+        max-width: 100%;
+    }
+
+    /* --- PLAYER BAR: dejamos que las piezas se acomoden en varias líneas --- */
+    .player-bar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1.5vh 6vw;
+    }
+    .player-volume {
+        display: none; /* en mobile no aporta, prioridad a lo esencial */
+    }
+
+    /* --- ALBUM SECTION (home): apilamos portada arriba, lista abajo --- */
+    .album-section {
+        flex-direction: column;
+        padding: 6vh 6vw;
+    }
+    .album-izquierda {
+        width: 100%;
+        margin: 0 0 4vh;
+    }
+    .lista-canciones {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* --- BLOG: de 3 columnas a 1 --- */
+    .blog-post {
+        width: 100%;
+    }
+
+    /* --- DISCOGRAFÍA: de 4 columnas a 2 --- */
+    .disco-card {
+        width: calc(50% - 0.78em);
+        height: 45vw;
+    }
+
+    /* --- ALBUM.HTML: dos columnas -> apiladas --- */
+    .album-contenido {
+        flex-direction: column;
+    }
+    .album-col-izquierda {
+        width: 100%;
+    }
+
+    /* --- CONTACT: form y ciudades apilados --- */
+    .contact-form-seccion {
+        flex-direction: column;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .tour-hero,
+    .about-hero,
+    .contact-hero {
+        background-attachment: scroll;
+    }
+    html {
+        scroll-behavior: auto;
+    }
 }

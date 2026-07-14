@@ -1178,6 +1178,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+   // ─── MODO CLARO / OSCURO ──
+{
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    if (toggleBtn) {
+        const actualizarEstado = function () {
+            const esClaro = root.getAttribute('data-theme') === 'light';
+            toggleBtn.setAttribute('aria-pressed', String(esClaro));
+            toggleBtn.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+        };
+
+        actualizarEstado();
+
+        toggleBtn.addEventListener('click', function () {
+            const esClaroAhora = root.getAttribute('data-theme') === 'light';
+
+            if (esClaroAhora) {
+                root.removeAttribute('data-theme');
+                localStorage.setItem('bv-theme', 'dark');
+            } else {
+                root.setAttribute('data-theme', 'light');
+                localStorage.setItem('bv-theme', 'light');
+            }
+
+            actualizarEstado();
+        });
+    }
+}
+
    // ─── MENÚ HAMBURGUESA (todas las páginas) ──
 {
     const menuBtn = document.getElementById('menu-toggle');

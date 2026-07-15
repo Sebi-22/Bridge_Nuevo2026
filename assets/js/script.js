@@ -1251,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     scrollBtn.classList.remove('visible');
                 }
             });
-
+          // ScrollTo:método de JavaScript que ejecuta esa acción, moviendo la ventana del navegador hacia las coordenadas que le indiques.
             scrollBtn.addEventListener('click', function () {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });

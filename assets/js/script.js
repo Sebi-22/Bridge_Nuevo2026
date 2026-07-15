@@ -1229,14 +1229,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 menuBtn.setAttribute('aria-expanded', 'true');
                 menuAbierto = true;
             } else {
-                nav.classList.remove('abierto');
+                nav.classList.remove('abierto');// Remove borra el nombre de esa clase 
                 menuBtn.setAttribute('aria-expanded', 'false');
                 menuAbierto = false;
             }
         });
     }
 } 
-    // ─── SCROLL TO TOP (todas las páginas — una sola vez) ──
+    // ─── SCROLL TO TOP ( ──
     {
         const scrollBtn = document.getElementById('scroll-top');
 

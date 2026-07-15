@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.appendChild(lugar);
                 item.appendChild(tickets);
 
-                if (i >= fechas_visible) {
+                if (i >= fechas_visibles) {
                     item.style.display = 'none';
                     fechasExtras.push(item);
                 }

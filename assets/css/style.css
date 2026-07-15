@@ -42,7 +42,6 @@ button {
   --gray-border: #222;
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
-
   /* ===== TEMA (modo oscuro = default) ===== */
   --bg: #000;
   --bg-rgb: 0, 0, 0;
@@ -72,9 +71,12 @@ button {
 [data-theme="light"] .video-fondo,
 [data-theme="light"] .about-hero,
 [data-theme="light"] .tour-hero,
-[data-theme="light"] .contact-hero,
-[data-theme="light"] .event-mapa iframe {
+[data-theme="light"] .contact-hero {
   filter: brightness(0.92);
+}
+/* combina los dos filtros: si solo pusieramos brightness, se perderia el grayscale del mapa en modo claro */
+[data-theme="light"] .event-mapa iframe {
+  filter: grayscale(1) brightness(0.92);
 }
 /*  HEADER */
 header,.hero-band-name,.hero-cta,.album-section::before,#modal-cerrar,#video-lightbox-cerrar,#lightbox-cerrar,.video-boton-play,.disco-card img,.disco-overlay,.tour-hero-overlay,.contact-hero-overlay,.member::after,
@@ -83,7 +85,7 @@ header,.hero-band-name,.hero-cta,.album-section::before,#modal-cerrar,#video-lig
 .modal-video iframe,#modal-cerrar,#video-lightbox-cerrar,#lightbox-cerrar,.fecha-tickets,.footer-linea,.album-controles button,.track-fila-comprar,.review-nav button,.album-video-seccion iframe,.video-nav button,.video-nav a,.event-mapa iframe { border: none; }
 
 /* PLAYER BAR */
-.player-bar { background: #fff; box-shadow: 0 0.0625em 0.75em rgba(0,0,0,0.12); }
+.player-bar { background: var(--surface); box-shadow: 0 0.0625em 0.75em rgba(0,0,0,0.12); }
 .galeria-encabezado h2::after,.blog-encabezado h2::after,.disco-encabezado h2::after,.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover,.album-progreso-fill,.album-disponible h2::after,.album-about h2::after,.album-lyrics h2::after,.album-reviews h2::after,.album-video-seccion h2::after,.event-detalles h2::after,.event-about h2::after,.event-redes h2::after,.contact-form-izquierda h2::after,.contact-form-derecha button { background: var(--text); }
 
 /*  HEADER */
@@ -130,7 +132,7 @@ nav a,.hero-band-name,.hero-cta h2,.player-title,.album-izquierda h2,.cancion,.g
 .event-tickets-btn { font-family: var(--font-heading); }
 
 header,nav ul,.event-redes-iconos a,.event-redes-iconos,.event-derecha,.event-fila-medio,.event-fila-top,.event-contenido,.contact-form-derecha,.contact-form-seccion,.contact-info-grilla,.contact-ciudades,.contact-hero,.video-nav,.review-pie,.lyric-titulo,.album-col-derecha,.album-contenido,.track-fila,.socials a,.socials,.popUpMembers,.tour-hero,.about-hero,.scroll-top,.footer-redes,.footer-redes a,.footer-grilla,.disco-grilla,.video-lightbox.activo,.video-boton-play,.blog-grilla,.fecha-item,.lightbox-controles button,.lightbox-controles,.lightbox.activo,.galeria-grilla,.modal-video.activo,.cancion-botones,.review-nav,.cancion,.album-botones,.album-section,.player-volume,.player-progress,.player-controls,.player-bar,.store-btns,.album-disponible-btns,.hero{display: flex;}/*  HEADER */
-header { top: 0; left: 0; z-index: 100; padding: 2.5vh 5vw; justify-content: space-between; background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.55), rgba(var(--bg-rgb), 0)); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background-color 0.35s ease; }
+header { top: 0; left: 0; z-index: 100; padding: 2.5vh clamp(1.25rem, 5vw, 4rem); justify-content: space-between; background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.55), rgba(var(--bg-rgb), 0)); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background-color 0.35s ease; }
 .logo img {
   height: 2em;
   width: auto;
@@ -155,7 +157,7 @@ nav a:hover,nav a.active {
   transition: opacity 0.3s;
 }
 .store-btns img:hover,.album-botones img:hover,.galeria-grilla img:hover,.album-disponible-btns img:hover,.lyric-titulo:hover {opacity: 0.7;}/* PLAYER BAR */
-.player-bar { padding: 0 9vw; height: 5.5em; z-index: 10; gap: 1vw; }
+.player-bar { padding: 0 clamp(1.25rem, 9vw, 5rem); height: 5.5em; z-index: 10; gap: 1vw; }
 .player-cover {
   width: 4.5em;
   height: 4.5em;
@@ -165,19 +167,19 @@ nav a:hover,nav a.active {
 .player-info {
   padding: 0 2vw;
   min-width: 8.75em;
-}.player-title { font-size: 1rem; color: #111; font-weight: 400; line-height: 1.2; }.player-artist,.breadcrumb { font-size: 0.82rem; color: var(--gray); }.player-controls { gap: 1.5vw; margin-left: 1vw; }
+}.player-title { font-size: 1rem; color: var(--text); font-weight: 400; line-height: 1.2; }.player-artist,.breadcrumb { font-size: 0.82rem; color: var(--gray); }.player-controls { gap: 1.5vw; margin-left: 1vw; }
 .player-controls button {
-  color: #111;
+  color: var(--text);
   font-size: 1rem;
   transition: opacity 0.3s;
 }
 .player-controls button:hover {
   opacity: 0.45;
-}.player-progress { flex: 1; margin: 0 2vw; gap: 1vw; }.progress-track { flex: 1; height: 0.1875em; background: #d0d0d0; border-radius: 0.125em; }
+}.player-progress { flex: 1; margin: 0 2vw; gap: 1vw; }.progress-track { flex: 1; height: 0.1875em; background: var(--surface-3); border-radius: 0.125em; }
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: #111;
+  background: var(--text);
   border-radius: 0.125em;
   transition: width 0.1s linear;
 }.player-time { font-size: 0.82rem; color: var(--gray); white-space: nowrap; }.player-volume { gap: 0.6vw; }
@@ -188,16 +190,16 @@ nav a:hover,nav a.active {
 .vol-track {
   width: 4.375em;
   height: 0.1875em;
-  background: #d0d0d0;
+  background: var(--surface-3);
   border-radius: 0.125em;
 }
 .vol-fill {
   width: 75%;
   height: 100%;
-  background: #111;
+  background: var(--text);
   border-radius: 0.125em;
 }/* ALBUM SECTION*/
-.album-section { background: url("../images/h1-img-8.jpg") center/cover no-repeat; min-height: 80vh; padding: 10vh 0; }.album-section::before { content: ""; inset: 0; background: rgba(0, 0, 0, 0.55); }.album-izquierda { z-index: 1; margin-left: 15vw; width: 28vw; flex-shrink: 0; }.album-portada { max-width: 21.25em; }.album-izquierda h2 { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 400; margin: 3vh 0 1.5vh; }.album-izquierda p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin-bottom: 2.5vh; }
+.album-section { background: url("../images/h1-img-8.jpg") center/cover no-repeat; min-height: 80vh; padding: 10vh 0; }.album-section::before { content: ""; inset: 0; background: rgba(0, 0, 0, 0.55); }.album-izquierda { z-index: 1; margin-left: clamp(1.5rem, 15vw, 10rem); width: clamp(16em, 28vw, 24em); flex-shrink: 0; }.album-portada { max-width: 21.25em; }.album-izquierda h2 { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 400; margin: 3vh 0 1.5vh; }.album-izquierda p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin-bottom: 2.5vh; }
 .album-botones {
   gap: 0.875em;
 }
@@ -206,7 +208,7 @@ nav a:hover,nav a.active {
   width: auto;
   transition: opacity 0.3s;
 }/* Lista de canciones */
-.lista-canciones { z-index: 1; flex: 1; margin: 0 13vw 0 5vw; align-self: center; }.cancion { border-bottom: 0.0625em solid var(--gray-border); padding: 1.8vh 0; color: var(--gray); font-size: 0.95rem; gap: 1.2vw; transition: color 0.3s; }
+.lista-canciones { z-index: 1; flex: 1; margin: 0 clamp(2rem, 13vw, 9rem) 0 clamp(1.5rem, 5vw, 4rem); align-self: center; }.cancion { border-bottom: 0.0625em solid var(--gray-border); padding: 1.8vh 0; color: var(--gray); font-size: 0.95rem; gap: 1.2vw; transition: color 0.3s; }
 .cancion:last-child {
   border-bottom: none;
 }
@@ -229,11 +231,11 @@ nav a:hover,nav a.active {
   transition: color 0.3s;
 }/* MODAL VIDEO */
 .modal-video, .lightbox, .video-lightbox { display: none; position: fixed; inset: 0; z-index: 1000; justify-content: center; }
-.modal-video { background: rgba(0, 0, 0, 0.88); }.modal-video iframe { width: 62vw; height: 35vw; }#modal-cerrar,#video-lightbox-cerrar { top: 3vh; right: 2vw; font-size: 1.8rem; background: none; transition: opacity 0.3s; }
+.modal-video { background: rgba(0, 0, 0, 0.88); }.modal-video iframe { width: 62vw; height: 35vw; max-width: 55em; max-height: 31em; }#modal-cerrar,#video-lightbox-cerrar { top: 3vh; right: 2vw; font-size: 1.8rem; background: none; transition: opacity 0.3s; }
 #modal-cerrar:hover,#lightbox-cerrar:hover,.fecha-lugar a:hover,.fecha-tickets:hover,.blog-post-titulo a:hover,#video-lightbox-cerrar:hover,.breadcrumb a:hover,.footer-links a:hover  {opacity: 0.6;}/* GALERIA*/
-.galeria-seccion { background: var(--bg); overflow: hidden; }
+.galeria-seccion { background: var(--bg); overflow: hidden; max-width: 90em; margin-inline: auto; }
 .galeria-encabezado {
-    padding: 9vh 15vw 0;
+    padding: 9vh clamp(1.5rem, 15vw, 8rem) 0;
 }.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2 { font-weight: 400; }
 .galeria-encabezado h2, .blog-encabezado h2, .disco-encabezado h2 { font-size: clamp(2rem, 3vw, 3rem); }
 .album-about h2, .album-lyrics h2, .album-reviews h2, .album-video-seccion h2 { font-size: clamp(1.5rem, 2vw, 2rem); }
@@ -258,7 +260,7 @@ nav a:hover,nav a.active {
 /*LIGHTBOX */
 .lightbox { background: rgba(0,0,0,0.95); flex-direction: column; }
 .lightbox img {
-    max-width: 85vw;
+    max-width: min(85vw, 62.5em);
     max-height: 75vh;
     object-fit: contain;
 }#lightbox-cerrar { top: 4vh; right: 4vw; font-size: 2rem; background: none; transition: transform 0.2s, opacity 0.3s; }
@@ -271,8 +273,10 @@ transform: scale(1.1);
 }#lightbox-contador { font-size: 0.9rem; color: var(--gray-light); letter-spacing: 0.0625em; }
 /* TOUR DATES*/
 .fechas-seccion {
-    padding: 10vh 15vw;
+    padding: 10vh clamp(1.5rem, 15vw, 8rem);
     background: var(--bg);
+    max-width: 90em;
+    margin-inline: auto;
 }.fecha-item { border-bottom: 0.0625em solid var(--gray-border); padding: 2vh 0; gap: 1vw; flex-wrap: wrap; }.fecha-numero { font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 700; line-height: 1; margin-right: 0.3em; }.fecha-mes { font-size: 0.75rem; color: var(--gray); line-height: 1.4; letter-spacing: 0.08em; border-left: 0.0625em solid var(--gray-border); padding-left: 0.7em; min-width: 2.5em; }.fecha-lugar { flex: 1; font-size: 0.88rem; font-weight: 400; letter-spacing: 0.04em; padding-left: 2vw; }
 .fecha-lugar a,.blog-post-titulo a {
     transition: opacity 0.3s;
@@ -280,11 +284,13 @@ transform: scale(1.1);
 .fechas-boton-wrap,.disco-boton-wrap {
     text-align: center;
     margin-top: 5vh;
-}.boton-borde { display: inline-block; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; border: 0.0625em solid var(--text); padding: 1.4vh 3.5vw; transition: background 0.3s, color 0.3s; background: transparent; }.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover { color: var(--bg); }
+}.boton-borde { display: inline-block; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; border: 0.0625em solid var(--text); padding: 1.4vh clamp(1.5rem, 3.5vw, 3rem); transition: background 0.3s, color 0.3s; background: transparent; }.boton-borde:hover,.footer-redes a:hover,.event-tickets-btn:hover,.event-redes-iconos a:hover { color: var(--bg); }
 /* BLOG */
 .blog-seccion {
-    padding: 10vh 15vw 12vh;
+    padding: 10vh clamp(1.5rem, 15vw, 8rem) 12vh;
     background: var(--bg);
+    max-width: 90em;
+    margin-inline: auto;
 }
 .blog-encabezado {
     margin-bottom: 5vh;
@@ -306,17 +312,19 @@ transform: scale(1.1);
 /* VIDEO LIGHTBOX*/
 .video-lightbox { background: rgba(0,0,0,0.92); }
 .video-lightbox video {
-    max-width: 80vw;
+    max-width: min(80vw, 64em);
     max-height: 80vh;
 }/* DISCOGRAPHY*/
 .disco-seccion {
     padding: 10vh 0 12vh 0;
     background: var(--bg);
+    max-width: 90em;
+    margin-inline: auto;
 }
 .disco-encabezado {
-    padding: 0 9vw;
+    padding: 0 clamp(1.25rem, 9vw, 6rem);
     margin-bottom: 5vh;
-}.disco-encabezado p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 26.25em; margin-top: 3.5vh; }.disco-grilla { flex-wrap: wrap; gap: 1.5625em; margin: 0; padding: 0 9vw; }.disco-card { width: 22%; overflow: hidden; margin: 0; padding: 0; line-height: 0; height: 18vw; flex-shrink: 0; }.disco-card img { height: 100%; object-fit: cover; display: block; transition: opacity 0.4s; inset: 0; }
+}.disco-encabezado p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 26.25em; margin-top: 3.5vh; }.disco-grilla { flex-wrap: wrap; gap: 1.5625em; margin: 0; padding: 0 clamp(1.25rem, 9vw, 6rem); }.disco-card { width: 22%; overflow: hidden; margin: 0; padding: 0; line-height: 0; height: clamp(10em, 18vw, 20em); flex-shrink: 0; }.disco-card img { height: 100%; object-fit: cover; display: block; transition: opacity 0.4s; inset: 0; }
 .disco-card:hover img {
     opacity: 0.35;
 }.disco-overlay { left: 10%; bottom: 8%; opacity: 0; transform: translateY(0.625em); transition: opacity 0.35s, transform 0.35s; pointer-events: none; z-index: 1; }
@@ -326,7 +334,9 @@ transform: translateY(0);
 }.disco-overlay h3 { font-size: clamp(1rem, 1.5vw, 1.4rem); font-weight: 400; line-height: 1.1; margin-bottom: 0.3em; }.disco-overlay p { font-size: 0.82rem; color: var(--gray-light); }
 .disco-hero {
     background: var(--bg);
-    padding: 12vh 9vw 4vh;
+    padding: 12vh clamp(1.25rem, 9vw, 6rem) 4vh;
+    max-width: 90em;
+    margin-inline: auto;
 }.disco-hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 1.5vh; }
 .breadcrumb a {
     color: var(--gray);
@@ -334,7 +344,7 @@ transform: translateY(0);
 }
 /* FOOTER*/
 footer {
-    padding: 10vh 4vw 0;
+    padding: 10vh clamp(1.25rem, 4vw, 3rem) 0;
     background: var(--bg);
 }
 .footer-grilla {
@@ -396,7 +406,7 @@ background-attachment: fixed;
 .listen-albums .container {
     max-width: 53.75em;
     margin: 0 auto;
-    padding: 0 9vw;
+    padding: 0 clamp(1.25rem, 9vw, 3rem);
 }.listen-albums h2 { font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; letter-spacing: 0.125em; margin-bottom: 0; }
 .listen-albums h2::after {
     content: '';
@@ -425,10 +435,12 @@ background-attachment: fixed;
 }
 /* CONTENIDO PRINCIPAL — dos columnas*/
 .album-contenido {
-    gap: 6vw;
-    padding: 6vh 15vw 12vh;
+    gap: clamp(1.5rem, 6vw, 4rem);
+    padding: 6vh clamp(1.5rem, 15vw, 8rem) 12vh;
     background: var(--bg);
     align-items: flex-start;
+    max-width: 90em;
+    margin-inline: auto;
 }
 /* COLUMNA IZQUIERDA */
 .album-col-izquierda {
@@ -499,7 +511,9 @@ background-attachment: fixed;
 }.review-texto { font-size: 0.88rem; color: var(--gray-light); line-height: 1.9; font-style: italic; margin-bottom: 3vh; }.review-pie { justify-content: space-between; }.review-autor { font-size: 0.85rem; letter-spacing: 0.08em; }.review-nav button { font-size: 1.4rem; background: none; transition: opacity 0.3s; line-height: 1; }/* Latest Video — sección ancho completo, debajo de las columnas */
 .album-video-seccion {
     background: var(--bg);
-    padding: 4vh 15vw 12vh;
+    padding: 4vh clamp(1.5rem, 15vw, 8rem) 12vh;
+    max-width: 90em;
+    margin-inline: auto;
 }.album-video-seccion iframe { aspect-ratio: 16/9; height: auto; max-height: none; display: block; }.video-nav { justify-content: center; gap: 4vw; padding-top: 3vh; }.video-nav button,.video-nav a { background: none; transition: opacity 0.3s; }
 #video-anterior,#video-siguiente {
     font-size: 1.6rem;
@@ -513,19 +527,24 @@ background-attachment: fixed;
 /*  SECCION 1 — 4 columnas*/
 .contact-info-seccion {
     background: var(--bg);
-    padding: 10vh 15vw;
+    padding: 10vh clamp(1.5rem, 15vw, 8rem);
     border-bottom: 0.0625em solid var(--border-color);
 }
 .contact-info-grilla,.contact-ciudades {
-    gap: 4vw;
+    gap: clamp(1.5rem, 4vw, 3rem);
     flex-wrap: wrap;
+    max-width: 90em;
+    margin-inline: auto;
 }.contact-info-col h3 { font-size: 1.1rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 2vh; }.contact-info-col p { font-size: 0.82rem; color: var(--gray); line-height: 1.8; }
 /* SECCION 2 — info + formulario */
 .contact-form-seccion {
     background: var(--surface);
-    padding: 10vh 15vw;
-    gap: 8vw;
+    padding: 10vh clamp(1.5rem, 15vw, 8rem);
+    gap: clamp(1.5rem, 8vw, 5rem);
     align-items: flex-start;
+}
+.contact-form-izquierda,.contact-form-derecha {
+    max-width: 35em;
 }
 .contact-form-izquierda {
     flex: 1;
@@ -549,7 +568,7 @@ background-attachment: fixed;
 .contact-form-derecha textarea {
     min-height: 9.375em;
     resize: none;
-}.contact-form-derecha button { align-self: flex-start; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; color: var(--bg); border: 0.0625em solid var(--text); padding: 1.4vh 3vw; transition: background 0.3s, color 0.3s; }
+}.contact-form-derecha button { align-self: flex-start; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; color: var(--bg); border: 0.0625em solid var(--text); padding: 1.4vh clamp(1.5rem, 3vw, 2.5rem); transition: background 0.3s, color 0.3s; }
 .contact-form-derecha button:hover {
     background: transparent;
 }.contact-form-mensaje { font-size: 0.82rem; padding: 0.8vh 0; }
@@ -557,10 +576,12 @@ background-attachment: fixed;
 .mensaje-ok { color: #2ecc71; }
 /*  CONTENIDO PRINCIPAL*/
 .event-contenido {
-    padding: 4vh 15vw 12vh;
+    padding: 4vh clamp(1.5rem, 15vw, 8rem) 12vh;
     background: var(--bg);
     flex-direction: column;
     gap: 5vh;
+    max-width: 90em;
+    margin-inline: auto;
 }/* FILA 1 — imagen chica + mapa grande */
 .event-fila-top { align-items: stretch; height: 30em; }
 .event-imagen {
@@ -575,13 +596,13 @@ background-attachment: fixed;
     flex: 1;
     margin: 0;
     padding: 0;
-    margin-left: 6vw;
+    margin-left: clamp(1.5rem, 6vw, 4rem);
     line-height: 0;
     font-size: 0;
 }.event-mapa iframe { height: 100%; display: block; filter: grayscale(1); margin: 0; padding: 0; }
 /* FILA 2 — details + about tour y follow */
 .event-fila-medio {
-    gap: 6vw;
+    gap: clamp(1.5rem, 6vw, 4rem);
     align-items: flex-start;
 }
 .event-detalles {
@@ -836,7 +857,23 @@ background-attachment: fixed;
     }
 }
 
-/* ===== ACCESIBILIDAD — RESPETAR  ===== */
+/* Breakpoint extra chico, para celulares muy angostos (< 360px, ej. iPhone SE) */
+@media (max-width: 22.5em) {
+    .fecha-numero {
+        font-size: 2rem;
+    }
+    .hero-band-name {
+        font-size: 1.7rem;
+    }
+    .hero-cta h2 {
+        font-size: 1.5rem;
+    }
+    .disco-hero h1 {
+        font-size: 1.7rem;
+    }
+}
+
+/* ===== ACCESIBILIDAD===== */
 @media (prefers-reduced-motion: reduce) {
     .tour-hero,
     .about-hero,

@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const listaFechas = document.getElementById('lista-fechas');
         const botonVerTodas = document.getElementById('boton-ver-todas');
-        const FECHAS_VISIBLES = 6;
+        const fechas_visibles = 6;
         let fechasExtras = [];
         let extrasVisibles = false;
 
@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.appendChild(lugar);
                 item.appendChild(tickets);
 
-                if (i >= FECHAS_VISIBLES) {
+                if (i >= fechas_visible) {
                     item.style.display = 'none';
                     fechasExtras.push(item);
                 }
@@ -462,8 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
-    // ─── VIDEO DESTACADO (Home) ────────────────────────────
+    // ─── VIDEO DESTACADO ) ────────────────────────────
     {
         const videoBotonPlay = document.getElementById('video-boton-play');
         const videoLightbox = document.getElementById('video-lightbox');
@@ -489,8 +488,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
-
-    // ─── DISCOGRAFIA (Home, About, Discography) ───────────
+    // ─── DISCOGRAFIA ───────────
     {
         const datosAlbumes = [
             { imagen: 'assets/images/album-1.jpg',  titulo: 'Be-Doo',          subtitulo: 'Caller' },
@@ -542,10 +540,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (discoBotonMas) {
                 // (Home / About): 4 discos por vez, en loop
                 let albumesMostrados = 0;
-                const PASO = 4;
+                const paso = 4;
 
                 function mostrarAlbumes() {
-                    for (let i = 0; i < PASO; i++) {
+                    for (let i = 0; i < paso; i++) {
                         let indice = albumesMostrados % datosAlbumes.length;
                         discoGrilla.appendChild(crearCardAlbum(datosAlbumes[indice]));
                         albumesMostrados = albumesMostrados + 1;
@@ -823,7 +821,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ─── ABOUT US — INTEGRANTES (About) ────────────────────
+    // ─── ABOUT US — INTEGRANTES  ────────────────────
     {
         const integrantes = [
             { imagen: '../assets/images/team-1.jpg', nombre: 'John Smith', rol: 'Vocals' },
@@ -1178,29 +1176,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-   // ─── MODO CLARO / OSCURO ──
+   // ─── MODO CLARO / OSCURO  ──
 {
-    const root = document.documentElement;
+    const html = document.documentElement;
     const toggleBtn = document.getElementById('theme-toggle');
+
+    if (localStorage.temaSitio === 'light') {
+        html.setAttribute('data-theme', 'light');
+    }
 
     if (toggleBtn) {
         const actualizarEstado = function () {
-            const esClaro = root.getAttribute('data-theme') === 'light';
-            toggleBtn.setAttribute('aria-pressed', String(esClaro));
-            toggleBtn.setAttribute('aria-label', esClaro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+            const esClaro = html.getAttribute('data-theme') === 'light';
+
+            if (esClaro) {
+                toggleBtn.setAttribute('aria-pressed', 'true');
+                toggleBtn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+            } else {
+                toggleBtn.setAttribute('aria-pressed', 'false');
+                toggleBtn.setAttribute('aria-label', 'Cambiar a modo claro');
+            }
         };
 
         actualizarEstado();
 
         toggleBtn.addEventListener('click', function () {
-            const esClaroAhora = root.getAttribute('data-theme') === 'light';
+            const esClaroAhora = html.getAttribute('data-theme') === 'light';
 
             if (esClaroAhora) {
-                root.removeAttribute('data-theme');
-                localStorage.setItem('bv-theme', 'dark');
+                html.setAttribute('data-theme', 'dark');
+                localStorage.temaSitio = 'dark';
             } else {
-                root.setAttribute('data-theme', 'light');
-                localStorage.setItem('bv-theme', 'light');
+                html.setAttribute('data-theme', 'light');
+                localStorage.temaSitio = 'light';
             }
 
             actualizarEstado();
@@ -1217,12 +1225,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuBtn && nav) {
         menuBtn.addEventListener('click', function () {
             if (menuAbierto === false) {
-                // estaba cerrado -> lo abrimos
                 nav.classList.add('abierto');
                 menuBtn.setAttribute('aria-expanded', 'true');
                 menuAbierto = true;
             } else {
-                // estaba abierto -> lo cerramos
                 nav.classList.remove('abierto');
                 menuBtn.setAttribute('aria-expanded', 'false');
                 menuAbierto = false;
@@ -1236,7 +1242,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (scrollBtn) {
             window.addEventListener('scroll', function () {
-                scrollBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
+                const paginaBajada = window.scrollY > window.innerHeight * 0.5;
+
+                if (paginaBajada) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                   
+                    scrollBtn.classList.remove('visible');
+                }
             });
 
             scrollBtn.addEventListener('click', function () {

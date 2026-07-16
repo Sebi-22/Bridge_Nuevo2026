@@ -42,10 +42,6 @@ button {
   --gray-border: #222;
   --font-heading: "Oswald", sans-serif;
   --font-mono: "Source Code Pro", monospace;
-
-  /* Texto que SIEMPRE va sobre una imagen (navbar, títulos de hero).
-     No cambia entre temas: si cambiara, en modo claro se volvería
-     oscuro y desaparecería contra las fotos de fondo. */
   --text-on-image: #ffffff;
 
   /* ===== TEMA (modo oscuro = default) ===== */
@@ -61,7 +57,7 @@ button {
   --player-track: #d0d0d0;
 }
 
-/* ===== MODO CLARO (ahora gris, no blanco) ===== */
+/* ===== MODO CLARO  ===== */
 [data-theme="light"] {
   --bg: #cccccc;
   --bg-rgb: 204, 204, 204;
@@ -150,14 +146,12 @@ nav ul {
 .album-izquierda h2,.cancion:hover,.cancion-botones button:hover,#modal-cerrar,#video-lightbox-cerrar,.galeria-encabezado h2, .blog-encabezado h2, .album-about h2, .album-lyrics h2,.album-reviews h2, .album-video-seccion h2, .contact-form-izquierda h2,.event-detalles h2, .event-about h2, .event-redes h2, .disco-encabezado h2,#lightbox-cerrar,.lightbox-controles button,.fecha-numero,.fecha-lugar,.fecha-lugar a,.blog-post-titulo a,.fecha-tickets,.boton-borde,.blog-post-titulo,.event-redes-iconos a,.event-tickets-btn,.event-info li a:hover,.event-info li span,.contact-form-derecha button:hover,.contact-form-derecha input,.contact-form-derecha textarea,.contact-ciudad h4,.contact-info-col h3,.video-nav button,.video-nav a,.review-nav button,.review-autor,.lyric-titulo,.album-meta li span,.album-disponible h2,.track-fila-comprar:hover,.track-fila-titulo,.album-tracklist h3,.album-cancion-info .info-titulo,.album-controles button,.scroll-top:hover,.footer-links a,.footer-col h3,.footer-redes a,.disco-hero h1,.disco-overlay h3,.video-boton-play  {
 color: var(--text);
 }
-
-/* Estos SIEMPRE están montados sobre una foto → color fijo, no de tema */
 nav a,.hero-band-name,.hero-cta h2,.tour-hero-titulo,.contact-hero-titulo {
   color: var(--text-on-image);
 }nav a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.05em; padding-bottom: 0.1875em; border-bottom: 0.0625em solid transparent; transition: border-color 0.3s; }
 nav a:hover,nav a.active {
-  border-bottom-color: var(--text-on-image);
-}/* HERO */
+  border-bottom-color: var(--text-on-image);}
+/* HERO */
 .hero { min-height: 110vh; background: url("../images/background-1.png") center/cover no-repeat; align-items: flex-end; }.hero-band-name { left: 9%; top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; font-size: clamp(3rem, 7vw, 7rem); font-weight: 700; letter-spacing: 0.08em; text-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.5); }.hero-cta { right: 14%; bottom: 8%; max-width: 30em; }.hero-cta h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 400; line-height: 1.05; margin-bottom: 2.5vh; }
 .store-btns,.album-disponible-btns {
   gap: 0.875em;
@@ -243,10 +237,7 @@ nav a:hover,nav a.active {
   transition: color 0.3s;
 }
 
-/* La sección .album-section siempre tiene la foto oscura de fondo,
-   en los dos temas. En modo claro el gris normal del sitio (var(--gray))
-   se vuelve casi negro y se pierde contra la foto: acá lo fijamos
-   en un gris clarito propio, y el hover pasa a blanco puro. */
+/* Modo oscuro de Album section */
 [data-theme="light"] .album-izquierda h2,
 [data-theme="light"] .album-izquierda p,
 [data-theme="light"] .cancion,
@@ -255,8 +246,8 @@ nav a:hover,nav a.active {
 }
 [data-theme="light"] .cancion:hover,
 [data-theme="light"] .cancion-botones button:hover {
-  color: #ffffff;
-}/* MODAL VIDEO */
+  color: #ffffff;}
+/* MODAL VIDEO */
 .modal-video, .lightbox, .video-lightbox { display: none; position: fixed; inset: 0; z-index: 1000; justify-content: center; }
 .modal-video { background: rgba(0, 0, 0, 0.88); }.modal-video iframe { width: 62vw; height: 35vw; }#modal-cerrar,#video-lightbox-cerrar { top: 3vh; right: 2vw; font-size: 1.8rem; background: none; transition: opacity 0.3s; }
 #modal-cerrar:hover,#lightbox-cerrar:hover,.fecha-lugar a:hover,.fecha-tickets:hover,.blog-post-titulo a:hover,#video-lightbox-cerrar:hover,.breadcrumb a:hover,.footer-links a:hover  {opacity: 0.6;}/* GALERIA*/
@@ -464,7 +455,7 @@ background-attachment: fixed;
     width: 35%;
     flex-shrink: 0;
 }.album-img { display: block; margin-bottom: 3vh; }
-/* Controles - reproductor con fondo gris, 3 columnas iguales */
+/* Controles  */
 .album-controles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -751,9 +742,6 @@ background-attachment: fixed;
         padding: 0 2em;
         gap: 3vh;
     }
-
-    /* El panel del menú es sólido (var(--bg)), no una foto:
-       acá el link sí debe seguir el color del tema. */
     nav a {
         color: var(--text);
     }

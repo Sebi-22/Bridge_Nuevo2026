@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             barraProgreso.addEventListener('click', function (e) {
                 if (audio.duration) {
-                    let ancho = barraProgreso.getBoundingClientRect();
+                    let ancho = barraProgreso.getBoundingClientRect();//devuelve un objeto DOMRect que proporciona información sobre el tamaño de un elemento y su posición relativa a la ventana gráfica
                     audio.currentTime = ((e.clientX - ancho.left) / ancho.width) * audio.duration;
                 }
             });
